@@ -124,22 +124,22 @@
       "query": "A body orbits the Sun at a mean distance of 1.5237 AU.",
       "retrieved": [
         {
-          "score": 0.8472232818603516,
+          "score": 0.853380024433136,
           "body": "Earth",
           "text": "Earth orbits the Sun at a mean distance of 1 AU and takes 1 Earth years to complete one orbit."
         },
         {
-          "score": 0.8252240419387817,
+          "score": 0.82501620054245,
           "body": "Mercury",
           "text": "Mercury orbits the Sun at a mean distance of 0.3871 AU and takes 0.2408 Earth years to complete one orbit."
         },
         {
-          "score": 0.8203060030937195,
+          "score": 0.8197435140609741,
           "body": "Neptune",
           "text": "Neptune orbits the Sun at a mean distance of 30.0685 AU and takes 164.79 Earth years to complete one orbit."
         },
         {
-          "score": 0.8164030313491821,
+          "score": 0.8165397047996521,
           "body": "Venus",
           "text": "Venus orbits the Sun at a mean distance of 0.7233 AU and takes 0.6152 Earth years to complete one orbit."
         }
@@ -166,42 +166,42 @@
       "predictions": {
         "loglog": 83.99687849333684,
         "raw": 107.84943642274884,
-        "llm_rag": 17.27,
+        "llm_rag": 14.11,
         "llm_no_rag": 176.35
       },
       "abs_error": {
         "loglog": 0.023121506663159153,
         "raw": 23.82943642274884,
-        "llm_rag": 66.75,
+        "llm_rag": 69.91,
         "llm_no_rag": 92.33
       },
       "abs_pct_error": {
         "loglog": 0.02751905101542389,
         "raw": 28.361623926147157,
-        "llm_rag": 79.4453701499643,
+        "llm_rag": 83.20637943346823,
         "llm_no_rag": 109.89050226136635
       },
       "query": "A body orbits the Sun at a mean distance of 19.191 AU.",
       "retrieved": [
         {
-          "score": 0.8152336478233337,
+          "score": 0.8399352431297302,
           "body": "Earth",
           "text": "Earth orbits the Sun at a mean distance of 1 AU and takes 1 Earth years to complete one orbit."
         },
         {
-          "score": 0.8082523941993713,
-          "body": "Neptune",
-          "text": "Neptune orbits the Sun at a mean distance of 30.0685 AU and takes 164.79 Earth years to complete one orbit."
+          "score": 0.8118896484375,
+          "body": "Mercury",
+          "text": "Mercury orbits the Sun at a mean distance of 0.3871 AU and takes 0.2408 Earth years to complete one orbit."
         },
         {
-          "score": 0.8039142489433289,
+          "score": 0.8114728927612305,
           "body": "Venus",
           "text": "Venus orbits the Sun at a mean distance of 0.7233 AU and takes 0.6152 Earth years to complete one orbit."
         },
         {
-          "score": 0.7999935150146484,
-          "body": "Mercury",
-          "text": "Mercury orbits the Sun at a mean distance of 0.3871 AU and takes 0.2408 Earth years to complete one orbit."
+          "score": 0.8096539974212646,
+          "body": "Neptune",
+          "text": "Neptune orbits the Sun at a mean distance of 30.0685 AU and takes 164.79 Earth years to complete one orbit."
         }
       ],
       "numerically_nearest_bodies": [
@@ -211,8 +211,8 @@
         "Earth"
       ],
       "llm_rag": {
-        "prompt": "System: You estimate orbital periods. Answer with a single number: the orbital period in Earth years.\nHuman: A body orbits the Sun at a mean distance of 19.191 AU.\n\nReference examples:\n- Earth orbits the Sun at a mean distance of 1 AU and takes 1 Earth years to complete one orbit.\n- Neptune orbits the Sun at a mean distance of 30.0685 AU and takes 164.79 Earth years to complete one orbit.\n- Venus orbits the Sun at a mean distance of 0.7233 AU and takes 0.6152 Earth years to complete one orbit.\n- Mercury orbits the Sun at a mean distance of 0.3871 AU and takes 0.2408 Earth years to complete one orbit.\n\nPredict the orbital period of this body in Earth years. Use the reference examples if any are given.",
-        "raw_reply": "{ \"period_years\": 17.27 }"
+        "prompt": "System: You estimate orbital periods. Answer with a single number: the orbital period in Earth years.\nHuman: A body orbits the Sun at a mean distance of 19.191 AU.\n\nReference examples:\n- Earth orbits the Sun at a mean distance of 1 AU and takes 1 Earth years to complete one orbit.\n- Mercury orbits the Sun at a mean distance of 0.3871 AU and takes 0.2408 Earth years to complete one orbit.\n- Venus orbits the Sun at a mean distance of 0.7233 AU and takes 0.6152 Earth years to complete one orbit.\n- Neptune orbits the Sun at a mean distance of 30.0685 AU and takes 164.79 Earth years to complete one orbit.\n\nPredict the orbital period of this body in Earth years. Use the reference examples if any are given.",
+        "raw_reply": "{ \"period_years\": 14.11}"
       },
       "llm_no_rag": {
         "prompt": "System: You estimate orbital periods. Answer with a single number: the orbital period in Earth years.\nHuman: A body orbits the Sun at a mean distance of 19.191 AU.\n\nReference examples:\n(no reference examples available)\n\nPredict the orbital period of this body in Earth years. Use the reference examples if any are given.",
@@ -244,24 +244,24 @@
       "query": "A body orbits the Sun at a mean distance of 15 AU.",
       "retrieved": [
         {
-          "score": 0.788661777973175,
+          "score": 0.8356989622116089,
           "body": "Earth",
           "text": "Earth orbits the Sun at a mean distance of 1 AU and takes 1 Earth years to complete one orbit."
         },
         {
-          "score": 0.77712482213974,
-          "body": "Neptune",
-          "text": "Neptune orbits the Sun at a mean distance of 30.0685 AU and takes 164.79 Earth years to complete one orbit."
-        },
-        {
-          "score": 0.7662053108215332,
+          "score": 0.8051443099975586,
           "body": "Mercury",
           "text": "Mercury orbits the Sun at a mean distance of 0.3871 AU and takes 0.2408 Earth years to complete one orbit."
         },
         {
-          "score": 0.7638684511184692,
-          "body": "Jupiter",
-          "text": "Jupiter orbits the Sun at a mean distance of 5.2033 AU and takes 11.8565 Earth years to complete one orbit."
+          "score": 0.7998005151748657,
+          "body": "Neptune",
+          "text": "Neptune orbits the Sun at a mean distance of 30.0685 AU and takes 164.79 Earth years to complete one orbit."
+        },
+        {
+          "score": 0.7896955013275146,
+          "body": "Venus",
+          "text": "Venus orbits the Sun at a mean distance of 0.7233 AU and takes 0.6152 Earth years to complete one orbit."
         }
       ],
       "numerically_nearest_bodies": [
@@ -271,7 +271,7 @@
         "Venus"
       ],
       "llm_rag": {
-        "prompt": "System: You estimate orbital periods. Answer with a single number: the orbital period in Earth years.\nHuman: A body orbits the Sun at a mean distance of 15 AU.\n\nReference examples:\n- Earth orbits the Sun at a mean distance of 1 AU and takes 1 Earth years to complete one orbit.\n- Neptune orbits the Sun at a mean distance of 30.0685 AU and takes 164.79 Earth years to complete one orbit.\n- Mercury orbits the Sun at a mean distance of 0.3871 AU and takes 0.2408 Earth years to complete one orbit.\n- Jupiter orbits the Sun at a mean distance of 5.2033 AU and takes 11.8565 Earth years to complete one orbit.\n\nPredict the orbital period of this body in Earth years. Use the reference examples if any are given.",
+        "prompt": "System: You estimate orbital periods. Answer with a single number: the orbital period in Earth years.\nHuman: A body orbits the Sun at a mean distance of 15 AU.\n\nReference examples:\n- Earth orbits the Sun at a mean distance of 1 AU and takes 1 Earth years to complete one orbit.\n- Mercury orbits the Sun at a mean distance of 0.3871 AU and takes 0.2408 Earth years to complete one orbit.\n- Neptune orbits the Sun at a mean distance of 30.0685 AU and takes 164.79 Earth years to complete one orbit.\n- Venus orbits the Sun at a mean distance of 0.7233 AU and takes 0.6152 Earth years to complete one orbit.\n\nPredict the orbital period of this body in Earth years. Use the reference examples if any are given.",
         "raw_reply": "{ \"period_years\": 13.3}"
       },
       "llm_no_rag": {
@@ -284,13 +284,13 @@
     "mae": {
       "loglog": 0.024067262163026903,
       "raw": 17.23538761033066,
-      "llm_rag": 37.67183333333333,
+      "llm_rag": 38.72516666666666,
       "llm_no_rag": 44.827266666666674
     },
     "mape": {
       "loglog": 0.047538142809094484,
       "raw": 98.74040355069809,
-      "llm_rag": 78.25045380537325,
+      "llm_rag": 79.50412356654124,
       "llm_no_rag": 82.37351256639641
     }
   }

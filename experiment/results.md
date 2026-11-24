@@ -48,7 +48,7 @@ Predicted period (Earth years):
 | Test case | Distance (AU) | Actual | Linear regression (log-log) | Linear regression (raw) | LLM + RAG | LLM, no RAG |
 | --- | --- | --- | --- | --- | --- | --- |
 | Mars | 1.5237 | 1.88 | 1.88 | -2.39 | 0.41 | 0.62 |
-| Uranus | 19.191 | 84.02 | 84.00 | 107.85 | 17.27 | 176.35 |
+| Uranus | 19.191 | 84.02 | 84.00 | 107.85 | 14.11 | 176.35 |
 | Hypothetical body | 15 | 58.09 | 58.05 | 81.70 | 13.30 | 17.20 |
 
 Absolute error (years), with mean absolute error (MAE):
@@ -56,18 +56,18 @@ Absolute error (years), with mean absolute error (MAE):
 | Test case | Linear regression (log-log) | Linear regression (raw) | LLM + RAG | LLM, no RAG |
 | --- | --- | --- | --- | --- |
 | Mars | 0.00 | 4.27 | 1.47 | 1.26 |
-| Uranus | 0.02 | 23.83 | 66.75 | 92.33 |
+| Uranus | 0.02 | 23.83 | 69.91 | 92.33 |
 | Hypothetical body | 0.05 | 23.60 | 44.79 | 40.89 |
-| **MAE** | **0.02** | **17.24** | **37.67** | **44.83** |
+| **MAE** | **0.02** | **17.24** | **38.73** | **44.83** |
 
 Absolute percentage error (%), with mean absolute percentage error (MAPE):
 
 | Test case | Linear regression (log-log) | Linear regression (raw) | LLM + RAG | LLM, no RAG |
 | --- | --- | --- | --- | --- |
 | Mars | 0.03 | 227.23 | 78.20 | 66.84 |
-| Uranus | 0.03 | 28.36 | 79.45 | 109.89 |
+| Uranus | 0.03 | 28.36 | 83.21 | 109.89 |
 | Hypothetical body | 0.08 | 40.63 | 77.11 | 70.39 |
-| **MAPE** | **0.05** | **98.74** | **78.25** | **82.37** |
+| **MAPE** | **0.05** | **98.74** | **79.50** | **82.37** |
 
 ## Retrieved documents and raw LLM replies
 
@@ -77,10 +77,10 @@ Query: `A body orbits the Sun at a mean distance of 1.5237 AU.`
 
 | rank | score | document |
 | --- | --- | --- |
-| 1 | 0.8472 | Earth orbits the Sun at a mean distance of 1 AU and takes 1 Earth years to complete one orbit. |
-| 2 | 0.8252 | Mercury orbits the Sun at a mean distance of 0.3871 AU and takes 0.2408 Earth years to complete one orbit. |
-| 3 | 0.8203 | Neptune orbits the Sun at a mean distance of 30.0685 AU and takes 164.79 Earth years to complete one orbit. |
-| 4 | 0.8164 | Venus orbits the Sun at a mean distance of 0.7233 AU and takes 0.6152 Earth years to complete one orbit. |
+| 1 | 0.8534 | Earth orbits the Sun at a mean distance of 1 AU and takes 1 Earth years to complete one orbit. |
+| 2 | 0.8250 | Mercury orbits the Sun at a mean distance of 0.3871 AU and takes 0.2408 Earth years to complete one orbit. |
+| 3 | 0.8197 | Neptune orbits the Sun at a mean distance of 30.0685 AU and takes 164.79 Earth years to complete one orbit. |
+| 4 | 0.8165 | Venus orbits the Sun at a mean distance of 0.7233 AU and takes 0.6152 Earth years to complete one orbit. |
 
 The 4 train bodies numerically closest in distance: Earth, Venus, Mercury, Jupiter. Of these, 3 were retrieved (Earth, Mercury, Venus).
 
@@ -119,10 +119,10 @@ Query: `A body orbits the Sun at a mean distance of 19.191 AU.`
 
 | rank | score | document |
 | --- | --- | --- |
-| 1 | 0.8152 | Earth orbits the Sun at a mean distance of 1 AU and takes 1 Earth years to complete one orbit. |
-| 2 | 0.8083 | Neptune orbits the Sun at a mean distance of 30.0685 AU and takes 164.79 Earth years to complete one orbit. |
-| 3 | 0.8039 | Venus orbits the Sun at a mean distance of 0.7233 AU and takes 0.6152 Earth years to complete one orbit. |
-| 4 | 0.8000 | Mercury orbits the Sun at a mean distance of 0.3871 AU and takes 0.2408 Earth years to complete one orbit. |
+| 1 | 0.8399 | Earth orbits the Sun at a mean distance of 1 AU and takes 1 Earth years to complete one orbit. |
+| 2 | 0.8119 | Mercury orbits the Sun at a mean distance of 0.3871 AU and takes 0.2408 Earth years to complete one orbit. |
+| 3 | 0.8115 | Venus orbits the Sun at a mean distance of 0.7233 AU and takes 0.6152 Earth years to complete one orbit. |
+| 4 | 0.8097 | Neptune orbits the Sun at a mean distance of 30.0685 AU and takes 164.79 Earth years to complete one orbit. |
 
 The 4 train bodies numerically closest in distance: Saturn, Neptune, Jupiter, Earth. Of these, 2 were retrieved (Earth, Neptune).
 
@@ -134,9 +134,9 @@ Human: A body orbits the Sun at a mean distance of 19.191 AU.
 
 Reference examples:
 - Earth orbits the Sun at a mean distance of 1 AU and takes 1 Earth years to complete one orbit.
-- Neptune orbits the Sun at a mean distance of 30.0685 AU and takes 164.79 Earth years to complete one orbit.
-- Venus orbits the Sun at a mean distance of 0.7233 AU and takes 0.6152 Earth years to complete one orbit.
 - Mercury orbits the Sun at a mean distance of 0.3871 AU and takes 0.2408 Earth years to complete one orbit.
+- Venus orbits the Sun at a mean distance of 0.7233 AU and takes 0.6152 Earth years to complete one orbit.
+- Neptune orbits the Sun at a mean distance of 30.0685 AU and takes 164.79 Earth years to complete one orbit.
 
 Predict the orbital period of this body in Earth years. Use the reference examples if any are given.
 ```
@@ -144,7 +144,7 @@ Predict the orbital period of this body in Earth years. Use the reference exampl
 Raw reply, LLM + RAG:
 
 ```
-{ "period_years": 17.27 }
+{ "period_years": 14.11}
 ```
 
 Raw reply, LLM without RAG:
@@ -161,12 +161,12 @@ Query: `A body orbits the Sun at a mean distance of 15 AU.`
 
 | rank | score | document |
 | --- | --- | --- |
-| 1 | 0.7887 | Earth orbits the Sun at a mean distance of 1 AU and takes 1 Earth years to complete one orbit. |
-| 2 | 0.7771 | Neptune orbits the Sun at a mean distance of 30.0685 AU and takes 164.79 Earth years to complete one orbit. |
-| 3 | 0.7662 | Mercury orbits the Sun at a mean distance of 0.3871 AU and takes 0.2408 Earth years to complete one orbit. |
-| 4 | 0.7639 | Jupiter orbits the Sun at a mean distance of 5.2033 AU and takes 11.8565 Earth years to complete one orbit. |
+| 1 | 0.8357 | Earth orbits the Sun at a mean distance of 1 AU and takes 1 Earth years to complete one orbit. |
+| 2 | 0.8051 | Mercury orbits the Sun at a mean distance of 0.3871 AU and takes 0.2408 Earth years to complete one orbit. |
+| 3 | 0.7998 | Neptune orbits the Sun at a mean distance of 30.0685 AU and takes 164.79 Earth years to complete one orbit. |
+| 4 | 0.7897 | Venus orbits the Sun at a mean distance of 0.7233 AU and takes 0.6152 Earth years to complete one orbit. |
 
-The 4 train bodies numerically closest in distance: Saturn, Jupiter, Earth, Venus. Of these, 2 were retrieved (Earth, Jupiter).
+The 4 train bodies numerically closest in distance: Saturn, Jupiter, Earth, Venus. Of these, 2 were retrieved (Earth, Venus).
 
 Prompt with retrieved examples:
 
@@ -176,9 +176,9 @@ Human: A body orbits the Sun at a mean distance of 15 AU.
 
 Reference examples:
 - Earth orbits the Sun at a mean distance of 1 AU and takes 1 Earth years to complete one orbit.
-- Neptune orbits the Sun at a mean distance of 30.0685 AU and takes 164.79 Earth years to complete one orbit.
 - Mercury orbits the Sun at a mean distance of 0.3871 AU and takes 0.2408 Earth years to complete one orbit.
-- Jupiter orbits the Sun at a mean distance of 5.2033 AU and takes 11.8565 Earth years to complete one orbit.
+- Neptune orbits the Sun at a mean distance of 30.0685 AU and takes 164.79 Earth years to complete one orbit.
+- Venus orbits the Sun at a mean distance of 0.7233 AU and takes 0.6152 Earth years to complete one orbit.
 
 Predict the orbital period of this body in Earth years. Use the reference examples if any are given.
 ```
