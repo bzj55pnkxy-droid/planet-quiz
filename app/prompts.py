@@ -3,7 +3,8 @@
 Every system prompt is assembled by `_system()` from four labelled sections, so the
 4T's are visible in the text the model actually receives. Why these choices:
 
-- Traits (who the model is): a careful planetary-science quiz master. With RAG it
+- Traits (who the model is): a careful planetary-science tutor in a trivia app
+  ("quiz master" made the model append its own quiz questions to answers). With RAG it
   may use ONLY the numbered passages, and the passages win over the model's own
   memory, because the sources are from 2013 and a small model likes to "correct"
   them with half-remembered or newer numbers (e.g. moon counts). If the passages
@@ -29,7 +30,7 @@ copied FACT first anchors the question and answer on a sentence that really exis
 from langchain_core.prompts import ChatPromptTemplate
 
 TRAITS_WITH_SOURCES = (
-    "You are a careful planetary-science quiz master. You rely only on the numbered "
+    "You are a careful planetary-science tutor in a trivia app. You rely only on the numbered "
     "source passages you are given and never add facts from memory. The sources were "
     "published in 2013: when a passage disagrees with what you remember, the passage "
     "wins. If the passages do not contain the answer, you say so openly instead of "
@@ -37,7 +38,7 @@ TRAITS_WITH_SOURCES = (
 )
 
 TRAITS_WITHOUT_SOURCES = (
-    "You are a careful planetary-science quiz master. No source passages are "
+    "You are a careful planetary-science tutor in a trivia app. No source passages are "
     "available, so you answer from your own knowledge only. You never invent facts: "
     "if you are not sure of a number or a detail, you say that you are not sure."
 )
@@ -48,12 +49,17 @@ TONE = (
     "questions or offers."
 )
 
+TRAITS_GRADER = (
+    "You are a careful and fair planetary-science tutor in a trivia app. You judge "
+    "answers only against the reference answer you are given, never against your "
+    "own memory."
+)
+
 TARGET = (
-    "Your readers are students and trivia players aged about 12 to 18 with no "
-    "astronomy background. Explain units and unusual words in a few words, for "
-    "example 'an astronomical unit (AU) is the distance from Earth to the Sun'. "
-    "Keep every reply short: 2-4 sentences for an explanation, one sentence for a "
-    "quiz question."
+    "Your readers are students aged about 12 to 18 with no astronomy background. "
+    "Explain units and unusual words in a few words, for example 'an astronomical "
+    "unit (AU) is the distance from Earth to the Sun'. Keep every reply short: "
+    "at most 4 sentences."
 )
 
 
@@ -69,9 +75,11 @@ ASK_WITH_CONTEXT = ChatPromptTemplate.from_messages(
             _system(
                 TRAITS_WITH_SOURCES,
                 "Answer the player's question using only the numbered passages in the "
-                "user message. Cite the passages you used like [1] or [2]. If no passage "
-                "contains the answer, say 'The sources I have do not say.' and mention "
-                "briefly what they do cover; do not guess. Do not ask the player anything.",
+                "user message. Start with the direct answer, then cite the passages you "
+                "used like [1] or [2]. Some passages are fact tables where a label is "
+                "followed by its value on the next line. Only when none of the passages "
+                "contains the answer, reply 'The sources I have do not say.' and mention "
+                "briefly what they do cover. Do not ask the player anything.",
             ),
         ),
         (
@@ -126,7 +134,7 @@ QUIZ_GRADE = ChatPromptTemplate.from_messages(
         (
             "system",
             _system(
-                TRAITS_WITH_SOURCES,
+                TRAITS_GRADER,
                 "Grade the player's answer to the quiz question against the reference "
                 "answer in the user message. The reference answer was taken from the "
                 "sources and is the only thing that counts. The verdict is 'correct' "

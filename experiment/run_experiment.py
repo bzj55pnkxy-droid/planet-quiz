@@ -16,12 +16,13 @@ import numpy as np
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_ollama import ChatOllama, OllamaEmbeddings
+from langchain_ollama import ChatOllama
 from pydantic import BaseModel, Field
 from pypdf import PdfReader
 from sklearn.linear_model import LinearRegression
 
 from app.config import CHAT_MODEL, EMBED_MODEL, OLLAMA_BASE_URL, ROOT, SOURCES_DIR
+from app.rag import PrefixedEmbeddings  # same task prefixes as the app's retrieval
 
 EXPERIMENT_DIR = ROOT / "experiment"
 PDF_NAME = "nasa_solar_system_lithographs_2013.pdf"
@@ -148,7 +149,7 @@ def build_store(train: list[dict], test: list[dict]) -> Chroma:
     docs.append(Document(page_content=BACKGROUND_NOTE, metadata={"body": "background"}))
     store = Chroma.from_documents(
         docs,
-        OllamaEmbeddings(model=EMBED_MODEL, base_url=OLLAMA_BASE_URL),
+        PrefixedEmbeddings(),
         collection_name="orbits",
         persist_directory=str(CHROMA_DIR),
         collection_configuration={"hnsw": {"space": "cosine"}},

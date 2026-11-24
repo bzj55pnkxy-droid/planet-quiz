@@ -59,12 +59,14 @@ def unavailable(request, exc: Exception) -> JSONResponse:
     """Ollama down, model missing or nothing ingested: tell the UI with a 503."""
     if isinstance(exc, (ConnectionError, httpx.HTTPError)):
         detail = f"Cannot reach Ollama at {OLLAMA_BASE_URL}. Is it running?"
+    elif isinstance(exc, ValueError):  # raised by rag.parse_fields after the retries
+        detail = "The model gave an unusable reply three times in a row. Please try again."
     else:
         detail = str(exc)  # missing model or empty store: the message already says what to do
     return JSONResponse(status_code=503, content={"detail": detail})
 
 
-for exc_type in (ConnectionError, httpx.HTTPError, ollama.ResponseError, rag.StoreEmpty):
+for exc_type in (ConnectionError, httpx.HTTPError, ollama.ResponseError, rag.StoreEmpty, ValueError):
     app.add_exception_handler(exc_type, unavailable)
 
 
