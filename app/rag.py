@@ -173,12 +173,16 @@ def make_quiz_question(topic: str) -> dict:
 
 
 def grade(quiz: dict, answer: str) -> dict:
-    """Grade a player's answer against the reference answer and the quiz passages."""
+    """Grade a player's answer against the reference answer.
+
+    The passages are returned for display but not shown to the grader: with them in
+    the prompt, gemma3:4b marked any true statement from a passage as correct, even
+    when it did not answer the question.
+    """
     result = grade_chain.invoke(
         {
             "question": quiz["question"],
             "reference_answer": quiz["reference_answer"],
-            "context": format_context(quiz["sources"]),
             "answer": answer,
         }
     )

@@ -127,26 +127,27 @@ QUIZ_GRADE = ChatPromptTemplate.from_messages(
             "system",
             _system(
                 TRAITS_WITH_SOURCES,
-                "Grade the player's answer to the quiz question by comparing it with "
-                "the reference answer and the numbered passages in the user message. "
-                "The verdict is 'correct' if the answer states the same key fact as the "
-                "reference answer (different wording and small rounding are fine), "
-                "'partial' if it is on the right track but misses or mixes up an "
-                "important part, and 'incorrect' if it is wrong or contains no relevant "
-                "fact. Judge only what the player wrote: 'I do not know' is 'incorrect', "
-                "and never use the reference answer to fill in what the player left out. "
+                "Grade the player's answer to the quiz question against the reference "
+                "answer in the user message. The reference answer was taken from the "
+                "sources and is the only thing that counts. The verdict is 'correct' "
+                "only if the player's answer contains the same key fact as the reference "
+                "answer (different wording and small rounding are fine), 'partial' if it "
+                "gets part of that fact right, and 'incorrect' otherwise. A true statement "
+                "that does not answer the question is 'incorrect'. 'I do not know' is "
+                "'incorrect'. Never use the reference answer to fill in what the player "
+                "left out. "
                 "Reply with exactly these three lines and nothing else:\n"
                 "PLAYER: <the player's answer, copied word for word>\n"
                 "VERDICT: <one word: correct, partial or incorrect>\n"
                 "FEEDBACK: <one to three sentences addressed to the player as 'you'; "
                 "never praise a wrong answer; if it is not correct, say so kindly, then "
-                "give the correct fact and cite the passage like [1]>",
+                "give the reference answer>",
             ),
         ),
         (
             "human",
             "Question: {question}\n\nReference answer: {reference_answer}\n\n"
-            "Passages:\n{context}\n\nPlayer's answer: {answer}",
+            "Player's answer: {answer}",
         ),
     ]
 )
