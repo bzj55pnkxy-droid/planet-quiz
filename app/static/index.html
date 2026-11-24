@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Planet Quiz</title>
+<style>
+  /* Colours live in variables so light and dark mode only differ here. */
+  :root {
+    color-scheme: light dark;
+    --bg: #f4f5f9; --card: #ffffff; --text: #1d2433; --muted: #5d6677; --border: #d9dde7;
+    --accent: #3b5bdb; --accent-text: #ffffff;
+    --ok: #1f7a3a; --ok-bg: #e6f6ea;
+    --partial: #8a5a00; --partial-bg: #fff4d6;
+    --bad: #b42318; --bad-bg: #fde8e8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #12151c; --card: #1b2030; --text: #e6e9f2; --muted: #9aa3b5; --border: #2e3547;
+      --accent: #7c93ff; --accent-text: #10131c;
+      --ok: #6fdc8c; --ok-bg: #12301c;
+      --partial: #f2c14e; --partial-bg: #3a2e0d;
+      --bad: #ff8a80; --bad-bg: #3b1618;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text); line-height: 1.5;
+    font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  main, header { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+  header { padding-top: 20px; }
+  h1 { margin: 0; font-size: 1.8rem; }
+  h3 { margin: 16px 0 6px; font-size: 1rem; }
+  .card h3:first-child { margin-top: 0; }
+  p { margin: 8px 0; }
+  .muted { color: var(--muted); }
+
+  /* Status line under the title */
+  #status { margin: 6px 0 0; font-size: 0.9rem; color: var(--muted); }
+  .warn {
+    margin: 8px 0 0; padding: 8px 12px; border-radius: 8px; font-weight: 600;
+    color: var(--bad); background: var(--bad-bg); border: 1px solid var(--bad);
+  }
+
+  /* Tabs */
+  [role=tablist] { display: flex; gap: 4px; margin: 16px 0; border-bottom: 1px solid var(--border); }
+  [role=tab] {
+    padding: 10px 20px; border: 0; border-bottom: 3px solid transparent; background: none;
+    color: var(--muted); font: inherit; font-weight: 600; cursor: pointer;
+  }
+  [role=tab][aria-selected=true] { color: var(--text); border-bottom-color: var(--accent); }
+
+  /* Form controls */
+  fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+  .row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+  .row .grow { flex: 1 1 260px; }
+  label { font-weight: 600; }
+  select, input[type=text], textarea {
+    padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px;
+    background: var(--card); color: var(--text); font: inherit;
+  }
+  input[type=text], textarea { width: 100%; }
+  textarea { margin: 6px 0 10px; resize: vertical; }
+  input[type=checkbox] { width: 1.1em; height: 1.1em; }
+  .check { display: flex; align-items: center; gap: 6px; font-weight: normal; }
+  button {
+    padding: 8px 16px; border-radius: 8px; border: 1px solid var(--accent);
+    background: var(--accent); color: var(--accent-text); font: inherit; font-weight: 600; cursor: pointer;
+  }
+  button.secondary { background: none; color: var(--accent); }
+  button.link {
+    padding: 0; border: 0; background: none; color: var(--accent); font-weight: normal;
+    text-decoration: underline;
+  }
+  button:disabled, select:disabled, textarea:disabled, input:disabled { opacity: 0.55; cursor: progress; }
+  #score { margin-left: auto; font-weight: 600; }
+  .hint { font-size: 0.85rem; color: var(--muted); }
+
+  /* Busy and error messages */
+  .busy { color: var(--muted); }
+  .busy::before {
+    content: ""; display: inline-block; width: 0.9em; height: 0.9em; margin-right: 0.5em;
+    border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%;
+    vertical-align: -0.1em; animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .busy::before { animation-duration: 4s; } }
+  .error {
+    padding: 8px 12px; border-radius: 8px; color: var(--bad); background: var(--bad-bg);
+    border: 1px solid var(--bad);
+  }
+
+  /* Cards: question, answers, sources */
+  .card { margin-top: 16px; padding: 16px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; }
+  .text { white-space: pre-wrap; overflow-wrap: anywhere; }  /* keeps the model's line breaks */
+  .question { font-size: 1.15rem; font-weight: 600; }
+  .verdict { padding: 8px 12px; border-radius: 8px; border: 1px solid; border-left-width: 6px; font-weight: 700; }
+  .verdict.correct { color: var(--ok); background: var(--ok-bg); }
+  .verdict.partial { color: var(--partial); background: var(--partial-bg); }
+  .verdict.incorrect { color: var(--bad); background: var(--bad-bg); }
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+  .compare .card { min-width: 0; }
+  @media (max-width: 760px) { .compare { grid-template-columns: 1fr; } }
+
+  .source { margin-top: 8px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); }
+  .source-head { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 0.85rem; color: var(--muted); }
+  .source-file { font-weight: 700; color: var(--text); overflow-wrap: anywhere; }
+  .chunk { margin: 6px 0 4px; font-size: 0.9rem; }
+  .chunk.clamped { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; overflow: hidden; }
+
+  footer { max-width: 960px; margin: 24px auto; padding: 0 16px; font-size: 0.85rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Planet Quiz</h1>
+  <div id="status">Checking server...</div>
+</header>
+
+<main>
+  <div role="tablist" aria-label="Planet Quiz sections">
+    <button role="tab" id="tab-quiz" aria-selected="true" aria-controls="quiz">Quiz</button>
+    <button role="tab" id="tab-ask" aria-selected="false" aria-controls="ask">Ask</button>
+  </div>
+
+  <!-- Quiz tab. The fieldset lets us disable all its controls at once while the model works. -->
+  <section id="quiz" role="tabpanel" aria-labelledby="tab-quiz">
+    <fieldset>
+      <div class="row">
+        <label for="topic">Topic</label>
+        <select id="topic"></select>
+        <button id="new-question" disabled>New question</button>
+        <span id="score">Score: 0 / 0</span>
+      </div>
+      <div id="question-box" class="card" hidden>
+        <p id="question" class="question text"></p>
+        <label for="answer">Your answer</label>
+        <textarea id="answer" rows="4"></textarea>
+        <div class="row">
+          <button id="check">Check answer</button>
+          <span class="hint">Ctrl/Cmd+Enter to submit</span>
+        </div>
+      </div>
+    </fieldset>
+    <p class="busy" role="status" hidden></p>
+    <p class="error" role="alert" hidden></p>
+    <div id="quiz-result"></div>
+  </section>
+
+  <!-- Ask tab. Enter in the input submits the form (the Ask button). -->
+  <section id="ask" role="tabpanel" aria-labelledby="tab-ask" hidden>
+    <form id="ask-form">
+      <fieldset>
+        <label for="ask-q">Question</label>
+        <div class="row">
+          <input type="text" id="ask-q" class="grow" placeholder="e.g. How long does light from the Sun take to reach Earth?">
+        </div>
+        <div class="row" style="margin-top: 10px">
+          <button type="submit">Ask</button>
+          <button type="button" id="compare" class="secondary">Compare with and without RAG</button>
+          <label class="check"><input type="checkbox" id="use-rag" checked> Use retrieved sources (RAG)</label>
+        </div>
+      </fieldset>
+    </form>
+    <p class="busy" role="status" hidden></p>
+    <p class="error" role="alert" hidden></p>
+    <div id="ask-result"></div>
+  </section>
+</main>
+
+<footer>Answers are generated by a small local model and can be wrong. Check the sources.</footer>
+
+<script>
+  const $ = (id) => document.getElementById(id);
+
+  /* Build an element; text goes in via textContent so model output is never parsed as HTML. */
+  function el(tag, className, text) {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text !== undefined) node.textContent = text;
+    return node;
+  }
+
+  /* GET without a body, POST with one. Failures become Errors carrying the server's "detail". */
+  async function api(path, body) {
+    const options = body === undefined
+      ? {}
+      : { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) };
+    let response;
+    try {
+      response = await fetch(path, options);
+    } catch {
+      throw new Error("Cannot reach the Planet Quiz server.");
+    }
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      // FastAPI sends a string for our own errors and a list for request validation errors.
+      const detail = Array.isArray(data.detail) ? data.detail.map((d) => d.msg).join("; ") : data.detail;
+      throw new Error(detail || "Request failed (HTTP " + response.status + ").");
+    }
+    return data;
+  }
+
+  /*
+   * Run task() while the panel's controls are disabled and a busy line with a
+   * running timer is shown. A slow local model needs visible feedback.
+   * Errors are shown inline in the panel.
+   */
+  async function withBusy(panel, message, task) {
+    const controls = panel.querySelector("fieldset");
+    const busy = panel.querySelector(".busy");
+    const error = panel.querySelector(".error");
+    const started = Date.now();
+    const tick = () => { busy.textContent = message + " " + Math.round((Date.now() - started) / 1000) + " s"; };
+
+    error.hidden = true;
+    controls.disabled = true;
+    busy.hidden = false;
+    tick();
+    const timer = setInterval(tick, 1000);
+    try {
+      await task();
+    } catch (err) {
+      error.textContent = err.message;
+      error.hidden = false;
+      loadHealth();  // the cause may be Ollama going away, so refresh the status line
+    } finally {
+      clearInterval(timer);
+      busy.hidden = true;
+      controls.disabled = false;
+    }
+  }
+
+  /* ---- Header status ---- */
+
+  async function loadHealth() {
+    const status = $("status");
+    try {
+      const h = await api("/api/health");
+      status.replaceChildren(
+        el("div", "", "Chat model: " + h.chat_model + " | Embedding model: " + h.embed_model +
+                      " | Indexed chunks: " + h.chunks));
+      if (!h.ollama) {
+        status.append(el("div", "warn", "Warning: Ollama is not reachable. Start Ollama, then reload this page."));
+      }
+      if (h.chunks === 0) {
+        status.append(el("div", "warn", "Warning: the document store is empty. Run ingestion first."));
+      }
+    } catch (err) {
+      status.replaceChildren(el("div", "warn", "Warning: " + err.message));
+    }
+  }
+
+  /* ---- Tabs ---- */
+
+  const tabs = document.querySelectorAll("[role=tab]");
+  for (const tab of tabs) {
+    tab.onclick = () => {
+      for (const other of tabs) {
+        const selected = other === tab;
+        other.setAttribute("aria-selected", selected);
+        $(other.getAttribute("aria-controls")).hidden = !selected;
+      }
+    };
+  }
+
+  /* ---- Source cards ---- */
+
+  function sourceList(sources) {
+    const list = el("div");
+    if (sources.length === 0) {
+      list.append(el("p", "muted", "No sources."));
+    }
+    for (const s of sources) {
+      const head = el("div", "source-head");
+      head.append(
+        el("span", "source-file", s.source),
+        el("span", "", "page " + s.page),
+        el("span", "", "relevance " + Number(s.score).toFixed(2)));
+
+      const chunk = el("p", "chunk text clamped", s.text);
+      const toggle = el("button", "link", "Show more");
+      toggle.type = "button";
+      toggle.onclick = () => {
+        toggle.textContent = chunk.classList.toggle("clamped") ? "Show more" : "Show less";
+      };
+
+      const card = el("article", "source");
+      card.append(head, chunk, toggle);
+      list.append(card);
+    }
+    return list;
+  }
+
+  /* ---- Quiz tab ---- */
+
+  const quizPanel = $("quiz");
+  const VERDICTS = {
+    correct: { label: "Correct", points: 1 },
+    partial: { label: "Partially correct", points: 0.5 },
+    incorrect: { label: "Incorrect", points: 0 },
+  };
+  let quizId = null;   // set while a question is waiting for an answer
+  let points = 0;
+  let graded = 0;
+
+  function loadTopics() {
+    return withBusy(quizPanel, "Loading topics...", async () => {
+      const data = await api("/api/topics");
+      $("topic").replaceChildren(...data.topics.map((t) => el("option", "", t)));
+      $("new-question").disabled = data.topics.length === 0;
+    });
+  }
+
+  $("new-question").onclick = async () => {
+    // Drop the old question first so a stale quiz_id can never be graded.
+    quizId = null;
+    $("question-box").hidden = true;
+    $("quiz-result").replaceChildren();
+
+    await withBusy(quizPanel, "Writing a question...", async () => {
+      const data = await api("/api/quiz/question", { topic: $("topic").value });
+      quizId = data.quiz_id;
+      $("question").textContent = data.question;
+      $("answer").value = "";
+      $("check").disabled = false;
+      $("question-box").hidden = false;
+    });
+    if (quizId) $("answer").focus();  // focus only works once the fieldset is enabled again
+  };
+
+  $("check").onclick = () => withBusy(quizPanel, "Grading your answer...", async () => {
+    const answer = $("answer").value.trim();
+    if (!answer) throw new Error("Type an answer first.");
+    const data = await api("/api/quiz/grade", { quiz_id: quizId, answer });
+
+    const verdict = VERDICTS[data.verdict] ?? { label: data.verdict, points: 0 };
+    graded += 1;
+    points += verdict.points;
+    $("score").textContent = "Score: " + points + " / " + graded;
+    $("check").disabled = true;  // one grade per question, so the score cannot be counted twice
+
+    const card = el("div", "card");
+    card.append(
+      el("div", "verdict " + data.verdict, verdict.label),
+      el("p", "text", data.feedback),
+      el("h3", "", "Reference answer"),
+      el("p", "text", data.reference_answer),
+      el("h3", "", "Sources used"),
+      sourceList(data.sources));
+    $("quiz-result").replaceChildren(card);
+  });
+
+  $("answer").onkeydown = (event) => {
+    if ((event.ctrlKey || event.metaKey) && event.key === "Enter") {
+      event.preventDefault();
+      $("check").click();  // does nothing while the button is disabled
+    }
+  };
+
+  /* ---- Ask tab ---- */
+
+  const askPanel = $("ask");
+
+  function answerCard(data) {
+    const card = el("div", "card");
+    card.append(
+      el("h3", "", data.use_rag ? "With retrieved sources (RAG)" : "Without RAG (model's own knowledge)"),
+      el("p", "text", data.answer));
+    if (data.use_rag) {
+      card.append(el("h3", "", "Sources"), sourceList(data.sources));
+    } else {
+      card.append(el("p", "muted", "No sources: nothing was retrieved for this answer."));
+    }
+    return card;
+  }
+
+  /* modes is [true], [false] or [true, false]; each answer is shown as soon as it arrives. */
+  function ask(modes) {
+    return withBusy(askPanel, "Asking the local model...", async () => {
+      const question = $("ask-q").value.trim();
+      if (!question) throw new Error("Type a question first.");
+      const result = $("ask-result");
+      result.className = modes.length > 1 ? "compare" : "";
+      result.replaceChildren();
+      for (const useRag of modes) {
+        const data = await api("/api/ask", { question, use_rag: useRag });
+        result.append(answerCard(data));
+      }
+    });
+  }
+
+  $("ask-form").onsubmit = (event) => {
+    event.preventDefault();
+    ask([$("use-rag").checked]);
+  };
+  $("compare").onclick = () => ask([true, false]);
+
+  /* ---- Start ---- */
+
+  loadHealth();
+  loadTopics();
+</script>
+</body>
+</html>

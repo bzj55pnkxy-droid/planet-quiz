@@ -1,0 +1,17 @@
+[project]
+name = "planet-quiz"
+version = "0.1.0"
+description = "Solar system trivia with a local LLM and RAG (LLM for Developers exam project)"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn>=0.30",
+    "langchain>=0.3",
+    "langchain-chroma>=0.2",
+    "langchain-community>=0.3",
+    "langchain-ollama>=0.3",
+    "langchain-text-splitters>=0.3",
+    "pypdf>=5.0",
+    "python-dotenv>=1.0",
+    "scikit-learn>=1.5",
+]
