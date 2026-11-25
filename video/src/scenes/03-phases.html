@@ -1,0 +1,64 @@
+<section class="scene" id="scene-phases">
+	<!-- Lane 1: indexing, once. -->
+	<div class="card phases__lane phases__lane--1" id="phases-lane-1">
+		<div class="phases__rail">
+			<div class="kicker">Phase 1</div>
+			<div class="phases__name">Indexing</div>
+			<div class="phases__when" id="phases-when-1">once</div>
+			<div class="phases__note" id="phases-note-1">before any question</div>
+		</div>
+	</div>
+	<div class="node node--doc phases__node phases__node--l1c1" id="phases-doc">
+		<div class="node__name">Documents</div>
+		<div class="node__note">2 PDF files</div>
+	</div>
+	<div class="arrow phases__arrow phases__arrow--l1" id="phases-a1"></div>
+	<div class="node node--vector phases__node phases__node--l1c2" id="phases-store">
+		<div class="node__name">Searchable store</div>
+		<div class="node__note">Chroma</div>
+	</div>
+
+	<!-- Lane 2: answering, every question. -->
+	<div class="card phases__lane phases__lane--2" id="phases-lane-2">
+		<div class="phases__rail">
+			<div class="kicker">Phase 2</div>
+			<div class="phases__name">Answering</div>
+			<div class="phases__when" id="phases-when-2">every question</div>
+		</div>
+	</div>
+	<div class="node phases__node phases__node--l2c1" id="phases-n-question">
+		<div class="node__name">Question</div>
+		<div class="node__note">from the player</div>
+	</div>
+	<div class="arrow phases__arrow phases__arrow--c1" id="phases-a2"></div>
+	<div class="node node--retrieve phases__node phases__node--l2c2" id="phases-n-retrieval">
+		<div class="node__name">Retrieval</div>
+		<div class="node__note">top 4 passages</div>
+	</div>
+	<div class="arrow phases__arrow phases__arrow--c2" id="phases-a3"></div>
+	<div class="node node--doc phases__node phases__node--l2c3" id="phases-n-prompt">
+		<div class="node__name">Prompt</div>
+		<div class="node__note">passages + question</div>
+	</div>
+	<div class="arrow phases__arrow phases__arrow--c3" id="phases-a4"></div>
+	<div class="node node--model phases__node phases__node--l2c4" id="phases-n-generation">
+		<div class="node__name">Generation</div>
+		<div class="node__note">gemma3:4b</div>
+	</div>
+	<div class="arrow phases__arrow phases__arrow--c4" id="phases-a5"></div>
+	<div class="node node--good phases__node phases__node--l2c5" id="phases-n-answer">
+		<div class="node__name">Answer</div>
+		<div class="node__note">cites passages</div>
+	</div>
+
+	<!-- The store feeds retrieval on every question. -->
+	<div class="phases__feed" id="phases-feed"></div>
+	<div class="chip phases__feed-chip" id="phases-feed-chip">searched every time</div>
+
+	<!-- Back to the start for the next question. -->
+	<svg class="phases__loop" viewBox="0 0 1776 780" aria-hidden="true">
+		<path id="phases-loop-line" d="M1632 628 V692 H448 V650" pathLength="1" fill="none" stroke="#9daad0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1" stroke-dashoffset="1" />
+		<path id="phases-loop-head" d="M434 662 L448 640 L462 662" fill="none" stroke="#9daad0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+	</svg>
+	<div class="chip phases__loop-chip" id="phases-loop-chip">next question</div>
+</section>

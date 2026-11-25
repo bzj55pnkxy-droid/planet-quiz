@@ -1,0 +1,550 @@
+/* ---------- pipeline strip (stays for the whole chapter) ---------- */
+#scene-answering .answering__strip {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 1776px;
+	height: 84px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+#scene-answering .answering__step {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	width: 390px;
+	height: 84px;
+	padding: 0 22px;
+	border: 3px solid var(--border);
+	border-radius: 22px;
+	background: var(--surface);
+	font-size: 32px;
+	font-weight: 700;
+	white-space: nowrap;
+	opacity: 0.4;
+}
+#scene-answering #answering-step-1 {
+	--c: var(--teal);
+}
+#scene-answering #answering-step-2 {
+	--c: var(--accent);
+}
+#scene-answering #answering-step-3 {
+	--c: var(--amber);
+}
+#scene-answering #answering-step-4 {
+	--c: var(--violet);
+}
+#scene-answering .answering__num {
+	display: grid;
+	place-items: center;
+	width: 44px;
+	height: 44px;
+	flex: none;
+	border-radius: 50%;
+	background: var(--c);
+	color: var(--bg);
+	font-size: 26px;
+	font-weight: 800;
+}
+
+/* ---------- shared bits ---------- */
+#scene-answering .answering__model {
+	font-family: var(--mono);
+	font-size: 30px;
+	font-weight: 700;
+	color: var(--text);
+}
+#scene-answering .answering__model--big {
+	font-size: 44px;
+	color: var(--violet);
+}
+#scene-answering .answering__badge {
+	flex: none;
+	font-family: var(--mono);
+	font-size: 30px;
+	font-weight: 800;
+	color: var(--amber);
+}
+#scene-answering .answering__rowfile {
+	font-family: var(--mono);
+	font-size: 24px;
+	color: var(--muted);
+	white-space: nowrap;
+}
+
+/* ---------- beat 1: question -> model -> vector ---------- */
+#scene-answering .answering__bubble {
+	position: absolute;
+	left: 168px;
+	top: 350px;
+	width: 500px;
+	padding: 24px 34px 30px;
+	background: var(--surface-2);
+	border: 2px solid var(--border);
+	border-radius: 30px 30px 30px 8px;
+}
+#scene-answering .answering__tag {
+	margin-bottom: 10px;
+	font-family: var(--mono);
+	font-size: 22px;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--muted);
+}
+#scene-answering .answering__q {
+	font-size: 40px;
+	font-weight: 600;
+	line-height: 1.2;
+}
+#scene-answering .answering__a1 {
+	position: absolute;
+	left: 688px;
+	top: 444px;
+}
+#scene-answering .answering__embed {
+	position: absolute;
+	left: 778px;
+	top: 341px;
+	width: 380px;
+	height: 210px;
+}
+#scene-answering .answering__a2 {
+	position: absolute;
+	left: 1178px;
+	top: 444px;
+}
+#scene-answering .answering__qvec {
+	position: absolute;
+	left: 1268px;
+	top: 291px;
+	width: 340px;
+	padding: 24px 32px 26px;
+	border-color: var(--teal);
+}
+#scene-answering .answering__nums {
+	display: flex;
+	flex-direction: column;
+	padding: 6px 20px;
+	border-left: 5px solid var(--teal);
+	border-right: 5px solid var(--teal);
+	border-radius: 14px;
+	font-family: var(--mono);
+	font-size: 32px;
+	line-height: 1.3;
+	text-align: center;
+}
+
+/* ---------- beat 2: Chroma and its chunk vectors ---------- */
+#scene-answering .answering__chroma {
+	position: absolute;
+	left: 190px;
+	top: 240px;
+	width: 880px;
+	height: 412px;
+	padding: 0;
+	border-color: var(--teal);
+}
+#scene-answering .answering__chromahead {
+	position: absolute;
+	left: 28px;
+	right: 28px;
+	top: 14px;
+	height: 56px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+#scene-answering .answering__kick {
+	font-family: var(--mono);
+	font-size: 28px;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--teal);
+}
+#scene-answering .answering__counttext {
+	font-size: 34px;
+	color: var(--muted);
+}
+#scene-answering .answering__counttext b {
+	font-size: 44px;
+	font-weight: 800;
+	color: var(--teal);
+	font-variant-numeric: tabular-nums;
+}
+#scene-answering .answering__grid {
+	position: absolute;
+	left: 28px;
+	top: 82px;
+	width: 824px;
+	height: 302px;
+}
+#scene-answering .answering__dot {
+	position: absolute;
+	width: 11px;
+	height: 11px;
+	border-radius: 50%;
+	background: var(--teal);
+	box-shadow: 0 0 0 0 rgba(124, 156, 255, 0);
+}
+#scene-answering .answering__cmp {
+	position: absolute;
+	left: 1094px;
+	top: 416px;
+	width: 150px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 14px;
+}
+#scene-answering .answering__cmplabel {
+	font-family: var(--mono);
+	font-size: 26px;
+	color: var(--muted);
+}
+#scene-answering .answering__flip {
+	transform: scaleX(-1);
+	width: 140px;
+}
+#scene-answering .answering__flip .arrow {
+	width: 140px;
+}
+
+/* ---------- beat 3: cosine similarity, then top 4 ---------- */
+#scene-answering .answering__t3 {
+	position: absolute;
+	left: 960px;
+	top: 140px;
+	font-size: 54px;
+	font-weight: 800;
+	color: var(--accent);
+	letter-spacing: -0.01em;
+}
+#scene-answering #answering-sk1 {
+	top: 230px;
+}
+#scene-answering #answering-sk2 {
+	top: 488px;
+}
+#scene-answering .answering__sk {
+	position: absolute;
+	left: 960px;
+	width: 816px;
+	height: 236px;
+}
+#scene-answering .answering__sk svg {
+	position: absolute;
+	left: 0;
+	top: 0;
+	overflow: visible;
+}
+#scene-answering .answering__sk svg text {
+	font-family: var(--sans);
+	font-size: 26px;
+}
+#scene-answering .answering__skcopy {
+	position: absolute;
+	left: 450px;
+	top: 70px;
+	width: 366px;
+}
+#scene-answering .answering__skbig {
+	font-size: 48px;
+	font-weight: 800;
+	line-height: 1.1;
+}
+#scene-answering .answering__sksmall {
+	margin-top: 8px;
+	font-size: 36px;
+	font-weight: 600;
+}
+#scene-answering .answering__links {
+	position: absolute;
+	left: 0;
+	top: 0;
+	pointer-events: none;
+}
+#scene-answering .answering__hit {
+	position: absolute;
+	left: 960px;
+	width: 816px;
+	height: 112px;
+	display: flex;
+	align-items: center;
+	gap: 30px;
+	padding: 0 32px;
+	background: var(--surface);
+	border: 2px solid var(--accent);
+	border-radius: var(--radius);
+}
+#scene-answering #answering-hit-1 {
+	top: 240px;
+}
+#scene-answering #answering-hit-2 {
+	top: 366px;
+}
+#scene-answering #answering-hit-3 {
+	top: 492px;
+}
+#scene-answering #answering-hit-4 {
+	top: 618px;
+}
+#scene-answering .answering__score {
+	display: flex;
+	flex-direction: column;
+	width: 170px;
+	font-size: 54px;
+	font-weight: 800;
+	line-height: 1;
+	color: var(--accent);
+	font-variant-numeric: tabular-nums;
+}
+#scene-answering .answering__score small {
+	margin-top: 6px;
+	font-size: 22px;
+	font-weight: 400;
+	color: var(--muted);
+}
+#scene-answering .answering__file {
+	font-family: var(--mono);
+	font-size: 24px;
+	color: var(--amber);
+}
+#scene-answering .answering__page {
+	margin-top: 6px;
+	font-size: 34px;
+	font-weight: 700;
+}
+
+/* ---------- beat 4: the prompt sheet ---------- */
+#scene-answering .answering__sheet {
+	position: absolute;
+	left: 338px;
+	top: 150px;
+	width: 1100px;
+	padding: 22px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	background: var(--bg-2);
+	border: 3px solid var(--border);
+	border-radius: 26px;
+	transform-origin: 0 0;
+}
+#scene-answering .answering__box {
+	padding: 14px 22px 16px;
+	border: 2px solid var(--border);
+	border-radius: 18px;
+}
+#scene-answering .answering__box--sys {
+	height: 112px;
+}
+#scene-answering .answering__box--user {
+	border-color: var(--muted);
+}
+#scene-answering .answering__boxlabel {
+	margin-bottom: 8px;
+	font-family: var(--mono);
+	font-size: 22px;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--muted);
+}
+#scene-answering .answering__sysbody {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	font-size: 32px;
+	font-weight: 600;
+}
+#scene-answering .answering__tt {
+	padding: 4px 14px;
+	border: 2px solid var(--violet);
+	border-radius: 999px;
+	font-family: var(--mono);
+	font-size: 22px;
+	color: var(--violet);
+}
+#scene-answering .answering__row {
+	display: flex;
+	align-items: center;
+	gap: 18px;
+	height: 54px;
+	margin-bottom: 10px;
+	padding: 0 18px;
+	background: rgba(251, 191, 36, 0.08);
+	border-left: 5px solid var(--amber);
+	border-radius: 10px;
+}
+#scene-answering .answering__bar {
+	flex: 1;
+	height: 10px;
+	border-radius: 5px;
+	background: rgba(157, 170, 208, 0.35);
+}
+#scene-answering .answering__qrow {
+	margin-top: 4px;
+	padding: 12px 18px;
+	background: rgba(124, 156, 255, 0.1);
+	border-left: 5px solid var(--accent);
+	border-radius: 10px;
+	font-size: 32px;
+	font-weight: 600;
+}
+#scene-answering .answering__thumblabel {
+	position: absolute;
+	left: 20px;
+	top: 547px;
+	width: 330px;
+	text-align: center;
+	font-family: var(--mono);
+	font-size: 28px;
+	color: var(--muted);
+}
+
+/* ---------- beat 5: model in Ollama, the answer ---------- */
+#scene-answering .answering__ollama {
+	position: absolute;
+	left: 470px;
+	top: 225px;
+	width: 500px;
+	height: 450px;
+	border: 3px dashed var(--violet);
+	border-radius: 30px;
+	background: rgba(183, 148, 255, 0.05);
+}
+#scene-answering .answering__ollama span {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 20px;
+	text-align: center;
+	font-family: var(--mono);
+	font-size: 26px;
+	color: var(--violet);
+}
+#scene-answering .answering__a3 {
+	position: absolute;
+	left: 378px;
+	top: 448px;
+	width: 80px;
+}
+#scene-answering .answering__gemma {
+	position: absolute;
+	left: 515px;
+	top: 345px;
+	width: 410px;
+	height: 210px;
+}
+#scene-answering .answering__a4 {
+	position: absolute;
+	left: 990px;
+	top: 448px;
+}
+#scene-answering .answering__answer {
+	position: absolute;
+	left: 1085px;
+	top: 330px;
+	width: 691px;
+	padding: 28px 36px 32px;
+	border-color: var(--violet);
+}
+#scene-answering .answering__atext {
+	font-size: 36px;
+	line-height: 1.35;
+}
+#scene-answering .answering__cite {
+	display: block;
+	width: fit-content;
+	margin-top: 18px;
+	padding: 2px 18px;
+	border: 3px solid var(--border);
+	border-radius: 12px;
+	font-family: var(--mono);
+	font-size: 36px;
+	font-weight: 800;
+	color: var(--text);
+}
+
+/* ---------- beat 6: source column + link ---------- */
+#scene-answering .answering__src {
+	position: absolute;
+	left: 0;
+	width: 1000px;
+	height: 58px;
+	display: flex;
+	align-items: center;
+	gap: 18px;
+	padding: 0 28px;
+	background: var(--surface);
+	border: 2px solid var(--border);
+	border-radius: 16px;
+}
+#scene-answering #answering-src-1 {
+	top: 197px;
+}
+#scene-answering #answering-src-2 {
+	top: 267px;
+}
+#scene-answering #answering-src-3 {
+	top: 337px;
+}
+#scene-answering .answering__source {
+	position: absolute;
+	left: 0;
+	top: 417px;
+	width: 1000px;
+	padding: 24px 36px 28px;
+	border-color: var(--amber);
+}
+#scene-answering .answering__srchead {
+	display: flex;
+	align-items: center;
+	gap: 18px;
+	margin-bottom: 16px;
+}
+#scene-answering .answering__srcpage {
+	font-size: 28px;
+	font-weight: 700;
+}
+#scene-answering .answering__srctext {
+	font-size: 32px;
+	line-height: 1.4;
+}
+#scene-answering .answering__hl {
+	padding: 0 6px;
+	border-radius: 8px;
+	background: transparent;
+	color: inherit;
+}
+#scene-answering .answering__check {
+	position: absolute;
+	right: 28px;
+	top: 16px;
+}
+#scene-answering .answering__linkwrap {
+	position: absolute;
+	left: 1000px;
+	top: 528px;
+	width: 118px;
+	transform: scaleX(-1);
+}
+#scene-answering .answering__link {
+	width: 118px;
+	height: 6px;
+	background: var(--green);
+	transform-origin: 0 50%;
+	opacity: 0;
+}
+#scene-answering .answering__link::after {
+	border-top-color: var(--green);
+	border-right-color: var(--green);
+}
+#scene-answering .answering__halo {
+	position: absolute;
+	width: 44px;
+	height: 44px;
+	border: 3px solid var(--accent);
+	border-radius: 50%;
+}

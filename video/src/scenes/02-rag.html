@@ -1,0 +1,162 @@
+<section class="scene" id="scene-rag">
+	<!-- Beat 1: the three words. -->
+	<div class="rag__layer" id="rag-b1">
+		<div class="rag__col rag__col--1">
+			<div class="rag__letter rag__c-r" id="rag-letter-r">R</div>
+			<div class="rag__word" id="rag-word-r"><b class="rag__c-r">R</b>etrieval</div>
+		</div>
+		<div class="rag__col rag__col--2">
+			<div class="rag__letter rag__c-a" id="rag-letter-a">A</div>
+			<div class="rag__word" id="rag-word-a"><b class="rag__c-a">A</b>ugmented</div>
+		</div>
+		<div class="rag__col rag__col--3">
+			<div class="rag__letter rag__c-g" id="rag-letter-g">G</div>
+			<div class="rag__word" id="rag-word-g"><b class="rag__c-g">G</b>eneration</div>
+		</div>
+	</div>
+
+	<!-- Beat 2: closed book versus open book. -->
+	<div class="rag__layer" id="rag-b2">
+		<div class="kicker rag__exam" id="rag-exam">Open-book exam</div>
+
+		<div class="card rag__panel rag__panel--closed" id="rag-closed">
+			<div class="rag__panel-title" id="rag-closed-title">Closed book</div>
+			<svg class="rag__icon" id="rag-closed-icon" viewBox="0 0 220 150" aria-hidden="true">
+				<rect x="52" y="8" width="116" height="134" rx="10" fill="#1d2850" stroke="#9daad0" stroke-width="4" />
+				<path d="M74 8 V142" stroke="#9daad0" stroke-width="4" />
+				<rect x="92" y="38" width="56" height="8" rx="4" fill="#9daad0" opacity="0.6" />
+				<rect x="92" y="58" width="40" height="8" rx="4" fill="#9daad0" opacity="0.6" />
+			</svg>
+			<div class="rag__v rag__v--dashed" id="rag-closed-a1"></div>
+			<div class="rag__x" id="rag-closed-x">&times;</div>
+			<div class="node node--model rag__model" id="rag-closed-model">
+				<div class="node__name">The model</div>
+			</div>
+			<div class="rag__v" id="rag-closed-a2"></div>
+			<div class="rag__answer" id="rag-closed-answer">answer from memory</div>
+		</div>
+
+		<div class="card rag__panel rag__panel--open" id="rag-open">
+			<div class="rag__panel-title amber" id="rag-open-title">Open book</div>
+			<svg class="rag__icon" id="rag-open-icon" viewBox="0 0 220 150" aria-hidden="true">
+				<path d="M110 30 C 80 12, 40 12, 8 26 V132 C 40 118, 80 118, 110 136 Z" fill="rgba(251,191,36,0.14)" stroke="#fbbf24" stroke-width="4" stroke-linejoin="round" />
+				<path d="M110 30 C 140 12, 180 12, 212 26 V132 C 180 118, 140 118, 110 136 Z" fill="rgba(251,191,36,0.14)" stroke="#fbbf24" stroke-width="4" stroke-linejoin="round" />
+				<path d="M30 52 C 50 46, 74 46, 94 54 M30 74 C 50 68, 74 68, 94 76 M30 96 C 50 90, 74 90, 94 98" stroke="#fbbf24" stroke-opacity="0.6" stroke-width="5" fill="none" stroke-linecap="round" />
+				<path d="M126 54 C 146 46, 170 46, 190 52 M126 76 C 146 68, 170 68, 190 74 M126 98 C 146 90, 170 90, 190 96" stroke="#fbbf24" stroke-opacity="0.6" stroke-width="5" fill="none" stroke-linecap="round" />
+			</svg>
+			<div class="rag__v" id="rag-open-a1"></div>
+			<div class="rag__flying rag__flying--1" id="rag-fly-1"></div>
+			<div class="rag__flying rag__flying--2" id="rag-fly-2"></div>
+			<div class="rag__flying rag__flying--3" id="rag-fly-3"></div>
+			<div class="node node--model rag__model" id="rag-open-model">
+				<div class="node__name">The model</div>
+			</div>
+			<div class="rag__v" id="rag-open-a2"></div>
+			<div class="rag__answer rag__answer--good" id="rag-open-answer">answer from those pages</div>
+		</div>
+	</div>
+
+	<!-- Beats 3 and 4: Retrieval, Augmented, Generation. -->
+	<div class="rag__layer" id="rag-b3">
+		<div class="card rag__step rag__step--1" id="rag-step-1">
+			<div class="rag__step-head"><span class="rag__step-num rag__bg-r">1</span><span class="rag__step-name rag__c-r">Retrieval</span></div>
+			<div class="rag__step-sub">find matching passages</div>
+			<div class="rag__step-body">
+				<div class="rag__q" id="rag-s1-q">How many moons does Saturn have?</div>
+				<div class="rag__down" id="rag-s1-down"></div>
+				<div class="rag__grid">
+					<div class="rag__passage" id="rag-p-1"><span>[1]</span><i></i><i></i></div>
+					<div class="rag__passage" id="rag-p-2"><span>[2]</span><i></i><i></i></div>
+					<div class="rag__passage" id="rag-p-3"><span>[3]</span><i></i><i></i></div>
+					<div class="rag__passage" id="rag-p-4"><span>[4]</span><i></i><i></i></div>
+				</div>
+			</div>
+		</div>
+		<div class="arrow rag__link rag__link--1" id="rag-link-1"></div>
+
+		<div class="card rag__step rag__step--2" id="rag-step-2">
+			<div class="rag__step-head"><span class="rag__step-num rag__bg-a">2</span><span class="rag__step-name rag__c-a">Augmented</span></div>
+			<div class="rag__step-sub">paste into the prompt</div>
+			<div class="rag__step-body">
+				<div class="rag__sheet-title" id="rag-s2-title">Prompt</div>
+				<div class="rag__sheet-rows">
+					<div class="rag__prow" id="rag-pr-1"><span>[1]</span><i></i></div>
+					<div class="rag__prow" id="rag-pr-2"><span>[2]</span><i></i></div>
+					<div class="rag__prow" id="rag-pr-3"><span>[3]</span><i></i></div>
+					<div class="rag__prow" id="rag-pr-4"><span>[4]</span><i></i></div>
+					<div class="rag__qrow" id="rag-pr-q">How many moons does Saturn have?</div>
+				</div>
+			</div>
+		</div>
+		<div class="arrow rag__link rag__link--2" id="rag-link-2"></div>
+
+		<div class="card rag__step rag__step--3" id="rag-step-3">
+			<div class="rag__step-head"><span class="rag__step-num rag__bg-g">3</span><span class="rag__step-name rag__c-g">Generation</span></div>
+			<div class="rag__step-sub">write the answer</div>
+			<div class="rag__step-body">
+				<div class="node node--model rag__s3-model" id="rag-s3-model">
+					<div class="node__name">Language model</div>
+					<div class="node__note">gemma3:4b</div>
+				</div>
+				<div class="rag__down" id="rag-s3-down"></div>
+				<div class="rag__ans" id="rag-s3-ans">
+					<div class="rag__ans-line">
+						<span class="big-number green rag__ans-num">53</span>
+						<span class="rag__ans-unit">known<br />moons</span>
+					</div>
+					<span class="chip rag__cite" id="rag-s3-cite">cites [4]</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Beat 5: weights stay, input changes. -->
+	<div class="rag__layer" id="rag-b5">
+		<div class="rag__w-title rag__w-title--l" id="rag-w-title-l">Without RAG</div>
+		<div class="rag__w-title rag__w-title--r accent" id="rag-w-title-r">With RAG</div>
+
+		<div class="rag__wsheet rag__wsheet--l" id="rag-sheet-l">
+			<div class="rag__qrow">How many moons does Saturn have?</div>
+		</div>
+		<div class="rag__wsheet rag__wsheet--r" id="rag-sheet-r">
+			<div class="rag__prow" id="rag-w-p1"><span>[1]</span><i></i></div>
+			<div class="rag__prow" id="rag-w-p2"><span>[2]</span><i></i></div>
+			<div class="rag__prow" id="rag-w-p3"><span>[3]</span><i></i></div>
+			<div class="rag__prow" id="rag-w-p4"><span>[4]</span><i></i></div>
+			<div class="rag__qrow">How many moons does Saturn have?</div>
+		</div>
+
+		<div class="rag__v rag__v--wl" id="rag-w-arrow-l"></div>
+		<div class="rag__v rag__v--wr" id="rag-w-arrow-r"></div>
+
+		<div class="rag__block rag__block--l" id="rag-block-l">
+			<svg class="rag__grid-dots" viewBox="0 0 340 100" aria-hidden="true">
+				<g fill="#b794ff" fill-opacity="0.85">
+					<circle cx="17" cy="14" r="7" /><circle cx="51" cy="14" r="7" /><circle cx="85" cy="14" r="7" /><circle cx="119" cy="14" r="7" /><circle cx="153" cy="14" r="7" /><circle cx="187" cy="14" r="7" /><circle cx="221" cy="14" r="7" /><circle cx="255" cy="14" r="7" /><circle cx="289" cy="14" r="7" /><circle cx="323" cy="14" r="7" />
+					<circle cx="17" cy="38" r="7" /><circle cx="51" cy="38" r="7" /><circle cx="85" cy="38" r="7" /><circle cx="119" cy="38" r="7" /><circle cx="153" cy="38" r="7" /><circle cx="187" cy="38" r="7" /><circle cx="221" cy="38" r="7" /><circle cx="255" cy="38" r="7" /><circle cx="289" cy="38" r="7" /><circle cx="323" cy="38" r="7" />
+					<circle cx="17" cy="62" r="7" /><circle cx="51" cy="62" r="7" /><circle cx="85" cy="62" r="7" /><circle cx="119" cy="62" r="7" /><circle cx="153" cy="62" r="7" /><circle cx="187" cy="62" r="7" /><circle cx="221" cy="62" r="7" /><circle cx="255" cy="62" r="7" /><circle cx="289" cy="62" r="7" /><circle cx="323" cy="62" r="7" />
+					<circle cx="17" cy="86" r="7" /><circle cx="51" cy="86" r="7" /><circle cx="85" cy="86" r="7" /><circle cx="119" cy="86" r="7" /><circle cx="153" cy="86" r="7" /><circle cx="187" cy="86" r="7" /><circle cx="221" cy="86" r="7" /><circle cx="255" cy="86" r="7" /><circle cx="289" cy="86" r="7" /><circle cx="323" cy="86" r="7" />
+				</g>
+			</svg>
+			<div class="rag__block-name">Model weights</div>
+		</div>
+		<div class="rag__block rag__block--r" id="rag-block-r">
+			<svg class="rag__grid-dots" viewBox="0 0 340 100" aria-hidden="true">
+				<g fill="#b794ff" fill-opacity="0.85">
+					<circle cx="17" cy="14" r="7" /><circle cx="51" cy="14" r="7" /><circle cx="85" cy="14" r="7" /><circle cx="119" cy="14" r="7" /><circle cx="153" cy="14" r="7" /><circle cx="187" cy="14" r="7" /><circle cx="221" cy="14" r="7" /><circle cx="255" cy="14" r="7" /><circle cx="289" cy="14" r="7" /><circle cx="323" cy="14" r="7" />
+					<circle cx="17" cy="38" r="7" /><circle cx="51" cy="38" r="7" /><circle cx="85" cy="38" r="7" /><circle cx="119" cy="38" r="7" /><circle cx="153" cy="38" r="7" /><circle cx="187" cy="38" r="7" /><circle cx="221" cy="38" r="7" /><circle cx="255" cy="38" r="7" /><circle cx="289" cy="38" r="7" /><circle cx="323" cy="38" r="7" />
+					<circle cx="17" cy="62" r="7" /><circle cx="51" cy="62" r="7" /><circle cx="85" cy="62" r="7" /><circle cx="119" cy="62" r="7" /><circle cx="153" cy="62" r="7" /><circle cx="187" cy="62" r="7" /><circle cx="221" cy="62" r="7" /><circle cx="255" cy="62" r="7" /><circle cx="289" cy="62" r="7" /><circle cx="323" cy="62" r="7" />
+					<circle cx="17" cy="86" r="7" /><circle cx="51" cy="86" r="7" /><circle cx="85" cy="86" r="7" /><circle cx="119" cy="86" r="7" /><circle cx="153" cy="86" r="7" /><circle cx="187" cy="86" r="7" /><circle cx="221" cy="86" r="7" /><circle cx="255" cy="86" r="7" /><circle cx="289" cy="86" r="7" /><circle cx="323" cy="86" r="7" />
+				</g>
+			</svg>
+			<div class="rag__block-name">Model weights</div>
+		</div>
+
+		<div class="rag__retrain" id="rag-retrain">
+			retraining
+			<span class="rag__strike" id="rag-strike"></span>
+		</div>
+		<div class="rag__mid rag__mid--eq green" id="rag-eq"><b>=</b><span>weights:<br />same</span></div>
+		<div class="rag__mid rag__mid--neq accent" id="rag-neq"><b>&ne;</b><span>input:<br />changed</span></div>
+	</div>
+</section>

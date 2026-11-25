@@ -1,0 +1,316 @@
+/* Shared look for the explainer video. Scene files add their own rules, prefixed with
+   their section id (#scene-rag ...), and build on these tokens and components. */
+:root {
+	--bg: #0b1020;
+	--bg-2: #111831;
+	--surface: #161f3d;
+	--surface-2: #1d2850;
+	--border: #2e3b6b;
+	--text: #eef1fb;
+	--muted: #9daad0;
+	--accent: #7c9cff; /* retrieval, the app's own colour */
+	--violet: #b794ff; /* the language model */
+	--green: #4ade80; /* correct, grounded */
+	--amber: #fbbf24; /* documents, sources */
+	--red: #f87171; /* wrong, made up */
+	--teal: #2dd4bf; /* embeddings, vectors */
+	--sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	--mono: "SF Mono", Menlo, Monaco, monospace;
+	--radius: 20px;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	width: 1920px;
+	height: 1080px;
+	overflow: hidden;
+	background: var(--bg);
+	color: var(--text);
+	font-family: var(--sans);
+	-webkit-font-smoothing: antialiased;
+}
+
+#root {
+	position: relative;
+	width: 1920px;
+	height: 1080px;
+	overflow: hidden;
+}
+
+.backdrop {
+	position: absolute;
+	inset: 0;
+	background:
+		radial-gradient(1200px 700px at 85% -10%, rgba(124, 156, 255, 0.16), transparent 60%),
+		radial-gradient(900px 600px at 0% 110%, rgba(183, 148, 255, 0.1), transparent 60%),
+		var(--bg);
+}
+
+/* ---------- top band ---------- */
+.topbar {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	height: 96px;
+	padding: 0 72px;
+	display: flex;
+	align-items: center;
+	gap: 28px;
+}
+.topbar__brand {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	font-size: 26px;
+	font-weight: 700;
+	letter-spacing: 0.01em;
+	color: var(--muted);
+}
+.topbar__planet {
+	width: 26px;
+	height: 26px;
+	border-radius: 50%;
+	background: radial-gradient(circle at 32% 30%, #c9d6ff, var(--accent) 55%, #3b4fa8);
+	box-shadow: 0 0 0 5px rgba(124, 156, 255, 0.16);
+}
+.topbar__chapters {
+	position: relative;
+	flex: 1;
+	height: 40px;
+}
+.topbar__chapter {
+	position: absolute;
+	left: 0;
+	top: 0;
+	line-height: 40px;
+	font-size: 28px;
+	font-weight: 600;
+	white-space: nowrap;
+}
+.topbar__index {
+	margin-right: 16px;
+	font-family: var(--mono);
+	font-size: 22px;
+	color: var(--accent);
+}
+.topbar__progress {
+	position: absolute;
+	left: 72px;
+	right: 72px;
+	bottom: 0;
+	height: 6px;
+	display: flex;
+	gap: 6px;
+}
+.topbar__segment {
+	flex: 1 1 0;
+	height: 100%;
+	border-radius: 3px;
+	background: rgba(157, 170, 208, 0.18);
+	overflow: hidden;
+}
+.topbar__fill {
+	width: 100%;
+	height: 100%;
+	background: var(--accent);
+	transform-origin: left center;
+}
+
+/* ---------- stage: 1776 x 780 px of usable area for scenes ---------- */
+.stage {
+	position: absolute;
+	left: 72px;
+	top: 126px;
+	width: 1776px;
+	height: 780px;
+}
+.scene {
+	position: absolute;
+	inset: 0;
+}
+
+/* ---------- bottom band: captions ---------- */
+.captions {
+	position: absolute;
+	left: 160px;
+	right: 160px;
+	bottom: 30px;
+	height: 120px;
+}
+.captions__line {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	font-size: 30px;
+	line-height: 1.35;
+	color: #d5dcf3;
+}
+
+/* ---------- shared components ---------- */
+.kicker {
+	font-family: var(--mono);
+	font-size: 24px;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--accent);
+}
+.title {
+	font-size: 76px;
+	font-weight: 700;
+	line-height: 1.08;
+	letter-spacing: -0.01em;
+}
+.subtitle {
+	font-size: 38px;
+	line-height: 1.3;
+	color: var(--muted);
+}
+.card {
+	background: var(--surface);
+	border: 2px solid var(--border);
+	border-radius: var(--radius);
+	padding: 28px 32px;
+}
+.card__label {
+	margin-bottom: 12px;
+	font-family: var(--mono);
+	font-size: 20px;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--muted);
+}
+.card__text {
+	font-size: 30px;
+	line-height: 1.35;
+}
+/* A step in a pipeline diagram. Colour it with a modifier. */
+.node {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	min-width: 220px;
+	padding: 22px 26px;
+	background: var(--surface);
+	border: 2px solid var(--border);
+	border-radius: var(--radius);
+	text-align: center;
+}
+.node__name {
+	font-size: 30px;
+	font-weight: 700;
+}
+.node__note {
+	font-size: 22px;
+	color: var(--muted);
+}
+.node--doc {
+	border-color: var(--amber);
+}
+.node--vector {
+	border-color: var(--teal);
+}
+.node--retrieve {
+	border-color: var(--accent);
+}
+.node--model {
+	border-color: var(--violet);
+}
+.node--good {
+	border-color: var(--green);
+}
+.node--bad {
+	border-color: var(--red);
+}
+/* Arrow between nodes: a line with a head. Rotate or size it per scene. */
+.arrow {
+	position: relative;
+	width: 70px;
+	height: 4px;
+	border-radius: 2px;
+	background: var(--muted);
+	flex: none;
+}
+.arrow::after {
+	content: "";
+	position: absolute;
+	right: -2px;
+	top: 50%;
+	width: 16px;
+	height: 16px;
+	border-top: 4px solid var(--muted);
+	border-right: 4px solid var(--muted);
+	transform: translateY(-50%) rotate(45deg);
+}
+.chip {
+	display: inline-flex;
+	align-items: center;
+	padding: 8px 18px;
+	border-radius: 999px;
+	border: 2px solid var(--border);
+	background: var(--surface-2);
+	font-family: var(--mono);
+	font-size: 22px;
+	white-space: nowrap;
+}
+.code {
+	font-family: var(--mono);
+	font-size: 24px;
+	line-height: 1.5;
+	background: #0a0f1f;
+	border: 2px solid var(--border);
+	border-radius: 16px;
+	padding: 22px 26px;
+	white-space: pre-wrap;
+}
+.big-number {
+	font-size: 150px;
+	font-weight: 800;
+	line-height: 1;
+	letter-spacing: -0.02em;
+	font-variant-numeric: tabular-nums;
+}
+.accent {
+	color: var(--accent);
+}
+.violet {
+	color: var(--violet);
+}
+.green {
+	color: var(--green);
+}
+.amber {
+	color: var(--amber);
+}
+.red {
+	color: var(--red);
+}
+.teal {
+	color: var(--teal);
+}
+.muted {
+	color: var(--muted);
+}
+/* A real screenshot of the app, framed like a browser window. */
+.shot {
+	border-radius: 18px;
+	border: 2px solid var(--border);
+	overflow: hidden;
+	box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+	background: #0f1424;
+}
+.shot img {
+	display: block;
+	width: 100%;
+}

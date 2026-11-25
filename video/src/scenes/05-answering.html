@@ -1,0 +1,151 @@
+<section class="scene" id="scene-answering">
+	<!-- The pipeline strip stays for the whole chapter; the current step is lit. -->
+	<div class="answering__strip" id="answering-strip">
+		<div class="answering__step" id="answering-step-1"><span class="answering__num">1</span>Embed question</div>
+		<div class="arrow"></div>
+		<div class="answering__step" id="answering-step-2"><span class="answering__num">2</span>Retrieve top 4</div>
+		<div class="arrow"></div>
+		<div class="answering__step" id="answering-step-3"><span class="answering__num">3</span>Build prompt</div>
+		<div class="arrow"></div>
+		<div class="answering__step" id="answering-step-4"><span class="answering__num">4</span>Generate</div>
+	</div>
+
+	<!-- Beat 1: question -> embedding model -> vector -->
+	<div class="answering__bubble" id="answering-bubble">
+		<div class="answering__tag">Question</div>
+		<div class="answering__q">How many moons does Saturn have?</div>
+	</div>
+	<div class="arrow answering__a1" id="answering-a1"></div>
+	<div class="node node--vector answering__embed" id="answering-embed">
+		<div class="answering__model">nomic-embed-text</div>
+		<div class="node__note">embedding model</div>
+		<div class="node__note" id="answering-same">same one as for the chunks</div>
+	</div>
+	<div class="arrow answering__a2" id="answering-a2"></div>
+	<div class="card answering__qvec" id="answering-qvec">
+		<div class="card__label teal">Question vector</div>
+		<div class="answering__nums">
+			<div class="answering__num-row">0.21</div>
+			<div class="answering__num-row">-0.48</div>
+			<div class="answering__num-row">0.07</div>
+			<div class="answering__num-row">0.63</div>
+			<div class="answering__num-row">...</div>
+		</div>
+	</div>
+
+	<!-- Beat 2: Chroma holds 532 chunk vectors -->
+	<div class="card answering__chroma" id="answering-chroma">
+		<div class="answering__chromahead">
+			<span class="answering__kick">Chroma</span>
+			<span class="answering__counttext" id="answering-counttext"><b id="answering-count">532</b> chunk vectors</span>
+		</div>
+		<div class="answering__grid" id="answering-grid"></div>
+	</div>
+	<div class="answering__cmp" id="answering-cmp">
+		<span class="answering__cmplabel">compare</span>
+		<div class="answering__flip"><div class="arrow"></div></div>
+	</div>
+
+	<!-- Beat 3: cosine similarity sketch, then the four best chunks -->
+	<div class="answering__t3" id="answering-t3a">cosine similarity</div>
+	<div class="answering__t3" id="answering-t3b">top 4 chunks</div>
+	<div class="answering__sk" id="answering-sk1"></div>
+	<div class="answering__sk" id="answering-sk2"></div>
+	<svg class="answering__links" id="answering-links" viewBox="0 0 1776 780" width="1776" height="780"></svg>
+	<div class="answering__hit" id="answering-hit-1">
+		<div class="answering__score">0.81<small>relevance</small></div>
+		<div class="answering__hitinfo">
+			<div class="answering__file">dlr_our_solar_system_2013.pdf</div>
+			<div class="answering__page">page 56</div>
+		</div>
+	</div>
+	<div class="answering__hit" id="answering-hit-2">
+		<div class="answering__score">0.81<small>relevance</small></div>
+		<div class="answering__hitinfo">
+			<div class="answering__file">nasa_solar_system_lithographs_2013.pdf</div>
+			<div class="answering__page">page 30</div>
+		</div>
+	</div>
+	<div class="answering__hit" id="answering-hit-3">
+		<div class="answering__score">0.79<small>relevance</small></div>
+		<div class="answering__hitinfo">
+			<div class="answering__file">nasa_solar_system_lithographs_2013.pdf</div>
+			<div class="answering__page">page 22</div>
+		</div>
+	</div>
+	<div class="answering__hit" id="answering-hit-4">
+		<div class="answering__score">0.78<small>relevance</small></div>
+		<div class="answering__hitinfo">
+			<div class="answering__file">nasa_solar_system_lithographs_2013.pdf</div>
+			<div class="answering__page">page 22</div>
+		</div>
+	</div>
+
+	<!-- Beat 4: the prompt sheet -->
+	<div class="answering__sheet" id="answering-sheet">
+		<div class="answering__box answering__box--sys" id="answering-sys">
+			<div class="answering__boxlabel violet">System message</div>
+			<div class="answering__sysbody" id="answering-sysbody">
+				Our instructions
+				<span class="answering__tt">TRAITS</span><span class="answering__tt">TASK</span><span class="answering__tt">TONE</span><span class="answering__tt">TARGET</span>
+			</div>
+		</div>
+		<div class="answering__box answering__box--user" id="answering-user">
+			<div class="answering__boxlabel">User message</div>
+			<div class="answering__row" id="answering-p1">
+				<span class="answering__badge">[1]</span><span class="answering__rowfile">dlr_our_solar_system_2013.pdf, page 56</span><span class="answering__bar"></span>
+			</div>
+			<div class="answering__row" id="answering-p2">
+				<span class="answering__badge">[2]</span><span class="answering__rowfile">nasa_solar_system_lithographs_2013.pdf, page 30</span><span class="answering__bar"></span>
+			</div>
+			<div class="answering__row" id="answering-p3">
+				<span class="answering__badge">[3]</span><span class="answering__rowfile">nasa_solar_system_lithographs_2013.pdf, page 22</span><span class="answering__bar"></span>
+			</div>
+			<div class="answering__row" id="answering-p4">
+				<span class="answering__badge">[4]</span><span class="answering__rowfile">nasa_solar_system_lithographs_2013.pdf, page 22</span><span class="answering__bar"></span>
+			</div>
+			<div class="answering__qrow" id="answering-qrow">Question: How many moons does Saturn have?</div>
+		</div>
+	</div>
+	<div class="answering__thumblabel" id="answering-thumblabel">prompt</div>
+
+	<!-- Beat 5: the model, inside Ollama, writes the answer -->
+	<div class="answering__ollama" id="answering-ollama"><span>Ollama, on this laptop</span></div>
+	<div class="arrow answering__a3" id="answering-a3"></div>
+	<div class="node node--model answering__gemma" id="answering-gemma">
+		<div class="answering__model answering__model--big">gemma3:4b</div>
+		<div class="node__note" id="answering-gnote1">Gemma 3</div>
+		<div class="node__note" id="answering-gnote2">4 billion parameters</div>
+	</div>
+	<div class="arrow answering__a4" id="answering-a4"></div>
+	<div class="card answering__answer" id="answering-answer">
+		<div class="card__label violet">Answer</div>
+		<div class="answering__atext" id="answering-atext"></div>
+	</div>
+
+	<!-- Beat 6: the cited passage, next to the answer -->
+	<div class="answering__src" id="answering-src-1">
+		<span class="answering__badge">[1]</span><span class="answering__rowfile">dlr_our_solar_system_2013.pdf</span><span class="answering__srcpage">page 56</span>
+	</div>
+	<div class="answering__src" id="answering-src-2">
+		<span class="answering__badge">[2]</span><span class="answering__rowfile">nasa_solar_system_lithographs_2013.pdf</span><span class="answering__srcpage">page 30</span>
+	</div>
+	<div class="answering__src" id="answering-src-3">
+		<span class="answering__badge">[3]</span><span class="answering__rowfile">nasa_solar_system_lithographs_2013.pdf</span><span class="answering__srcpage">page 22</span>
+	</div>
+	<div class="card answering__source" id="answering-source">
+		<div class="answering__srchead">
+			<span class="answering__badge">[4]</span>
+			<span class="answering__rowfile">nasa_solar_system_lithographs_2013.pdf</span>
+			<span class="answering__srcpage">page 22</span>
+		</div>
+		<div class="answering__srctext">
+			... <mark class="answering__hl" id="answering-hl">Saturn has 53 known moons (plus 9 awaiting official confirmation).</mark> The chunks of ice and rock in Saturn’s rings ... are not considered moons ...
+		</div>
+		<svg class="answering__check" id="answering-check" viewBox="0 0 64 64" width="64" height="64">
+			<circle cx="32" cy="32" r="30" fill="rgba(74,222,128,0.18)" stroke="#4ade80" stroke-width="4" />
+			<path d="M18 33 L28 43 L47 22" fill="none" stroke="#4ade80" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+		</svg>
+	</div>
+	<div class="answering__linkwrap"><div class="arrow answering__link" id="answering-link"></div></div>
+</section>

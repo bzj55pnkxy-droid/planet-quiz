@@ -1,0 +1,326 @@
+{
+	"voice": "af_heart",
+	"speed": 0.92,
+	"beatGap": 0.6,
+	"chapterGap": 1.6,
+	"leadIn": 0.8,
+	"tailOut": 2.0,
+	"chapters": [
+		{
+			"id": "intro",
+			"title": "Planet Quiz",
+			"beats": [
+				{
+					"id": "intro-1",
+					"caption": "This is Planet Quiz: a solar system trivia app that runs a language model on your own laptop.",
+					"say": "This is Planet Quiz: a solar system trivia app that runs a language model on your own laptop."
+				},
+				{
+					"id": "intro-2",
+					"caption": "In the next few minutes you will learn what RAG is, how its pipeline works, and exactly how this project uses it.",
+					"say": "In the next few minutes you will learn what RAG is, how its pipeline works, and exactly how this project uses it."
+				}
+			]
+		},
+		{
+			"id": "problem",
+			"title": "The problem",
+			"beats": [
+				{
+					"id": "problem-1",
+					"caption": "A language model is trained once. After that, its knowledge is frozen.",
+					"say": "Start with the problem. A language model is trained once. After that, its knowledge is frozen."
+				},
+				{
+					"id": "problem-2",
+					"caption": "When you ask a question, it does not look anything up. It predicts the most likely next words from memory.",
+					"say": "When you ask it a question, it does not look anything up. It predicts the most likely next words, from memory."
+				},
+				{
+					"id": "problem-3",
+					"caption": "We asked our local model how many moons Saturn has. One run said 83. Another run said 146.",
+					"say": "We asked our local model how many moons Saturn has. One run said eighty-three. Another run said one hundred and forty-six."
+				},
+				{
+					"id": "problem-4",
+					"caption": "Three problems: the answer may be out of date, it may be made up (a hallucination), and you cannot check where it came from.",
+					"say": "That gives us three problems. The answer may be out of date. It may be made up, which is called a hallucination. And you cannot check where it came from."
+				}
+			]
+		},
+		{
+			"id": "rag",
+			"title": "What RAG is",
+			"beats": [
+				{
+					"id": "rag-1",
+					"caption": "RAG stands for retrieval-augmented generation.",
+					"say": "RAG stands for retrieval augmented generation."
+				},
+				{
+					"id": "rag-2",
+					"caption": "Think of an open-book exam: the model first gets the relevant pages, and then answers from those pages.",
+					"say": "Think of an open-book exam. Instead of answering from memory, the model first gets the relevant pages, and then answers from those pages."
+				},
+				{
+					"id": "rag-3",
+					"caption": "Retrieval: find the passages that match the question.",
+					"say": "Three words, three steps. Retrieval: find the passages that match the question."
+				},
+				{
+					"id": "rag-4",
+					"caption": "Augmented: paste those passages into the prompt. Generation: the model writes the answer from them.",
+					"say": "Augmented: paste those passages into the prompt. Generation: the model writes the answer from them."
+				},
+				{
+					"id": "rag-5",
+					"caption": "RAG does not retrain the model. The weights stay the same. Only the input changes.",
+					"say": "One thing is important to remember. RAG does not retrain the model. The weights stay exactly the same. Only the input changes."
+				}
+			]
+		},
+		{
+			"id": "phases",
+			"title": "Two phases",
+			"beats": [
+				{
+					"id": "phases-1",
+					"caption": "A RAG system has two phases. Indexing happens once: we turn our documents into a searchable store.",
+					"say": "A RAG system has two phases. Indexing happens once, before anyone asks anything. We turn our documents into a searchable store."
+				},
+				{
+					"id": "phases-2",
+					"caption": "Answering happens on every question.",
+					"say": "Answering happens on every question."
+				}
+			]
+		},
+		{
+			"id": "indexing",
+			"title": "Phase 1: indexing",
+			"beats": [
+				{
+					"id": "indexing-1",
+					"caption": "The sources: two PDF files from 2013, a NASA fact sheet set and a brochure from the German Aerospace Center. 142 pages in total.",
+					"say": "Indexing starts with the sources. We use two P D F files from twenty thirteen: a NASA fact sheet set, and a brochure from the German Aerospace Center. One hundred and forty-two pages in total."
+				},
+				{
+					"id": "indexing-2",
+					"caption": "Step 1, extraction: a library called PyMuPDF pulls the text out of each page.",
+					"say": "Step one is extraction. A library called Pie M U P D F pulls the text out of each page."
+				},
+				{
+					"id": "indexing-3",
+					"caption": "Step 2, cleaning: repair words split across lines, and drop pages with almost no text. 119 pages remain.",
+					"say": "Step two is cleaning. We repair words that were split across lines, and we drop pages with almost no text, like covers. One hundred and nineteen pages remain."
+				},
+				{
+					"id": "indexing-4",
+					"caption": "Step 3, chunking: cut the text into chunks of about 1,000 characters, because a whole page is too big and too mixed to search well.",
+					"say": "Step three is chunking. A whole page is too big and too mixed to search well, so we cut the text into chunks of about one thousand characters."
+				},
+				{
+					"id": "indexing-5",
+					"caption": "Neighbouring chunks overlap by 150 characters, so a sentence at the border is not cut in half. Result: 532 chunks.",
+					"say": "Neighbouring chunks overlap by one hundred and fifty characters, so a sentence at the border is not cut in half. That gives five hundred and thirty-two chunks."
+				},
+				{
+					"id": "indexing-6",
+					"caption": "Step 4, embedding: an embedding model turns each chunk into a long list of numbers, called a vector.",
+					"say": "Step four is embedding. An embedding model turns each chunk into a long list of numbers, called a vector."
+				},
+				{
+					"id": "indexing-7",
+					"caption": "Texts with similar meaning get vectors that point in similar directions.",
+					"say": "Texts with similar meaning get vectors that point in similar directions."
+				},
+				{
+					"id": "indexing-8",
+					"caption": "Step 5, storing: every vector is saved with its text and page number in a vector database called Chroma.",
+					"say": "Step five is storing. Every vector is saved, together with its text and page number, in a vector database called Chroma."
+				},
+				{
+					"id": "indexing-9",
+					"caption": "In our project all of this is one file, app/ingest.py, and you run it once.",
+					"say": "In our project, all of this is one file, ingest dot pie, and you run it once."
+				}
+			]
+		},
+		{
+			"id": "answering",
+			"title": "Phase 2: answering",
+			"beats": [
+				{
+					"id": "answering-1",
+					"caption": "Someone asks: how many moons does Saturn have? The question goes through the same embedding model and becomes a vector too.",
+					"say": "Now someone asks: how many moons does Saturn have? The question goes through the same embedding model, so it becomes a vector too."
+				},
+				{
+					"id": "answering-2",
+					"caption": "Chroma compares the question vector with all 532 chunk vectors.",
+					"say": "Chroma compares the question vector with all five hundred and thirty-two chunk vectors."
+				},
+				{
+					"id": "answering-3",
+					"caption": "The measure is cosine similarity: the smaller the angle between two vectors, the closer the meaning. We keep the top 4 chunks.",
+					"say": "The measure is called cosine similarity. The smaller the angle between two vectors, the closer the meaning. We keep the top four chunks."
+				},
+				{
+					"id": "answering-4",
+					"caption": "Those four passages are numbered and placed in the prompt, together with the question and our instructions.",
+					"say": "Those four passages are numbered, and placed in the prompt, together with the question and our instructions."
+				},
+				{
+					"id": "answering-5",
+					"caption": "The local model, Gemma 3 with 4 billion parameters, running in Ollama, reads the prompt and writes the answer.",
+					"say": "The local model, Gemma three, with four billion parameters, running in Ollama, reads the prompt and writes the answer."
+				},
+				{
+					"id": "answering-6",
+					"caption": "It cites the passage numbers, and the app shows those passages next to the answer, so you can check it.",
+					"say": "It cites the passage numbers, and the app shows those passages next to the answer, so you can check it."
+				}
+			]
+		},
+		{
+			"id": "code",
+			"title": "Where it lives in our code",
+			"beats": [
+				{
+					"id": "code-1",
+					"caption": "ingest.py builds the index. rag.py does retrieval and calls the model.",
+					"say": "Here is where each step lives in our code. Ingest dot pie builds the index. Rag dot pie does retrieval, and calls the model."
+				},
+				{
+					"id": "code-2",
+					"caption": "prompts.py holds the instructions. main.py is the web server, and one HTML page is the user interface.",
+					"say": "Prompts dot pie holds the instructions. Main dot pie is the web server, and one H T M L page is the user interface."
+				},
+				{
+					"id": "code-3",
+					"caption": "LangChain gives us the building blocks: a PDF loader, a text splitter, the embedding and chat clients for Ollama, and the Chroma store.",
+					"say": "We did not write the plumbing ourselves. Lang Chain gives us the building blocks: a P D F loader, a text splitter, the embedding and chat clients for Ollama, and the Chroma store."
+				}
+			]
+		},
+		{
+			"id": "fourt",
+			"title": "The 4T's prompt",
+			"beats": [
+				{
+					"id": "fourt-1",
+					"caption": "The instructions follow the 4T's. Traits: who the model is. A careful tutor that uses only the numbered passages.",
+					"say": "The instructions follow the four T's. Traits: who the model is. A careful tutor, that uses only the numbered passages."
+				},
+				{
+					"id": "fourt-2",
+					"caption": "Task: what to do. Answer the question and cite the passages.",
+					"say": "Task: what to do. Answer the question, and cite the passages."
+				},
+				{
+					"id": "fourt-3",
+					"caption": "Tone: encouraging and concise. Target: students aged 12 to 18, in at most four sentences.",
+					"say": "Tone: encouraging and concise. Target: students aged twelve to eighteen, in at most four sentences."
+				},
+				{
+					"id": "fourt-4",
+					"caption": "Small words matter. We first called the model a quiz master, and it added its own quiz question to every answer. Calling it a tutor fixed that.",
+					"say": "Small words matter. We first called the model a quiz master, and it started adding its own quiz question to every answer. Calling it a tutor fixed that."
+				}
+			]
+		},
+		{
+			"id": "demo",
+			"title": "The app",
+			"beats": [
+				{
+					"id": "demo-1",
+					"caption": "Here is the app. In Ask mode, one button runs the same question twice: with retrieval, and without.",
+					"say": "Here is the app. In Ask mode, one button runs the same question twice: with retrieval, and without."
+				},
+				{
+					"id": "demo-2",
+					"caption": "With RAG: 53 known moons, taken from the 2013 sources, with the source passages listed below.",
+					"say": "With RAG, the answer is fifty-three known moons, taken from the twenty thirteen sources, with the source passages listed below."
+				},
+				{
+					"id": "demo-3",
+					"caption": "Without RAG, the model says 83, from memory.",
+					"say": "Without RAG, the model says eighty-three, from memory."
+				},
+				{
+					"id": "demo-4",
+					"caption": "53 is no longer true today. RAG makes the model faithful to its sources, not correct about the world.",
+					"say": "Notice that fifty-three is no longer true today. RAG makes the model faithful to its sources, not correct about the world."
+				},
+				{
+					"id": "demo-5",
+					"caption": "The quality of your documents becomes the quality of your answers.",
+					"say": "The quality of your documents becomes the quality of your answers."
+				},
+				{
+					"id": "demo-6",
+					"caption": "Quiz mode uses the same retrieval: the model writes a question from two retrieved passages.",
+					"say": "Quiz mode uses the same retrieval. The model writes a question from two retrieved passages."
+				},
+				{
+					"id": "demo-7",
+					"caption": "The player answers in free text, and the model grades the answer against the reference answer.",
+					"say": "The player answers in free text, and the model grades the answer against the reference answer."
+				}
+			]
+		},
+		{
+			"id": "experiment",
+			"title": "Where RAG does not help",
+			"beats": [
+				{
+					"id": "experiment-1",
+					"caption": "RAG is not the right tool for everything. In a separate experiment we predicted how long a body takes to orbit the Sun, from its distance.",
+					"say": "RAG is not the right tool for everything. In a separate experiment, we predicted how long a body takes to orbit the Sun, from its distance."
+				},
+				{
+					"id": "experiment-2",
+					"caption": "A linear regression on a log scale was off by 0.02 years on average. The language model with RAG was off by almost 39 years.",
+					"say": "A linear regression on a log scale was off by zero point zero two years on average. The language model with RAG was off by almost thirty-nine years."
+				},
+				{
+					"id": "experiment-3",
+					"caption": "Retrieval finds similar text, not nearby numbers, and the model does not calculate.",
+					"say": "Retrieval finds similar text, not nearby numbers. And the model does not calculate."
+				},
+				{
+					"id": "experiment-4",
+					"caption": "Use RAG when the answer is a fact you can quote from a document. Use a trained model when the answer is a number that follows a pattern.",
+					"say": "So: use RAG when the answer is a fact you can quote from a document. Use a trained model when the answer is a number that follows a pattern."
+				}
+			]
+		},
+		{
+			"id": "recap",
+			"title": "Limits and recap",
+			"beats": [
+				{
+					"id": "recap-1",
+					"caption": "RAG has limits. If retrieval misses the right passage, the answer is wrong or empty. A small model can still misread a passage. Every answer takes several seconds on a laptop.",
+					"say": "RAG also has limits. If retrieval misses the right passage, the answer will be wrong or empty. A small model can still misread a passage. And every answer takes several seconds on a laptop."
+				},
+				{
+					"id": "recap-2",
+					"caption": "Index once: extract, clean, chunk, embed, store.",
+					"say": "To sum up. Index once: extract, clean, chunk, embed, store."
+				},
+				{
+					"id": "recap-3",
+					"caption": "For every question: embed, retrieve the top 4, build the prompt, generate.",
+					"say": "Then, for every question: embed, retrieve the top four, build the prompt, generate."
+				},
+				{
+					"id": "recap-4",
+					"caption": "The model stays the same. What changes is what it gets to read.",
+					"say": "The model stays the same. What changes is what it gets to read."
+				}
+			]
+		}
+	]
+}

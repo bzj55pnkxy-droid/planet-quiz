@@ -1,0 +1,75 @@
+<section class="scene" id="scene-demo">
+	<!-- Ask mode screenshot -->
+	<div class="shot demo__shot" id="demo-shot-ask">
+		<div class="demo__bar"><span class="demo__dot"></span><span class="demo__dot"></span><span class="demo__dot"></span><span class="demo__bartitle">Planet Quiz</span></div>
+		<div class="demo__view">
+			<div class="demo__cam" id="demo-cam-ask">
+				<img src="./assets/ask-compare.png" alt="" />
+				<div class="demo__veil" id="demo-veil-left"></div>
+				<div class="demo__hl demo__hl--accent" id="demo-hl-button"></div>
+				<div class="demo__hl demo__hl--green" id="demo-hl-cardleft"></div>
+				<div class="demo__hl demo__hl--red" id="demo-hl-cardright"></div>
+				<div class="demo__hl demo__hl--green" id="demo-hl-answer"></div>
+				<div class="demo__hl demo__hl--amber" id="demo-hl-2013"></div>
+				<div class="demo__hl demo__hl--amber" id="demo-hl-source"></div>
+				<div class="demo__hl demo__hl--red" id="demo-hl-83"></div>
+				<div class="demo__hl demo__hl--red" id="demo-hl-nosrc"></div>
+			</div>
+			<div class="demo__callout demo__callout--accent demo__callout--pb" id="demo-co-button">Same question, answered twice</div>
+			<div class="demo__callout demo__callout--green demo__callout--pr" id="demo-co-53"><span class="demo__num">53</span> known moons</div>
+			<div class="demo__callout demo__callout--amber demo__callout--pr" id="demo-co-source">
+				<span class="demo__small">Sources</span>
+				<span>file, page, relevance</span>
+			</div>
+			<div class="demo__callout demo__callout--red demo__callout--pt" id="demo-co-83">
+				<span class="demo__num demo__num--big">83</span>
+				<span>from memory, no sources</span>
+			</div>
+		</div>
+	</div>
+
+	<!-- Takeaway panel -->
+	<div class="demo__takeaway" id="demo-takeaway">
+		<div class="demo__compare">
+			<div class="card demo__fact" id="demo-fact-then">
+				<div class="card__label amber">2013 sources</div>
+				<div class="big-number amber">53</div>
+				<div class="demo__sub">known moons</div>
+			</div>
+			<div class="demo__vs" id="demo-vs">vs</div>
+			<div class="card demo__fact" id="demo-fact-now">
+				<div class="card__label">Today</div>
+				<div class="big-number">more</div>
+				<div class="demo__sub">known moons</div>
+			</div>
+		</div>
+		<div class="demo__statement">
+			<div class="green" id="demo-st-1">Faithful to its sources,</div>
+			<div class="red" id="demo-st-2">not correct about the world</div>
+		</div>
+		<div class="demo__equation">
+			<div class="node node--doc demo__eqnode" id="demo-eq-doc"><div class="node__name">Document quality</div></div>
+			<div class="demo__equals" id="demo-eq-sign">=</div>
+			<div class="node node--good demo__eqnode" id="demo-eq-ans"><div class="node__name">Answer quality</div></div>
+		</div>
+	</div>
+
+	<!-- Quiz mode screenshot (question, then graded) -->
+	<div class="shot demo__shot" id="demo-shot-quiz">
+		<div class="demo__bar"><span class="demo__dot"></span><span class="demo__dot"></span><span class="demo__dot"></span><span class="demo__bartitle">Planet Quiz</span></div>
+		<div class="demo__view">
+			<div class="demo__cam" id="demo-cam-quiz">
+				<img src="./assets/quiz-question.png" alt="" />
+				<img src="./assets/quiz-graded.png" alt="" id="demo-img-graded" />
+				<div class="demo__hl demo__hl--accent" id="demo-hl-topic"></div>
+				<div class="demo__hl demo__hl--violet" id="demo-hl-question"></div>
+				<div class="demo__hl demo__hl--accent" id="demo-hl-typed"></div>
+				<div class="demo__hl demo__hl--violet" id="demo-hl-verdict"></div>
+				<div class="demo__hl demo__hl--green" id="demo-hl-reference"></div>
+			</div>
+			<div class="demo__callout demo__callout--accent demo__callout--pl" id="demo-co-topic">topic: 8 retrieved, 2 sampled</div>
+			<div class="demo__callout demo__callout--violet demo__callout--pt" id="demo-co-question">written from 2 retrieved passages</div>
+			<div class="demo__callout demo__callout--violet demo__callout--pl" id="demo-co-graded">graded against the reference answer</div>
+		</div>
+	</div>
+</section>

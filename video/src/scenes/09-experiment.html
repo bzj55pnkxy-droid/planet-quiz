@@ -1,0 +1,171 @@
+<section class="scene" id="scene-experiment">
+	<!-- Beat 1: orbits and the task -->
+	<div class="experiment__b1" id="experiment-b1">
+		<div class="experiment__orbits" id="experiment-orbits">
+			<div class="experiment__ring" id="experiment-ring-0"><span class="experiment__planet"></span></div>
+			<div class="experiment__ring" id="experiment-ring-1"><span class="experiment__planet"></span></div>
+			<div class="experiment__ring" id="experiment-ring-2"><span class="experiment__planet experiment__planet--earth"></span></div>
+			<div class="experiment__ring" id="experiment-ring-3"><span class="experiment__planet"></span></div>
+			<div class="experiment__ring" id="experiment-ring-4"><span class="experiment__planet"></span></div>
+			<div class="experiment__sun"></div>
+			<div class="experiment__plabel" id="experiment-lab-0">Mercury</div>
+			<div class="experiment__plabel" id="experiment-lab-1">Venus</div>
+			<div class="experiment__plabel experiment__plabel--earth" id="experiment-lab-2">Earth</div>
+			<div class="experiment__plabel" id="experiment-lab-3">Mars</div>
+			<div class="experiment__plabel" id="experiment-lab-4">Jupiter</div>
+		</div>
+		<div class="experiment__task">
+			<div class="kicker" id="experiment-task-kicker">The task</div>
+			<div class="experiment__flow">
+				<div class="node node--retrieve experiment__io" id="experiment-node-in">
+					<div class="node__name">Distance</div>
+					<div class="node__note">from the Sun, in AU</div>
+				</div>
+				<div class="arrow experiment__flowarrow" id="experiment-flow-arrow"></div>
+				<div class="node node--good experiment__io" id="experiment-node-out">
+					<div class="node__name">Orbital period</div>
+					<div class="node__note">one lap, in years</div>
+				</div>
+			</div>
+			<div class="experiment__facts" id="experiment-facts">
+				<div class="chip experiment__example">Earth: 1 AU &rarr; 1 year</div>
+				<div class="experiment__sets">7 bodies to learn from, 3 to test</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Beat 2: the two errors, drawn to scale, and the Uranus example -->
+	<div class="experiment__b2" id="experiment-b2">
+		<div class="kicker" id="experiment-err-title">Mean absolute error, in years &middot; 3 test bodies: Mars, Uranus, 15 AU</div>
+		<div class="experiment__axis" id="experiment-axis"></div>
+		<div class="experiment__row experiment__row--1" id="experiment-row-reg">
+			<div class="experiment__rowlabel">
+				<div class="experiment__rowname">Linear regression</div>
+				<div class="experiment__rowsub">log-log scale</div>
+			</div>
+			<div class="experiment__track">
+				<div class="experiment__bar experiment__bar--reg" id="experiment-bar-reg"></div>
+				<div class="experiment__regval" id="experiment-val-reg">
+					<span class="experiment__bignum green"><span id="experiment-num-reg">0.02</span> years</span>
+					<span class="experiment__tiny">too thin to see at this scale</span>
+				</div>
+			</div>
+		</div>
+		<div class="experiment__row experiment__row--2" id="experiment-row-rag">
+			<div class="experiment__rowlabel">
+				<div class="experiment__rowname violet">LLM + RAG</div>
+				<div class="experiment__rowsub">language model with retrieval</div>
+			</div>
+			<div class="experiment__track">
+				<div class="experiment__bar experiment__bar--rag" id="experiment-bar-rag">
+					<span class="experiment__barval"><span id="experiment-num-rag">38.73</span> years</span>
+				</div>
+			</div>
+		</div>
+		<div class="experiment__uranus">
+			<div class="kicker" id="experiment-ur-title">Example: Uranus</div>
+			<div class="experiment__cards">
+				<div class="card experiment__ucard" id="experiment-ur-actual">
+					<div class="card__label">Actual period</div>
+					<div class="experiment__unum">84.02</div>
+					<div class="experiment__uunit">years</div>
+				</div>
+				<div class="card experiment__ucard experiment__ucard--good" id="experiment-ur-reg">
+					<div class="card__label">Linear regression</div>
+					<div class="experiment__unum green">84.00</div>
+					<div class="experiment__uunit">years</div>
+				</div>
+				<div class="card experiment__ucard experiment__ucard--bad" id="experiment-ur-rag">
+					<div class="card__label">LLM + RAG</div>
+					<div class="experiment__unum red">14.11</div>
+					<div class="experiment__uunit">years</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Beat 3: two reasons -->
+	<div class="experiment__b3" id="experiment-b3">
+		<div class="card experiment__reason" id="experiment-reason-a">
+			<div class="card__label">Reason 1</div>
+			<div class="experiment__rtitle">Similar text is not a nearby number</div>
+			<div class="experiment__queries">
+				<div class="experiment__q" id="experiment-q-0">
+					<span class="chip experiment__chip--query">Mars</span>
+					<div class="arrow experiment__qarrow"></div>
+					<div class="experiment__hits">
+						<span class="chip experiment__chip--doc">Earth</span><span class="chip experiment__chip--doc">Mercury</span><span class="chip experiment__chip--doc">Venus</span><span class="chip experiment__chip--doc">Neptune</span>
+					</div>
+				</div>
+				<div class="experiment__q" id="experiment-q-1">
+					<span class="chip experiment__chip--query">Uranus</span>
+					<div class="arrow experiment__qarrow"></div>
+					<div class="experiment__hits">
+						<span class="chip experiment__chip--doc">Earth</span><span class="chip experiment__chip--doc">Mercury</span><span class="chip experiment__chip--doc">Venus</span><span class="chip experiment__chip--doc">Neptune</span>
+					</div>
+				</div>
+				<div class="experiment__q" id="experiment-q-2">
+					<span class="chip experiment__chip--query">15 AU body</span>
+					<div class="arrow experiment__qarrow"></div>
+					<div class="experiment__hits">
+						<span class="chip experiment__chip--doc">Earth</span><span class="chip experiment__chip--doc">Mercury</span><span class="chip experiment__chip--doc">Venus</span><span class="chip experiment__chip--doc">Neptune</span>
+					</div>
+				</div>
+			</div>
+			<div class="experiment__note" id="experiment-note-a">Same 4 bodies retrieved for all 3 distances</div>
+		</div>
+		<div class="card experiment__reason" id="experiment-reason-b">
+			<div class="card__label">Reason 2</div>
+			<div class="experiment__rtitle">The model predicts words, it does not calculate</div>
+			<div class="experiment__q experiment__q--b" id="experiment-q-b">
+				<span class="chip experiment__chip--query">Uranus</span>
+				<div class="arrow experiment__qarrow"></div>
+				<div class="node node--model experiment__llm"><div class="node__name">LLM + RAG</div></div>
+				<div class="arrow experiment__qarrow"></div>
+				<div class="experiment__pred red">14.11</div>
+			</div>
+			<div class="experiment__actual" id="experiment-actual">actual: <span class="green">84.02</span> years</div>
+			<div class="experiment__note" id="experiment-note-b">Next-word prediction, not arithmetic</div>
+		</div>
+	</div>
+
+	<!-- Beat 4: rule of thumb -->
+	<div class="experiment__b4" id="experiment-b4">
+		<div class="card experiment__col" id="experiment-col-rag">
+			<div class="experiment__top" id="experiment-rag-top">
+				<svg class="experiment__icon" viewBox="0 0 120 140" aria-hidden="true">
+					<rect x="14" y="6" width="92" height="128" rx="10" fill="#1d2850" stroke="#fbbf24" stroke-width="4" />
+					<rect x="30" y="30" width="60" height="8" rx="4" fill="#9daad0" />
+					<rect x="30" y="52" width="48" height="8" rx="4" fill="#9daad0" />
+					<rect x="26" y="70" width="68" height="18" rx="5" fill="#fbbf24" />
+					<rect x="30" y="100" width="56" height="8" rx="4" fill="#9daad0" />
+				</svg>
+				<div class="experiment__cond">A fact you can quote from a document</div>
+			</div>
+			<div class="experiment__bottom" id="experiment-rag-tool">
+				<div class="arrow experiment__down"></div>
+				<div class="node node--retrieve experiment__tool"><div class="node__name">RAG</div></div>
+			</div>
+		</div>
+		<div class="card experiment__col" id="experiment-col-model">
+			<div class="experiment__top" id="experiment-model-top">
+				<svg class="experiment__icon" viewBox="0 0 160 140" aria-hidden="true">
+					<line x1="14" y1="126" x2="150" y2="126" stroke="#9daad0" stroke-width="4" />
+					<line x1="14" y1="126" x2="14" y2="8" stroke="#9daad0" stroke-width="4" />
+					<line x1="22" y1="116" x2="150" y2="14" stroke="#eef1fb" stroke-width="4" stroke-linecap="round" />
+					<circle cx="32" cy="106" r="7" fill="#9daad0" />
+					<circle cx="52" cy="98" r="7" fill="#9daad0" />
+					<circle cx="72" cy="80" r="7" fill="#9daad0" />
+					<circle cx="92" cy="68" r="7" fill="#9daad0" />
+					<circle cx="112" cy="50" r="7" fill="#9daad0" />
+					<circle cx="132" cy="30" r="7" fill="#9daad0" />
+				</svg>
+				<div class="experiment__cond">A number that follows a pattern</div>
+			</div>
+			<div class="experiment__bottom" id="experiment-model-tool">
+				<div class="arrow experiment__down"></div>
+				<div class="node experiment__tool"><div class="node__name">A trained model</div></div>
+			</div>
+		</div>
+	</div>
+</section>

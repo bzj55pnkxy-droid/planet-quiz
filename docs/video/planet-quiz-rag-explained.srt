@@ -1,0 +1,199 @@
+1
+00:00:00,800 --> 00:00:06,880
+This is Planet Quiz: a solar system trivia app that runs a language model on your own laptop.
+
+2
+00:00:07,480 --> 00:00:14,733
+In the next few minutes you will learn what RAG is, how its pipeline works, and exactly how this project uses it.
+
+3
+00:00:16,333 --> 00:00:22,499
+A language model is trained once. After that, its knowledge is frozen.
+
+4
+00:00:23,099 --> 00:00:29,456
+When you ask a question, it does not look anything up. It predicts the most likely next words from memory.
+
+5
+00:00:30,056 --> 00:00:38,269
+We asked our local model how many moons Saturn has. One run said 83. Another run said 146.
+
+6
+00:00:38,869 --> 00:00:47,957
+Three problems: the answer may be out of date, it may be made up (a hallucination), and you cannot check where it came from.
+
+7
+00:00:49,557 --> 00:00:53,077
+RAG stands for retrieval-augmented generation.
+
+8
+00:00:53,677 --> 00:01:02,765
+Think of an open-book exam: the model first gets the relevant pages, and then answers from those pages.
+
+9
+00:01:03,365 --> 00:01:08,357
+Retrieval: find the passages that match the question.
+
+10
+00:01:08,957 --> 00:01:15,421
+Augmented: paste those passages into the prompt. Generation: the model writes the answer from them.
+
+11
+00:01:16,021 --> 00:01:25,003
+RAG does not retrain the model. The weights stay the same. Only the input changes.
+
+12
+00:01:26,603 --> 00:01:35,925
+A RAG system has two phases. Indexing happens once: we turn our documents into a searchable store.
+
+13
+00:01:36,525 --> 00:01:38,701
+Answering happens on every question.
+
+14
+00:01:40,301 --> 00:01:53,720
+The sources: two PDF files from 2013, a NASA fact sheet set and a brochure from the German Aerospace Center. 142 pages in total.
+
+15
+00:01:54,320 --> 00:02:01,040
+Step 1, extraction: a library called PyMuPDF pulls the text out of each page.
+
+16
+00:02:01,640 --> 00:02:12,115
+Step 2, cleaning: repair words split across lines, and drop pages with almost no text. 119 pages remain.
+
+17
+00:02:12,715 --> 00:02:21,568
+Step 3, chunking: cut the text into chunks of about 1,000 characters, because a whole page is too big and too mixed to search well.
+
+18
+00:02:22,168 --> 00:02:31,725
+Neighbouring chunks overlap by 150 characters, so a sentence at the border is not cut in half. Result: 532 chunks.
+
+19
+00:02:32,325 --> 00:02:38,960
+Step 4, embedding: an embedding model turns each chunk into a long list of numbers, called a vector.
+
+20
+00:02:39,560 --> 00:02:43,912
+Texts with similar meaning get vectors that point in similar directions.
+
+21
+00:02:44,512 --> 00:02:52,341
+Step 5, storing: every vector is saved with its text and page number in a vector database called Chroma.
+
+22
+00:02:52,941 --> 00:02:58,019
+In our project all of this is one file, app/ingest.py, and you run it once.
+
+23
+00:02:59,619 --> 00:03:07,555
+Someone asks: how many moons does Saturn have? The question goes through the same embedding model and becomes a vector too.
+
+24
+00:03:08,155 --> 00:03:13,232
+Chroma compares the question vector with all 532 chunk vectors.
+
+25
+00:03:13,832 --> 00:03:22,280
+The measure is cosine similarity: the smaller the angle between two vectors, the closer the meaning. We keep the top 4 chunks.
+
+26
+00:03:22,880 --> 00:03:28,960
+Those four passages are numbered and placed in the prompt, together with the question and our instructions.
+
+27
+00:03:29,560 --> 00:03:36,515
+The local model, Gemma 3 with 4 billion parameters, running in Ollama, reads the prompt and writes the answer.
+
+28
+00:03:37,115 --> 00:03:43,195
+It cites the passage numbers, and the app shows those passages next to the answer, so you can check it.
+
+29
+00:03:44,795 --> 00:03:53,435
+ingest.py builds the index. rag.py does retrieval and calls the model.
+
+30
+00:03:54,035 --> 00:04:02,483
+prompts.py holds the instructions. main.py is the web server, and one HTML page is the user interface.
+
+31
+00:04:03,083 --> 00:04:14,539
+LangChain gives us the building blocks: a PDF loader, a text splitter, the embedding and chat clients for Ollama, and the Chroma store.
+
+32
+00:04:16,139 --> 00:04:24,224
+The instructions follow the 4T's. Traits: who the model is. A careful tutor that uses only the numbered passages.
+
+33
+00:04:24,824 --> 00:04:28,707
+Task: what to do. Answer the question and cite the passages.
+
+34
+00:04:29,307 --> 00:04:36,347
+Tone: encouraging and concise. Target: students aged 12 to 18, in at most four sentences.
+
+35
+00:04:36,947 --> 00:04:46,483
+Small words matter. We first called the model a quiz master, and it added its own quiz question to every answer. Calling it a tutor fixed that.
+
+36
+00:04:48,083 --> 00:04:54,568
+Here is the app. In Ask mode, one button runs the same question twice: with retrieval, and without.
+
+37
+00:04:55,168 --> 00:05:02,891
+With RAG: 53 known moons, taken from the 2013 sources, with the source passages listed below.
+
+38
+00:05:03,491 --> 00:05:07,117
+Without RAG, the model says 83, from memory.
+
+39
+00:05:07,717 --> 00:05:16,037
+53 is no longer true today. RAG makes the model faithful to its sources, not correct about the world.
+
+40
+00:05:16,637 --> 00:05:20,307
+The quality of your documents becomes the quality of your answers.
+
+41
+00:05:20,907 --> 00:05:26,816
+Quiz mode uses the same retrieval: the model writes a question from two retrieved passages.
+
+42
+00:05:27,416 --> 00:05:32,685
+The player answers in free text, and the model grades the answer against the reference answer.
+
+43
+00:05:34,285 --> 00:05:43,523
+RAG is not the right tool for everything. In a separate experiment we predicted how long a body takes to orbit the Sun, from its distance.
+
+44
+00:05:44,123 --> 00:05:54,683
+A linear regression on a log scale was off by 0.02 years on average. The language model with RAG was off by almost 39 years.
+
+45
+00:05:55,283 --> 00:06:00,893
+Retrieval finds similar text, not nearby numbers, and the model does not calculate.
+
+46
+00:06:01,493 --> 00:06:10,603
+Use RAG when the answer is a fact you can quote from a document. Use a trained model when the answer is a number that follows a pattern.
+
+47
+00:06:12,203 --> 00:06:25,557
+RAG has limits. If retrieval misses the right passage, the answer is wrong or empty. A small model can still misread a passage. Every answer takes several seconds on a laptop.
+
+48
+00:06:26,157 --> 00:06:30,531
+Index once: extract, clean, chunk, embed, store.
+
+49
+00:06:31,131 --> 00:06:36,443
+For every question: embed, retrieve the top 4, build the prompt, generate.
+
+50
+00:06:37,043 --> 00:06:41,011
+The model stays the same. What changes is what it gets to read.

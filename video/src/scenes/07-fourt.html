@@ -1,0 +1,69 @@
+<section class="scene" id="scene-fourt">
+	<!-- Beats 1-3: the system message, one T at a time -->
+	<div class="card fourt__sheet" id="fourt-sheet">
+		<div class="fourt__head">
+			<span class="fourt__tag">system message</span>
+			<span class="fourt__file">app/prompts.py</span>
+		</div>
+		<div class="fourt__row" id="fourt-row-traits">
+			<div class="fourt__label">
+				<div class="fourt__key">TRAITS</div>
+				<div class="fourt__gloss" id="fourt-g-traits">who the model is</div>
+			</div>
+			<div class="fourt__quote" id="fourt-q-traits">
+				You are <span class="fourt__mark" id="fourt-m-traits-1">a careful planetary-science tutor</span> in a trivia app. You <span class="fourt__mark" id="fourt-m-traits-2">rely only on the numbered source passages</span> you are given and never add facts from memory. ...
+			</div>
+		</div>
+		<div class="fourt__row" id="fourt-row-task">
+			<div class="fourt__label">
+				<div class="fourt__key">TASK</div>
+				<div class="fourt__gloss" id="fourt-g-task">what to do</div>
+			</div>
+			<div class="fourt__quote" id="fourt-q-task">
+				<span class="fourt__mark" id="fourt-m-task-1">Answer the player's question</span> using only the numbered passages in the user message. Start with the direct answer, then <span class="fourt__mark" id="fourt-m-task-2">cite the passages you used like [1] or [2]</span>. ...
+			</div>
+		</div>
+		<div class="fourt__row" id="fourt-row-tone">
+			<div class="fourt__label">
+				<div class="fourt__key">TONE</div>
+				<div class="fourt__gloss" id="fourt-g-tone">how it sounds</div>
+			</div>
+			<div class="fourt__quote" id="fourt-q-tone">
+				<span class="fourt__mark" id="fourt-m-tone-1">Encouraging and concise.</span> Use plain language and no unexplained jargon. ...
+			</div>
+		</div>
+		<div class="fourt__row" id="fourt-row-target">
+			<div class="fourt__label">
+				<div class="fourt__key">TARGET</div>
+				<div class="fourt__gloss" id="fourt-g-target">who reads it</div>
+			</div>
+			<div class="fourt__quote" id="fourt-q-target">
+				Your readers are <span class="fourt__mark" id="fourt-m-target-1">students aged about 12 to 18</span> with no astronomy background. ... Keep every reply short: <span class="fourt__mark" id="fourt-m-target-2">at most 4 sentences.</span>
+			</div>
+		</div>
+	</div>
+
+	<!-- Beat 4: the same question, two different persona words -->
+	<div class="card fourt__cmp fourt__cmp--before" id="fourt-before">
+		<div class="fourt__cmphead">Before</div>
+		<div class="fourt__slot">TRAITS says the model is a</div>
+		<div class="fourt__persona fourt__persona--bad" id="fourt-persona-bad">quiz master</div>
+		<div class="fourt__slot">ANSWER</div>
+		<div class="fourt__ans" id="fourt-ans-bad">Saturn has 53 known moons (plus 9 awaiting official confirmation).</div>
+		<div class="fourt__extra" id="fourt-extra">
+			<div class="fourt__extratext">Quiz question: ...</div>
+			<div class="fourt__extranote">added by the model, never asked for</div>
+		</div>
+	</div>
+	<div class="card fourt__cmp fourt__cmp--after" id="fourt-after">
+		<div class="fourt__cmphead">After</div>
+		<div class="fourt__slot">TRAITS says the model is a</div>
+		<div class="fourt__persona fourt__persona--good" id="fourt-persona-good">tutor in a trivia app</div>
+		<div class="fourt__slot">ANSWER</div>
+		<div class="fourt__ans" id="fourt-ans-good">Saturn has 53 known moons (plus 9 awaiting official confirmation).</div>
+		<svg class="fourt__check" id="fourt-check" viewBox="0 0 64 64" width="72" height="72">
+			<circle cx="32" cy="32" r="30" fill="rgba(74,222,128,0.18)" stroke="#4ade80" stroke-width="4" />
+			<path d="M18 33 L28 43 L47 22" fill="none" stroke="#4ade80" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+		</svg>
+	</div>
+</section>

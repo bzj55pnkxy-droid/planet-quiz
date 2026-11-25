@@ -1,0 +1,622 @@
+#scene-problem .problem__layer {
+	position: absolute;
+	inset: 0;
+}
+
+/* ---------- model card (beats 1 and 2) ---------- */
+#scene-problem .problem__model {
+	position: absolute;
+	left: 560px;
+	top: 0;
+	width: 360px;
+	height: 270px;
+	box-shadow: 0 0 0 0 rgba(183, 148, 255, 0);
+}
+#scene-problem .problem__net {
+	width: 200px;
+	height: 137px;
+}
+#scene-problem .problem__net line {
+	stroke: #b794ff;
+	stroke-opacity: 0.32;
+	stroke-width: 2;
+}
+#scene-problem .problem__net circle {
+	fill: #b794ff;
+}
+
+/* ---------- beat 1: timeline ---------- */
+#scene-problem .problem__stamp {
+	position: absolute;
+	left: 900px;
+	top: 96px;
+	padding: 12px 30px;
+	border: 6px solid var(--violet);
+	border-radius: 12px;
+	background: rgba(11, 16, 32, 0.9);
+	color: var(--violet);
+	font-family: var(--mono);
+	font-size: 48px;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	white-space: nowrap;
+}
+#scene-problem .problem__axis {
+	position: absolute;
+	left: 60px;
+	top: 570px;
+	width: 1656px;
+	height: 4px;
+	border-radius: 2px;
+	background: var(--muted);
+}
+#scene-problem .problem__axis::after {
+	content: "";
+	position: absolute;
+	right: -2px;
+	top: 50%;
+	width: 18px;
+	height: 18px;
+	border-top: 4px solid var(--muted);
+	border-right: 4px solid var(--muted);
+	transform: translateY(-50%) rotate(45deg);
+}
+#scene-problem .problem__time-label {
+	position: absolute;
+	left: 1556px;
+	top: 596px;
+	width: 160px;
+	text-align: right;
+	font-family: var(--mono);
+	font-size: 26px;
+	color: var(--muted);
+}
+#scene-problem .problem__bar {
+	position: absolute;
+	left: 60px;
+	top: 440px;
+	width: 900px;
+	height: 84px;
+	border: 3px solid var(--violet);
+	border-radius: 14px 0 0 14px;
+	background: linear-gradient(90deg, rgba(183, 148, 255, 0.3), rgba(183, 148, 255, 0.62));
+	box-shadow: 0px 0px 0px 0px rgba(124, 156, 255, 0);
+}
+#scene-problem .problem__bar-text {
+	position: absolute;
+	left: 60px;
+	top: 440px;
+	width: 900px;
+	height: 84px;
+	line-height: 84px;
+	text-align: center;
+	font-size: 34px;
+	font-weight: 700;
+}
+#scene-problem .problem__future {
+	position: absolute;
+	left: 960px;
+	top: 440px;
+	width: 0;
+	height: 84px;
+	overflow: hidden;
+	border: 3px dashed rgba(157, 170, 208, 0.6);
+	border-left: none;
+	border-radius: 0 14px 14px 0;
+}
+#scene-problem .problem__future span {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 600px;
+	line-height: 78px;
+	text-align: center;
+	font-size: 30px;
+	color: var(--muted);
+	white-space: nowrap;
+}
+#scene-problem .problem__mark {
+	position: absolute;
+	left: 958px;
+	top: 420px;
+	width: 4px;
+	height: 180px;
+}
+#scene-problem .problem__mark i {
+	position: absolute;
+	inset: 0;
+	border-radius: 2px;
+	background: var(--text);
+}
+#scene-problem .problem__mark b {
+	position: absolute;
+	left: -140px;
+	top: 192px;
+	width: 284px;
+	text-align: center;
+	font-size: 32px;
+	font-weight: 700;
+	white-space: nowrap;
+}
+#scene-problem .problem__mark--cutoff i {
+	background: var(--violet);
+}
+#scene-problem .problem__mark--cutoff b {
+	color: var(--violet);
+}
+#scene-problem .problem__lock {
+	position: absolute;
+	left: 924px;
+	top: 344px;
+	width: 72px;
+	height: 72px;
+}
+#scene-problem .problem__lock svg {
+	width: 100%;
+	height: 100%;
+}
+
+/* ---------- beat 2: question in, words out, no look-up ---------- */
+#scene-problem .problem__ask {
+	position: absolute;
+	left: 0;
+	top: 40px;
+	width: 480px;
+	height: 190px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+#scene-problem .problem__ask-text {
+	font-size: 38px;
+	font-weight: 600;
+	line-height: 1.25;
+}
+#scene-problem .problem__arrow {
+	position: absolute;
+	top: 133px;
+	width: 58px;
+}
+#scene-problem #problem-arrow-in {
+	left: 492px;
+}
+#scene-problem #problem-arrow-out {
+	left: 932px;
+}
+#scene-problem .problem__out {
+	position: absolute;
+	left: 1010px;
+	top: 20px;
+	width: 766px;
+}
+#scene-problem .problem__out-label {
+	font-family: var(--mono);
+	font-size: 24px;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--violet);
+}
+#scene-problem .problem__slots {
+	display: flex;
+	gap: 14px;
+	margin-top: 22px;
+}
+#scene-problem .problem__slot {
+	position: relative;
+	height: 88px;
+}
+#scene-problem .problem__slot--1 {
+	width: 190px;
+}
+#scene-problem .problem__slot--2 {
+	width: 130px;
+}
+#scene-problem .problem__slot--3 {
+	width: 110px;
+}
+#scene-problem .problem__slot--4 {
+	width: 196px;
+}
+#scene-problem .problem__slot--5 {
+	width: 70px;
+}
+#scene-problem .problem__ghost,
+#scene-problem .problem__word {
+	position: absolute;
+	inset: 0;
+	display: grid;
+	place-items: center;
+	border-radius: 16px;
+	font-size: 44px;
+	font-weight: 700;
+}
+#scene-problem .problem__ghost {
+	border: 3px dashed var(--border);
+	color: var(--border);
+}
+#scene-problem .problem__word {
+	border: 3px solid var(--violet);
+	background: rgba(183, 148, 255, 0.16);
+}
+#scene-problem .problem__memory {
+	margin-top: 36px;
+	font-size: 28px;
+	padding: 10px 24px;
+	border-color: var(--violet);
+	color: var(--violet);
+}
+#scene-problem .problem__path {
+	position: absolute;
+	left: 738px;
+	top: 276px;
+	width: 4px;
+	height: 212px;
+	background: repeating-linear-gradient(180deg, var(--muted) 0 14px, transparent 14px 26px);
+	transform-origin: top center;
+}
+#scene-problem .problem__path-head {
+	position: absolute;
+	left: 726px;
+	top: 486px;
+	width: 0;
+	height: 0;
+	border-left: 14px solid transparent;
+	border-right: 14px solid transparent;
+	border-top: 22px solid var(--muted);
+}
+#scene-problem .problem__docs {
+	position: absolute;
+	left: 560px;
+	top: 516px;
+	width: 360px;
+	height: 170px;
+}
+#scene-problem .problem__no {
+	position: absolute;
+	left: 698px;
+	top: 345px;
+	width: 84px;
+	height: 84px;
+}
+#scene-problem .problem__no svg {
+	width: 100%;
+	height: 100%;
+}
+#scene-problem .problem__lookup {
+	position: absolute;
+	left: 800px;
+	top: 362px;
+	font-size: 36px;
+	font-weight: 600;
+	color: var(--muted);
+	white-space: nowrap;
+}
+#scene-problem .problem__strike {
+	position: absolute;
+	left: -6px;
+	right: -6px;
+	top: 50%;
+	height: 5px;
+	margin-top: -2px;
+	border-radius: 3px;
+	background: var(--red);
+	transform-origin: left center;
+}
+
+/* ---------- beat 3: same question, two answers ---------- */
+#scene-problem .problem__kicker {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 8px;
+	text-align: center;
+}
+#scene-problem .problem__q {
+	position: absolute;
+	left: 388px;
+	top: 62px;
+	width: 1000px;
+	height: 98px;
+	display: grid;
+	place-items: center;
+	padding: 0 32px;
+	font-size: 44px;
+	font-weight: 700;
+}
+#scene-problem .problem__local {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 178px;
+	width: fit-content;
+	margin: 0 auto;
+	font-size: 26px;
+	color: var(--violet);
+	border-color: var(--violet);
+}
+#scene-problem .problem__run {
+	position: absolute;
+	top: 258px;
+	width: 820px;
+	height: 440px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	padding: 24px 32px 30px;
+}
+#scene-problem .problem__run--1 {
+	left: 0;
+}
+#scene-problem .problem__run--2 {
+	left: 956px;
+}
+#scene-problem .problem__run-head {
+	align-self: flex-start;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	font-family: var(--mono);
+	font-size: 28px;
+	color: var(--muted);
+}
+#scene-problem .problem__avatar {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background: radial-gradient(circle at 32% 30%, #e4d5ff, var(--violet) 60%, #6b46c1);
+}
+#scene-problem .problem__num {
+	font-size: 250px;
+}
+#scene-problem .problem__chips {
+	display: flex;
+	gap: 18px;
+}
+#scene-problem .problem__chips .chip {
+	font-size: 28px;
+	padding: 10px 24px;
+}
+#scene-problem .problem__chip--sure {
+	border-color: var(--violet);
+	color: var(--violet);
+}
+#scene-problem .problem__chip--nosrc {
+	border-color: var(--red);
+	color: var(--red);
+}
+#scene-problem .problem__neq {
+	position: absolute;
+	left: 820px;
+	top: 410px;
+	width: 136px;
+	text-align: center;
+	font-size: 110px;
+	font-weight: 800;
+	line-height: 1;
+	color: var(--red);
+}
+
+/* ---------- beat 4: three problem cards ---------- */
+#scene-problem .problem__card {
+	position: absolute;
+	top: 70px;
+	width: 544px;
+	height: 600px;
+	padding: 32px;
+}
+#scene-problem .problem__card--1 {
+	left: 0;
+}
+#scene-problem .problem__card--2 {
+	left: 616px;
+}
+#scene-problem .problem__card--3 {
+	left: 1232px;
+}
+#scene-problem .problem__head {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+#scene-problem .problem__badge {
+	display: grid;
+	place-items: center;
+	flex: none;
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	background: var(--red);
+	color: var(--bg);
+	font-size: 36px;
+	font-weight: 800;
+}
+#scene-problem .problem__title {
+	font-size: 48px;
+	font-weight: 700;
+	line-height: 1.05;
+}
+#scene-problem .problem__sub {
+	margin-top: 18px;
+	font-size: 32px;
+	color: var(--muted);
+}
+#scene-problem .problem__art {
+	position: relative;
+	margin-top: 30px;
+	height: 340px;
+}
+/* card 1: a small timeline */
+#scene-problem .problem__m-bar {
+	position: absolute;
+	left: 0;
+	top: 110px;
+	width: 236px;
+	height: 66px;
+	line-height: 62px;
+	text-align: center;
+	border: 3px solid var(--violet);
+	border-radius: 12px 0 0 12px;
+	background: linear-gradient(90deg, rgba(183, 148, 255, 0.3), rgba(183, 148, 255, 0.62));
+	font-size: 28px;
+	font-weight: 700;
+}
+#scene-problem .problem__m-future {
+	position: absolute;
+	left: 236px;
+	top: 110px;
+	width: 240px;
+	height: 66px;
+	line-height: 60px;
+	text-align: center;
+	border: 3px dashed rgba(157, 170, 208, 0.6);
+	border-left: none;
+	border-radius: 0 12px 12px 0;
+	font-size: 28px;
+	color: var(--muted);
+}
+#scene-problem .problem__m-axis {
+	position: absolute;
+	left: 0;
+	top: 216px;
+	width: 476px;
+	height: 4px;
+	border-radius: 2px;
+	background: var(--muted);
+}
+#scene-problem .problem__m-line {
+	position: absolute;
+	top: 80px;
+	width: 4px;
+	height: 150px;
+	border-radius: 2px;
+}
+#scene-problem .problem__m-line--cut {
+	left: 234px;
+	background: var(--violet);
+}
+#scene-problem .problem__m-line--today {
+	left: 440px;
+	background: var(--text);
+}
+#scene-problem .problem__m-label {
+	position: absolute;
+	top: 242px;
+	width: 160px;
+	text-align: center;
+	font-size: 28px;
+	font-weight: 700;
+}
+#scene-problem .problem__m-label--cut {
+	left: 156px;
+	color: var(--violet);
+}
+#scene-problem .problem__m-label--today {
+	left: 382px;
+	width: 120px;
+}
+#scene-problem .problem__m-lock {
+	position: absolute;
+	left: 206px;
+	top: 6px;
+	width: 60px;
+	height: 60px;
+}
+/* card 2: two different answers */
+#scene-problem .problem__art--runs {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+#scene-problem .problem__mini {
+	display: grid;
+	place-items: center;
+	width: 190px;
+	height: 170px;
+	border: 2px solid var(--border);
+	border-radius: 20px;
+	background: var(--surface-2);
+	font-size: 84px;
+	font-weight: 800;
+	font-variant-numeric: tabular-nums;
+}
+#scene-problem .problem__mini--small {
+	width: 150px;
+	height: 130px;
+	font-size: 68px;
+}
+#scene-problem .problem__mini-neq {
+	width: 64px;
+	text-align: center;
+	font-size: 64px;
+	font-weight: 800;
+	color: var(--red);
+}
+#scene-problem .problem__halluc {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 14px;
+	width: fit-content;
+	margin: 0 auto;
+	border-color: var(--red);
+	color: var(--red);
+	font-size: 30px;
+	padding: 10px 26px;
+}
+/* card 3: an answer with nothing behind it */
+#scene-problem .problem__art--source {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 14px;
+}
+#scene-problem .problem__dash-arrow {
+	position: relative;
+	width: 60px;
+	height: 0;
+	border-top: 4px dashed var(--muted);
+}
+#scene-problem .problem__dash-arrow::after {
+	content: "";
+	position: absolute;
+	right: -2px;
+	top: -11px;
+	width: 16px;
+	height: 16px;
+	border-top: 4px solid var(--muted);
+	border-right: 4px solid var(--muted);
+	transform: rotate(45deg);
+}
+#scene-problem .problem__ghost-doc {
+	display: grid;
+	place-items: center;
+	width: 150px;
+	height: 130px;
+	border: 3px dashed var(--amber);
+	border-radius: 16px;
+	font-size: 70px;
+	font-weight: 800;
+	color: var(--amber);
+}
+#scene-problem .problem__where {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 14px;
+	text-align: center;
+	font-size: 32px;
+	font-weight: 600;
+	color: var(--red);
+}
+#scene-problem .problem__big {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 270px;
+	text-align: center;
+	font-size: 120px;
+	font-weight: 800;
+}

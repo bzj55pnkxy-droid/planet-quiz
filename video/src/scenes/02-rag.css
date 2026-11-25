@@ -1,0 +1,562 @@
+#scene-rag .rag__layer {
+	position: absolute;
+	inset: 0;
+}
+#scene-rag .rag__c-r {
+	color: var(--accent);
+}
+#scene-rag .rag__c-a {
+	color: var(--amber);
+}
+#scene-rag .rag__c-g {
+	color: var(--violet);
+}
+#scene-rag .rag__bg-r {
+	background: var(--accent);
+}
+#scene-rag .rag__bg-a {
+	background: var(--amber);
+}
+#scene-rag .rag__bg-g {
+	background: var(--violet);
+}
+
+/* ---------- beat 1: R, A, G ---------- */
+#scene-rag .rag__col {
+	position: absolute;
+	top: 120px;
+	width: 560px;
+	text-align: center;
+}
+#scene-rag .rag__col--1 {
+	left: 0;
+}
+#scene-rag .rag__col--2 {
+	left: 608px;
+}
+#scene-rag .rag__col--3 {
+	left: 1216px;
+}
+#scene-rag .rag__letter {
+	font-size: 380px;
+	font-weight: 800;
+	line-height: 1;
+	letter-spacing: -0.02em;
+}
+#scene-rag .rag__word {
+	margin-top: 24px;
+	font-size: 84px;
+	font-weight: 700;
+	white-space: nowrap;
+}
+#scene-rag .rag__word b {
+	font-weight: 800;
+}
+
+/* ---------- vertical arrows (shared by beats 2, 3, 4 and 5) ---------- */
+#scene-rag .rag__v,
+#scene-rag .rag__down {
+	position: absolute;
+	width: 4px;
+	height: 56px;
+	border-radius: 2px;
+	background: var(--muted);
+}
+#scene-rag .rag__v::after,
+#scene-rag .rag__down::after {
+	content: "";
+	position: absolute;
+	left: -6px;
+	bottom: -2px;
+	width: 16px;
+	height: 16px;
+	border-right: 4px solid var(--muted);
+	border-bottom: 4px solid var(--muted);
+	transform: rotate(45deg);
+}
+#scene-rag .rag__v--dashed {
+	background: repeating-linear-gradient(180deg, rgba(157, 170, 208, 0.55) 0 10px, transparent 10px 18px);
+}
+#scene-rag .rag__v--dashed::after {
+	border-color: rgba(157, 170, 208, 0.55);
+}
+
+/* ---------- beat 2: closed book versus open book ---------- */
+#scene-rag .rag__exam {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 4px;
+	text-align: center;
+	font-size: 32px;
+	color: var(--amber);
+}
+#scene-rag .rag__panel {
+	position: absolute;
+	top: 68px;
+	width: 848px;
+	height: 650px;
+	padding: 0;
+}
+#scene-rag .rag__panel--closed {
+	left: 0;
+}
+#scene-rag .rag__panel--open {
+	left: 928px;
+	border-color: var(--amber);
+}
+#scene-rag .rag__panel-title {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 20px;
+	text-align: center;
+	font-size: 48px;
+	font-weight: 700;
+}
+#scene-rag .rag__icon {
+	position: absolute;
+	left: 314px;
+	top: 92px;
+	width: 220px;
+	height: 150px;
+}
+#scene-rag .rag__panel .rag__v {
+	left: 422px;
+}
+#scene-rag #rag-closed-a1,
+#scene-rag #rag-open-a1 {
+	top: 252px;
+	height: 62px;
+}
+#scene-rag #rag-closed-a2,
+#scene-rag #rag-open-a2 {
+	top: 442px;
+	height: 60px;
+}
+#scene-rag .rag__model {
+	position: absolute;
+	left: 244px;
+	top: 326px;
+	width: 360px;
+	height: 108px;
+	padding: 0;
+}
+#scene-rag .rag__model .node__name {
+	font-size: 38px;
+}
+#scene-rag .rag__answer {
+	position: absolute;
+	left: 144px;
+	top: 516px;
+	width: 560px;
+	height: 100px;
+	display: grid;
+	place-items: center;
+	border: 3px solid var(--border);
+	border-radius: 20px;
+	background: var(--surface-2);
+	font-size: 38px;
+	font-weight: 700;
+}
+#scene-rag .rag__answer--good {
+	border-color: var(--green);
+	background: rgba(74, 222, 128, 0.1);
+}
+#scene-rag .rag__flying {
+	position: absolute;
+	left: 392px;
+	top: 236px;
+	width: 64px;
+	height: 44px;
+	border: 3px solid var(--amber);
+	border-radius: 8px;
+	background: rgba(251, 191, 36, 0.25);
+}
+#scene-rag .rag__x {
+	position: absolute;
+	left: 404px;
+	top: 254px;
+	width: 40px;
+	height: 40px;
+	display: grid;
+	place-items: center;
+	border: 3px solid var(--red);
+	border-radius: 50%;
+	background: var(--surface);
+	color: var(--red);
+	font-size: 32px;
+	font-weight: 700;
+	line-height: 1;
+	padding-bottom: 4px;
+}
+
+/* ---------- beats 3 and 4: three steps ---------- */
+#scene-rag .rag__step {
+	position: absolute;
+	top: 30px;
+	width: 540px;
+	height: 690px;
+	padding: 28px;
+	box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+}
+#scene-rag .rag__step--1 {
+	left: 0;
+}
+#scene-rag .rag__step--2 {
+	left: 618px;
+}
+#scene-rag .rag__step--3 {
+	left: 1236px;
+}
+#scene-rag .rag__step-head {
+	display: flex;
+	align-items: center;
+	gap: 18px;
+}
+#scene-rag .rag__step-num {
+	display: grid;
+	place-items: center;
+	flex: none;
+	width: 58px;
+	height: 58px;
+	border-radius: 50%;
+	color: var(--bg);
+	font-size: 34px;
+	font-weight: 800;
+}
+#scene-rag .rag__step-name {
+	font-size: 50px;
+	font-weight: 700;
+}
+#scene-rag .rag__step-sub {
+	margin-top: 14px;
+	font-size: 30px;
+	color: var(--muted);
+}
+#scene-rag .rag__step-body {
+	position: relative;
+	margin-top: 30px;
+	height: 480px;
+}
+#scene-rag .rag__link {
+	position: absolute;
+	top: 372px;
+	width: 60px;
+}
+#scene-rag .rag__link--1 {
+	left: 548px;
+}
+#scene-rag .rag__link--2 {
+	left: 1166px;
+}
+/* step 1 */
+#scene-rag .rag__q {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	height: 114px;
+	display: grid;
+	place-items: center;
+	padding: 0 20px;
+	border: 2px solid var(--accent);
+	border-radius: 16px;
+	background: rgba(124, 156, 255, 0.1);
+	text-align: center;
+	font-size: 32px;
+	font-weight: 700;
+	line-height: 1.2;
+}
+#scene-rag #rag-s1-down {
+	left: 238px;
+	top: 126px;
+	height: 40px;
+}
+#scene-rag .rag__grid {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 180px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 16px;
+}
+#scene-rag .rag__passage {
+	height: 130px;
+	padding: 14px 18px;
+	border: 2px solid var(--amber);
+	border-radius: 16px;
+	background: rgba(251, 191, 36, 0.08);
+}
+#scene-rag .rag__passage span {
+	display: block;
+	font-family: var(--mono);
+	font-size: 26px;
+	font-weight: 700;
+	color: var(--amber);
+}
+#scene-rag .rag__passage i {
+	display: block;
+	height: 10px;
+	margin-top: 14px;
+	border-radius: 5px;
+	background: rgba(157, 170, 208, 0.45);
+}
+#scene-rag .rag__passage i:nth-of-type(1) {
+	width: 90%;
+}
+#scene-rag .rag__passage i:nth-of-type(2) {
+	width: 58%;
+}
+/* step 2 */
+#scene-rag .rag__sheet-title {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	font-family: var(--mono);
+	font-size: 26px;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--muted);
+}
+#scene-rag .rag__sheet-rows {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 46px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 14px;
+	border: 2px solid var(--border);
+	border-radius: 16px;
+	background: #0e1530;
+}
+#scene-rag .rag__prow {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	height: 56px;
+	padding: 0 16px;
+	border: 2px solid var(--amber);
+	border-radius: 12px;
+	background: rgba(251, 191, 36, 0.08);
+}
+#scene-rag .rag__prow span {
+	font-family: var(--mono);
+	font-size: 26px;
+	font-weight: 700;
+	color: var(--amber);
+}
+#scene-rag .rag__prow i {
+	flex: 1;
+	height: 10px;
+	border-radius: 5px;
+	background: rgba(157, 170, 208, 0.45);
+}
+#scene-rag .rag__qrow {
+	display: grid;
+	place-items: center;
+	height: 84px;
+	padding: 0 14px;
+	border: 2px solid var(--accent);
+	border-radius: 12px;
+	background: rgba(124, 156, 255, 0.1);
+	text-align: center;
+	font-size: 28px;
+	font-weight: 600;
+	line-height: 1.2;
+}
+/* step 3 */
+#scene-rag .rag__s3-model {
+	position: absolute;
+	left: 40px;
+	right: 40px;
+	top: 0;
+	height: 130px;
+}
+#scene-rag .rag__s3-model .node__name {
+	font-size: 36px;
+}
+#scene-rag #rag-s3-down {
+	left: 238px;
+	top: 142px;
+	height: 48px;
+}
+#scene-rag .rag__ans {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 214px;
+	height: 250px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 18px;
+	border: 3px solid var(--green);
+	border-radius: 20px;
+	background: rgba(74, 222, 128, 0.08);
+}
+#scene-rag .rag__ans-line {
+	display: flex;
+	align-items: center;
+	gap: 22px;
+}
+#scene-rag .rag__ans-num {
+	font-size: 140px;
+}
+#scene-rag .rag__ans-unit {
+	font-size: 42px;
+	font-weight: 700;
+	line-height: 1.15;
+}
+#scene-rag .rag__cite {
+	border-color: var(--amber);
+	color: var(--amber);
+	font-size: 28px;
+	padding: 8px 22px;
+}
+
+/* ---------- beat 5: weights stay, input changes ---------- */
+#scene-rag .rag__w-title {
+	position: absolute;
+	top: 0;
+	width: 780px;
+	text-align: center;
+	font-size: 48px;
+	font-weight: 700;
+}
+#scene-rag .rag__w-title--l {
+	left: 0;
+}
+#scene-rag .rag__w-title--r {
+	left: 996px;
+}
+#scene-rag .rag__wsheet {
+	position: absolute;
+	width: 500px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	gap: 6px;
+	padding: 12px;
+	overflow: hidden;
+	border: 2px solid var(--border);
+	border-radius: 16px;
+	background: #0e1530;
+}
+#scene-rag .rag__wsheet--l {
+	left: 140px;
+	bottom: 450px;
+	height: 80px;
+}
+#scene-rag .rag__wsheet--r {
+	left: 1136px;
+	bottom: 450px;
+	height: 80px;
+}
+#scene-rag .rag__wsheet .rag__prow {
+	flex: none;
+	height: 34px;
+	padding: 0 14px;
+}
+#scene-rag .rag__wsheet .rag__prow span {
+	font-size: 24px;
+}
+#scene-rag .rag__wsheet .rag__qrow {
+	flex: none;
+	height: 48px;
+	font-size: 24px;
+	white-space: nowrap;
+}
+#scene-rag .rag__v--wl {
+	left: 388px;
+	top: 342px;
+	height: 56px;
+}
+#scene-rag .rag__v--wr {
+	left: 1384px;
+	top: 342px;
+	height: 56px;
+}
+#scene-rag .rag__block {
+	position: absolute;
+	top: 414px;
+	width: 420px;
+	height: 210px;
+	border: 2px solid var(--violet);
+	border-radius: 20px;
+	background: var(--surface);
+	box-shadow: rgba(74, 222, 128, 0) 0px 0px 0px 0px;
+}
+#scene-rag .rag__block--l {
+	left: 180px;
+}
+#scene-rag .rag__block--r {
+	left: 1176px;
+}
+#scene-rag .rag__grid-dots {
+	position: absolute;
+	left: 38px;
+	top: 28px;
+	width: 340px;
+	height: 100px;
+}
+#scene-rag .rag__block-name {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 148px;
+	text-align: center;
+	font-size: 34px;
+	font-weight: 700;
+}
+#scene-rag .rag__retrain {
+	position: absolute;
+	left: 1418px;
+	top: 346px;
+	font-size: 36px;
+	font-weight: 600;
+	color: var(--muted);
+	white-space: nowrap;
+}
+#scene-rag .rag__strike {
+	position: absolute;
+	left: -6px;
+	right: -6px;
+	top: 50%;
+	height: 5px;
+	margin-top: -2px;
+	border-radius: 3px;
+	background: var(--red);
+	transform-origin: left center;
+}
+#scene-rag .rag__mid {
+	position: absolute;
+	left: 780px;
+	width: 216px;
+	text-align: center;
+}
+#scene-rag .rag__mid b {
+	display: block;
+	font-size: 120px;
+	font-weight: 800;
+	line-height: 1;
+}
+#scene-rag .rag__mid span {
+	display: block;
+	margin-top: 8px;
+	font-family: var(--mono);
+	font-size: 28px;
+	font-weight: 700;
+	line-height: 1.25;
+}
+#scene-rag .rag__mid--neq {
+	top: 120px;
+}
+#scene-rag .rag__mid--eq {
+	top: 440px;
+}

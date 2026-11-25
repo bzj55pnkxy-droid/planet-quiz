@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=1920, height=1080" />
+		<title>Planet Quiz: RAG explained</title>
+		<link rel="stylesheet" href="./styles.css" />
+		<script src="./vendor/gsap.min.js"></script>
+	</head>
+	<body>
+		<div
+			id="root"
+			data-composition-id="root"
+			data-start="0"
+			data-width="1920"
+			data-height="1080"
+			data-duration="60"
+			data-fps="30"
+		>
+			<div class="backdrop"></div>
+
+			<!-- Top band: which chapter we are in, and how far through the video. -->
+			<header class="topbar">
+				<div class="topbar__brand"><span class="topbar__planet"></span>Planet Quiz</div>
+				<div class="topbar__chapters" id="chapter-titles"></div>
+				<div class="topbar__progress" id="chapter-progress"></div>
+			</header>
+
+			<!-- One <section class="scene" id="scene-CHAPTER"> per chapter, from src/scenes/. -->
+			<main class="stage">
+				<!-- SCENES -->
+			</main>
+
+			<!-- Bottom band: the sentence being spoken. -->
+			<footer class="captions" id="captions"></footer>
+		</div>
+		<script src="./core.js"></script>
+	</body>
+</html>

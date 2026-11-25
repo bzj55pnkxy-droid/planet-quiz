@@ -1,0 +1,404 @@
+#scene-experiment .experiment__b1,
+#scene-experiment .experiment__b2,
+#scene-experiment .experiment__b3,
+#scene-experiment .experiment__b4 {
+	position: absolute;
+	inset: 0;
+}
+
+/* ---------- beat 1: orbits and the task ---------- */
+#scene-experiment .experiment__orbits {
+	position: absolute;
+	left: 40px;
+	top: 30px;
+	width: 720px;
+	height: 720px;
+}
+#scene-experiment .experiment__ring {
+	position: absolute;
+	border-radius: 50%;
+	border: 2px solid rgba(157, 170, 208, 0.38);
+}
+#scene-experiment #experiment-ring-0 {
+	width: 124px;
+	height: 124px;
+	left: 298px;
+	top: 298px;
+}
+#scene-experiment #experiment-ring-1 {
+	width: 236px;
+	height: 236px;
+	left: 242px;
+	top: 242px;
+}
+#scene-experiment #experiment-ring-2 {
+	width: 356px;
+	height: 356px;
+	left: 182px;
+	top: 182px;
+	border-color: rgba(124, 156, 255, 0.55);
+}
+#scene-experiment #experiment-ring-3 {
+	width: 490px;
+	height: 490px;
+	left: 115px;
+	top: 115px;
+}
+#scene-experiment #experiment-ring-4 {
+	width: 650px;
+	height: 650px;
+	left: 35px;
+	top: 35px;
+}
+#scene-experiment .experiment__planet {
+	position: absolute;
+	left: calc(50% - 11px);
+	top: -12px;
+	width: 22px;
+	height: 22px;
+	border-radius: 50%;
+	background: #d7def5;
+}
+#scene-experiment .experiment__planet--earth {
+	background: var(--accent);
+	box-shadow: 0 0 18px rgba(124, 156, 255, 0.7);
+}
+#scene-experiment .experiment__sun {
+	position: absolute;
+	left: 330px;
+	top: 330px;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background: radial-gradient(circle at 35% 30%, #fff1c2, #fbbf24 55%, #c9860a);
+	box-shadow: 0 0 50px rgba(251, 191, 36, 0.45);
+}
+#scene-experiment .experiment__plabel {
+	position: absolute;
+	left: 360px;
+	transform: translate(-50%, -50%);
+	padding: 3px 14px;
+	border-radius: 999px;
+	border: 2px solid var(--border);
+	background: var(--surface-2);
+	font-size: 22px;
+	color: var(--muted);
+	white-space: nowrap;
+}
+#scene-experiment .experiment__plabel--earth {
+	border-color: var(--accent);
+	color: var(--text);
+}
+#scene-experiment #experiment-lab-0 {
+	top: 298px;
+}
+#scene-experiment #experiment-lab-1 {
+	top: 242px;
+}
+#scene-experiment #experiment-lab-2 {
+	top: 182px;
+}
+#scene-experiment #experiment-lab-3 {
+	top: 115px;
+}
+#scene-experiment #experiment-lab-4 {
+	top: 35px;
+}
+#scene-experiment .experiment__task {
+	position: absolute;
+	left: 820px;
+	top: 0;
+	width: 916px;
+	height: 780px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 40px;
+}
+#scene-experiment .experiment__flow {
+	display: flex;
+	align-items: center;
+	gap: 18px;
+}
+#scene-experiment .experiment__io {
+	min-width: 360px;
+	padding: 30px 32px;
+}
+#scene-experiment .experiment__io .node__name {
+	font-size: 42px;
+}
+#scene-experiment .experiment__io .node__note {
+	font-size: 24px;
+}
+#scene-experiment .experiment__flowarrow {
+	width: 96px;
+}
+#scene-experiment .experiment__facts {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 22px;
+}
+#scene-experiment .experiment__example {
+	font-size: 30px;
+	padding: 10px 24px;
+}
+#scene-experiment .experiment__sets {
+	font-size: 28px;
+	color: var(--muted);
+}
+
+/* ---------- beat 2: errors drawn to scale ---------- */
+#scene-experiment #experiment-err-title {
+	position: absolute;
+	left: 0;
+	top: 14px;
+}
+#scene-experiment .experiment__axis {
+	position: absolute;
+	left: 438px;
+	top: 66px;
+	width: 3px;
+	height: 244px;
+	background: var(--border);
+}
+#scene-experiment .experiment__row {
+	position: absolute;
+	left: 0;
+	display: flex;
+	align-items: center;
+	height: 100px;
+}
+#scene-experiment .experiment__row--1 {
+	top: 76px;
+}
+#scene-experiment .experiment__row--2 {
+	top: 206px;
+}
+#scene-experiment .experiment__rowlabel {
+	width: 440px;
+	padding-right: 28px;
+}
+#scene-experiment .experiment__rowname {
+	font-size: 38px;
+	font-weight: 700;
+	line-height: 1.15;
+}
+#scene-experiment .experiment__rowsub {
+	margin-top: 4px;
+	font-size: 24px;
+	color: var(--muted);
+}
+#scene-experiment .experiment__track {
+	position: relative;
+	width: 1000px;
+	height: 100px;
+}
+#scene-experiment .experiment__bar {
+	position: absolute;
+	left: 0;
+	top: 14px;
+	height: 72px;
+	border-radius: 0 8px 8px 0;
+	overflow: hidden;
+	white-space: nowrap;
+}
+#scene-experiment .experiment__bar--reg {
+	width: 3px;
+	background: var(--green);
+	box-shadow: 0 0 14px var(--green);
+}
+#scene-experiment .experiment__bar--rag {
+	width: 1000px;
+	background: var(--red);
+}
+#scene-experiment .experiment__barval {
+	position: absolute;
+	right: 26px;
+	top: 0;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	gap: 0.28em;
+	font-size: 46px;
+	font-weight: 800;
+	color: #2a0b0d;
+	font-variant-numeric: tabular-nums;
+}
+#scene-experiment .experiment__regval {
+	position: absolute;
+	left: 34px;
+	top: 0;
+	height: 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	white-space: nowrap;
+}
+#scene-experiment .experiment__bignum {
+	font-size: 48px;
+	font-weight: 800;
+	line-height: 1.1;
+}
+#scene-experiment .experiment__tiny {
+	font-size: 24px;
+	color: var(--muted);
+}
+#scene-experiment .experiment__uranus {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 366px;
+}
+#scene-experiment .experiment__cards {
+	display: flex;
+	gap: 60px;
+	margin-top: 22px;
+}
+#scene-experiment .experiment__ucard {
+	flex: 1;
+	text-align: center;
+	padding: 22px 24px 24px;
+}
+#scene-experiment .experiment__ucard--good {
+	border-color: var(--green);
+}
+#scene-experiment .experiment__ucard--bad {
+	border-color: var(--red);
+}
+#scene-experiment .experiment__unum {
+	font-size: 104px;
+	font-weight: 800;
+	line-height: 1.05;
+	letter-spacing: -0.01em;
+	font-variant-numeric: tabular-nums;
+}
+#scene-experiment .experiment__uunit {
+	font-size: 28px;
+	color: var(--muted);
+}
+
+/* ---------- beat 3: two reasons ---------- */
+#scene-experiment .experiment__b3,
+#scene-experiment .experiment__b4 {
+	display: flex;
+	align-items: center;
+	gap: 56px;
+}
+#scene-experiment .experiment__reason {
+	flex: 1;
+	height: 570px;
+	display: flex;
+	flex-direction: column;
+	gap: 22px;
+	padding: 32px 36px;
+}
+#scene-experiment .experiment__reason .card__label {
+	margin-bottom: 0;
+}
+#scene-experiment .experiment__rtitle {
+	font-size: 42px;
+	font-weight: 700;
+	line-height: 1.18;
+}
+#scene-experiment .experiment__queries {
+	display: flex;
+	flex-direction: column;
+	gap: 44px;
+	margin-top: 16px;
+}
+#scene-experiment .experiment__q {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+}
+#scene-experiment .experiment__q .chip {
+	font-size: 24px;
+}
+#scene-experiment .experiment__chip--query {
+	min-width: 180px;
+	justify-content: center;
+	border-color: var(--accent);
+}
+#scene-experiment .experiment__chip--doc {
+	border-color: var(--amber);
+}
+#scene-experiment .experiment__qarrow {
+	width: 48px;
+}
+#scene-experiment .experiment__hits {
+	display: flex;
+	gap: 8px;
+}
+#scene-experiment .experiment__note {
+	margin-top: auto;
+	font-size: 30px;
+	color: var(--muted);
+}
+#scene-experiment .experiment__q--b {
+	margin-top: 40px;
+}
+#scene-experiment .experiment__llm {
+	min-width: 220px;
+	padding: 16px 22px;
+}
+#scene-experiment .experiment__pred {
+	font-size: 76px;
+	font-weight: 800;
+	font-variant-numeric: tabular-nums;
+}
+#scene-experiment .experiment__actual {
+	margin-top: 20px;
+	font-size: 44px;
+	font-weight: 700;
+}
+
+/* ---------- beat 4: rule of thumb ---------- */
+#scene-experiment .experiment__col {
+	flex: 1;
+	height: 660px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	padding: 40px 40px 44px;
+	text-align: center;
+}
+#scene-experiment #experiment-col-rag {
+	border-color: var(--amber);
+}
+#scene-experiment .experiment__top {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 30px;
+}
+#scene-experiment .experiment__icon {
+	width: 170px;
+	height: 150px;
+}
+#scene-experiment .experiment__cond {
+	font-size: 54px;
+	font-weight: 700;
+	line-height: 1.15;
+}
+#scene-experiment .experiment__bottom {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#scene-experiment .experiment__down {
+	width: 64px;
+	margin: 30px 0 34px;
+	transform: rotate(90deg);
+}
+#scene-experiment .experiment__tool {
+	min-width: 440px;
+	padding: 24px 40px;
+}
+#scene-experiment .experiment__tool .node__name {
+	font-size: 64px;
+}
+#scene-experiment #experiment-model-tool .node {
+	border-color: var(--text);
+}

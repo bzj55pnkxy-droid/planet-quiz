@@ -1,0 +1,199 @@
+<section class="scene" id="scene-problem">
+	<!-- The model card stays on screen through beats 1 and 2. -->
+	<div class="node node--model problem__model" id="problem-model">
+		<svg class="problem__net" viewBox="0 0 160 110" aria-hidden="true">
+			<g>
+				<line x1="16" y1="20" x2="80" y2="12" />
+				<line x1="16" y1="20" x2="80" y2="40" />
+				<line x1="16" y1="20" x2="80" y2="68" />
+				<line x1="16" y1="20" x2="80" y2="96" />
+				<line x1="16" y1="55" x2="80" y2="12" />
+				<line x1="16" y1="55" x2="80" y2="40" />
+				<line x1="16" y1="55" x2="80" y2="68" />
+				<line x1="16" y1="55" x2="80" y2="96" />
+				<line x1="16" y1="90" x2="80" y2="12" />
+				<line x1="16" y1="90" x2="80" y2="40" />
+				<line x1="16" y1="90" x2="80" y2="68" />
+				<line x1="16" y1="90" x2="80" y2="96" />
+				<line x1="80" y1="12" x2="144" y2="20" />
+				<line x1="80" y1="12" x2="144" y2="55" />
+				<line x1="80" y1="12" x2="144" y2="90" />
+				<line x1="80" y1="40" x2="144" y2="20" />
+				<line x1="80" y1="40" x2="144" y2="55" />
+				<line x1="80" y1="40" x2="144" y2="90" />
+				<line x1="80" y1="68" x2="144" y2="20" />
+				<line x1="80" y1="68" x2="144" y2="55" />
+				<line x1="80" y1="68" x2="144" y2="90" />
+				<line x1="80" y1="96" x2="144" y2="20" />
+				<line x1="80" y1="96" x2="144" y2="55" />
+				<line x1="80" y1="96" x2="144" y2="90" />
+			</g>
+			<g>
+				<circle cx="16" cy="20" r="8" />
+				<circle cx="16" cy="55" r="8" />
+				<circle cx="16" cy="90" r="8" />
+				<circle cx="80" cy="12" r="8" />
+				<circle cx="80" cy="40" r="8" />
+				<circle cx="80" cy="68" r="8" />
+				<circle cx="80" cy="96" r="8" />
+				<circle cx="144" cy="20" r="8" />
+				<circle cx="144" cy="55" r="8" />
+				<circle cx="144" cy="90" r="8" />
+			</g>
+		</svg>
+		<div class="node__name">Language model</div>
+		<div class="node__note">knowledge from training</div>
+	</div>
+
+	<!-- Beat 1: trained once, knowledge frozen on a timeline. -->
+	<div class="problem__layer" id="problem-b1">
+		<div class="problem__stamp" id="problem-stamp">Trained once</div>
+		<div class="problem__axis" id="problem-axis"></div>
+		<div class="problem__time-label" id="problem-time-label">time</div>
+		<div class="problem__bar" id="problem-bar"></div>
+		<div class="problem__bar-text" id="problem-bar-text">What the model learned</div>
+		<div class="problem__future" id="problem-future">
+			<span>New facts: not in the model</span>
+		</div>
+		<div class="problem__mark problem__mark--cutoff" id="problem-cutoff">
+			<i></i>
+			<b>Training cutoff</b>
+		</div>
+		<div class="problem__lock" id="problem-lock">
+			<svg viewBox="0 0 72 72" aria-hidden="true">
+				<path d="M20 34 V24 a16 16 0 0 1 32 0 V34" fill="none" stroke="#b794ff" stroke-width="8" stroke-linecap="round" />
+				<rect x="10" y="32" width="52" height="34" rx="8" fill="#b794ff" />
+				<circle cx="36" cy="46" r="5" fill="#0b1020" />
+				<rect x="33.5" y="48" width="5" height="10" rx="2" fill="#0b1020" />
+			</svg>
+		</div>
+		<div class="problem__mark problem__mark--today" id="problem-today">
+			<i></i>
+			<b>Today</b>
+		</div>
+	</div>
+
+	<!-- Beat 2: a question goes in, words come out one at a time, no look-up. -->
+	<div class="problem__layer" id="problem-b2">
+		<div class="card problem__ask" id="problem-ask">
+			<div class="card__label">You ask</div>
+			<div class="problem__ask-text">How many moons does Saturn have?</div>
+		</div>
+		<div class="arrow problem__arrow" id="problem-arrow-in"></div>
+		<div class="arrow problem__arrow" id="problem-arrow-out"></div>
+		<div class="problem__out" id="problem-out">
+			<div class="problem__out-label">One word at a time</div>
+			<div class="problem__slots" id="problem-slots">
+				<div class="problem__slot problem__slot--1">
+					<div class="problem__ghost" id="problem-ghost-0">?</div>
+					<div class="problem__word" id="problem-word-0">Saturn</div>
+				</div>
+				<div class="problem__slot problem__slot--2">
+					<div class="problem__ghost" id="problem-ghost-1">?</div>
+					<div class="problem__word" id="problem-word-1">has</div>
+				</div>
+				<div class="problem__slot problem__slot--3">
+					<div class="problem__ghost" id="problem-ghost-2">?</div>
+					<div class="problem__word" id="problem-word-2">83</div>
+				</div>
+				<div class="problem__slot problem__slot--4">
+					<div class="problem__ghost" id="problem-ghost-3">?</div>
+					<div class="problem__word" id="problem-word-3">moons</div>
+				</div>
+				<div class="problem__slot problem__slot--5">
+					<div class="problem__ghost" id="problem-ghost-4">?</div>
+					<div class="problem__word" id="problem-word-4">.</div>
+				</div>
+			</div>
+			<div class="chip problem__memory" id="problem-memory">from memory</div>
+		</div>
+		<div class="problem__path" id="problem-path"></div>
+		<div class="problem__path-head" id="problem-path-head"></div>
+		<div class="node node--doc problem__docs" id="problem-docs">
+			<div class="node__name">Documents</div>
+			<div class="node__note">never opened</div>
+		</div>
+		<div class="problem__no" id="problem-no">
+			<svg viewBox="0 0 84 84" aria-hidden="true">
+				<circle cx="42" cy="42" r="38" fill="#0b1020" stroke="#f87171" stroke-width="6" />
+				<path d="M26 26 L58 58 M58 26 L26 58" stroke="#f87171" stroke-width="8" stroke-linecap="round" />
+			</svg>
+		</div>
+		<div class="problem__lookup" id="problem-lookup">
+			looks it up
+			<span class="problem__strike" id="problem-strike"></span>
+		</div>
+	</div>
+
+	<!-- Beat 3: the same question asked twice, two different confident answers. -->
+	<div class="problem__layer" id="problem-b3">
+		<div class="kicker problem__kicker" id="problem-b3-kicker">Same question, asked twice</div>
+		<div class="card problem__q" id="problem-q">How many moons does Saturn have?</div>
+		<div class="chip problem__local" id="problem-local">local model: gemma3:4b</div>
+		<div class="card problem__run problem__run--1" id="problem-run-1">
+			<div class="problem__run-head"><span class="problem__avatar"></span>Run 1</div>
+			<div class="big-number problem__num" id="problem-num-1">83</div>
+			<div class="problem__chips">
+				<span class="chip problem__chip--sure" id="problem-sure-1">sounds confident</span>
+				<span class="chip problem__chip--nosrc" id="problem-nosrc-1">no source</span>
+			</div>
+		</div>
+		<div class="problem__neq" id="problem-neq">&ne;</div>
+		<div class="card problem__run problem__run--2" id="problem-run-2">
+			<div class="problem__run-head"><span class="problem__avatar"></span>Run 2</div>
+			<div class="big-number problem__num" id="problem-num-2">146</div>
+			<div class="problem__chips">
+				<span class="chip problem__chip--sure" id="problem-sure-2">sounds confident</span>
+				<span class="chip problem__chip--nosrc" id="problem-nosrc-2">no source</span>
+			</div>
+		</div>
+	</div>
+
+	<!-- Beat 4: the three problems, one card each. -->
+	<div class="problem__layer" id="problem-b4">
+		<div class="problem__big red" id="problem-b4-big">Three problems</div>
+		<div class="kicker red problem__kicker" id="problem-b4-kicker">Three problems</div>
+
+		<div class="card problem__card problem__card--1" id="problem-card-1">
+			<div class="problem__head"><span class="problem__badge">1</span><span class="problem__title">Out of date</span></div>
+			<div class="problem__sub">frozen at training</div>
+			<div class="problem__art problem__art--time">
+				<div class="problem__m-bar">learned</div>
+				<div class="problem__m-future">new facts</div>
+				<div class="problem__m-axis"></div>
+				<div class="problem__m-line problem__m-line--cut"></div>
+				<div class="problem__m-line problem__m-line--today"></div>
+				<div class="problem__m-label problem__m-label--cut">cutoff</div>
+				<div class="problem__m-label problem__m-label--today">today</div>
+				<svg class="problem__m-lock" viewBox="0 0 72 72" aria-hidden="true">
+					<path d="M20 34 V24 a16 16 0 0 1 32 0 V34" fill="none" stroke="#b794ff" stroke-width="8" stroke-linecap="round" />
+					<rect x="10" y="32" width="52" height="34" rx="8" fill="#b794ff" />
+					<circle cx="36" cy="46" r="5" fill="#0b1020" />
+					<rect x="33.5" y="48" width="5" height="10" rx="2" fill="#0b1020" />
+				</svg>
+			</div>
+		</div>
+
+		<div class="card problem__card problem__card--2" id="problem-card-2">
+			<div class="problem__head"><span class="problem__badge">2</span><span class="problem__title">Made up</span></div>
+			<div class="problem__sub">different every run</div>
+			<div class="problem__art problem__art--runs">
+				<div class="problem__mini">83</div>
+				<div class="problem__mini-neq">&ne;</div>
+				<div class="problem__mini">146</div>
+				<span class="chip problem__halluc" id="problem-halluc">hallucination</span>
+			</div>
+		</div>
+
+		<div class="card problem__card problem__card--3" id="problem-card-3">
+			<div class="problem__head"><span class="problem__badge">3</span><span class="problem__title">Cannot check</span></div>
+			<div class="problem__sub">no source shown</div>
+			<div class="problem__art problem__art--source">
+				<div class="problem__mini problem__mini--small">83</div>
+				<div class="problem__dash-arrow"></div>
+				<div class="problem__ghost-doc">?</div>
+				<div class="problem__where">where from?</div>
+			</div>
+		</div>
+	</div>
+</section>

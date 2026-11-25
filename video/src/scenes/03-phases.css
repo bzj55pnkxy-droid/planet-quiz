@@ -1,0 +1,149 @@
+#scene-phases .phases__lane {
+	position: absolute;
+	left: 0;
+	width: 1776px;
+	padding: 0;
+	background: rgba(22, 31, 61, 0.55);
+}
+#scene-phases .phases__lane--1 {
+	top: 10px;
+	height: 270px;
+}
+#scene-phases .phases__lane--2 {
+	top: 400px;
+	height: 340px;
+}
+#scene-phases .phases__rail {
+	position: absolute;
+	left: 36px;
+	top: 0;
+	bottom: 0;
+	width: 290px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 6px;
+}
+#scene-phases .phases__name {
+	font-size: 52px;
+	font-weight: 700;
+	line-height: 1.1;
+}
+#scene-phases .phases__when {
+	font-size: 38px;
+	font-weight: 800;
+	color: var(--accent);
+	white-space: nowrap;
+}
+#scene-phases .phases__note {
+	margin-top: 4px;
+	font-size: 24px;
+	color: var(--muted);
+}
+
+/* nodes: five columns, 216 px wide, 80 px apart */
+#scene-phases .phases__node {
+	position: absolute;
+	width: 216px;
+	height: 150px;
+	min-width: 0;
+	padding: 14px 20px;
+}
+#scene-phases .phases__node--l1c1,
+#scene-phases .phases__node--l1c2 {
+	top: 70px;
+}
+#scene-phases .phases__node--l2c1,
+#scene-phases .phases__node--l2c2,
+#scene-phases .phases__node--l2c3,
+#scene-phases .phases__node--l2c4,
+#scene-phases .phases__node--l2c5 {
+	top: 470px;
+}
+#scene-phases .phases__node--l1c1,
+#scene-phases .phases__node--l2c1 {
+	left: 340px;
+}
+#scene-phases .phases__node--l1c2,
+#scene-phases .phases__node--l2c2 {
+	left: 636px;
+}
+#scene-phases .phases__node--l2c3 {
+	left: 932px;
+}
+#scene-phases .phases__node--l2c4 {
+	left: 1228px;
+}
+#scene-phases .phases__node--l2c5 {
+	left: 1524px;
+}
+#scene-phases .phases__arrow {
+	position: absolute;
+	width: 56px;
+}
+#scene-phases .phases__arrow--l1 {
+	left: 568px;
+	top: 143px;
+}
+#scene-phases .phases__arrow--c1 {
+	left: 568px;
+	top: 543px;
+}
+#scene-phases .phases__arrow--c2 {
+	left: 864px;
+	top: 543px;
+}
+#scene-phases .phases__arrow--c3 {
+	left: 1160px;
+	top: 543px;
+}
+#scene-phases .phases__arrow--c4 {
+	left: 1456px;
+	top: 543px;
+}
+
+/* the store feeds retrieval */
+#scene-phases .phases__feed {
+	position: absolute;
+	left: 742px;
+	top: 226px;
+	width: 4px;
+	height: 232px;
+	border-radius: 2px;
+	background: var(--teal);
+}
+#scene-phases .phases__feed::after {
+	content: "";
+	position: absolute;
+	left: -6px;
+	bottom: -2px;
+	width: 16px;
+	height: 16px;
+	border-right: 4px solid var(--teal);
+	border-bottom: 4px solid var(--teal);
+	transform: rotate(45deg);
+}
+#scene-phases .phases__feed-chip {
+	position: absolute;
+	left: 776px;
+	top: 316px;
+	border-color: var(--teal);
+	color: var(--teal);
+	font-size: 26px;
+}
+
+/* loop back to the question */
+#scene-phases .phases__loop {
+	position: absolute;
+	inset: 0;
+	width: 1776px;
+	height: 780px;
+	pointer-events: none;
+}
+#scene-phases .phases__loop-chip {
+	position: absolute;
+	left: 920px;
+	top: 668px;
+	font-size: 26px;
+	color: var(--muted);
+}

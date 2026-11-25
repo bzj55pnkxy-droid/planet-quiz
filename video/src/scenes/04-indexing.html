@@ -1,0 +1,393 @@
+<section class="scene" id="scene-indexing">
+	<!-- The pipeline strip: visible for the whole chapter. -->
+	<div class="ix-strip" id="indexing-strip">
+		<div class="ix-step ix-step--doc" id="indexing-step-1">
+			<div class="ix-step__box" id="indexing-box-1">
+				<span class="ix-step__num">1</span><span class="ix-step__name">Extract</span>
+				<div class="ix-step__done" id="indexing-done-1"></div>
+				<div class="ix-step__on" id="indexing-on-1"></div>
+			</div>
+			<div class="ix-step__res" id="indexing-res-1">142 pages</div>
+		</div>
+		<div class="arrow ix-arrow ix-arrow--1"></div>
+		<div class="ix-step ix-step--doc" id="indexing-step-2">
+			<div class="ix-step__box" id="indexing-box-2">
+				<span class="ix-step__num">2</span><span class="ix-step__name">Clean</span>
+				<div class="ix-step__done" id="indexing-done-2"></div>
+				<div class="ix-step__on" id="indexing-on-2"></div>
+			</div>
+			<div class="ix-step__res" id="indexing-res-2">119 pages</div>
+		</div>
+		<div class="arrow ix-arrow ix-arrow--2"></div>
+		<div class="ix-step ix-step--doc" id="indexing-step-3">
+			<div class="ix-step__box" id="indexing-box-3">
+				<span class="ix-step__num">3</span><span class="ix-step__name">Chunk</span>
+				<div class="ix-step__done" id="indexing-done-3"></div>
+				<div class="ix-step__on" id="indexing-on-3"></div>
+			</div>
+			<div class="ix-step__res" id="indexing-res-3">532 chunks</div>
+		</div>
+		<div class="arrow ix-arrow ix-arrow--3"></div>
+		<div class="ix-step ix-step--vec" id="indexing-step-4">
+			<div class="ix-step__box" id="indexing-box-4">
+				<span class="ix-step__num">4</span><span class="ix-step__name">Embed</span>
+				<div class="ix-step__done" id="indexing-done-4"></div>
+				<div class="ix-step__on" id="indexing-on-4"></div>
+			</div>
+			<div class="ix-step__res" id="indexing-res-4">532 vectors</div>
+		</div>
+		<div class="arrow ix-arrow ix-arrow--4"></div>
+		<div class="ix-step ix-step--vec" id="indexing-step-5">
+			<div class="ix-step__box" id="indexing-box-5">
+				<span class="ix-step__num">5</span><span class="ix-step__name">Store</span>
+				<div class="ix-step__done" id="indexing-done-5"></div>
+				<div class="ix-step__on" id="indexing-on-5"></div>
+			</div>
+			<div class="ix-step__res" id="indexing-res-5">Chroma</div>
+		</div>
+	</div>
+
+	<!-- Beat 1: the sources -->
+	<div class="ix-panel" id="indexing-p1">
+		<div class="ix-src ix-src--nasa">
+			<div class="ix-paper ix-paper--doc" id="indexing-nasa-doc">
+				<div class="ix-sheet">
+					<div class="ix-sheet__head">NASA</div>
+					<div class="ix-bar ix-bar--dark" style="width: 62%"></div>
+					<div class="ix-bar" style="width: 100%"></div>
+					<div class="ix-bar" style="width: 94%"></div>
+					<div class="ix-bar" style="width: 100%"></div>
+					<div class="ix-bar" style="width: 88%"></div>
+					<div class="ix-bar" style="width: 100%"></div>
+					<div class="ix-bar" style="width: 52%"></div>
+				</div>
+				<div class="ix-fold"></div>
+				<div class="ix-pdf" id="indexing-nasa-pdf">PDF</div>
+				<div class="ix-year" id="indexing-nasa-year">2013</div>
+			</div>
+			<div class="ix-src__label" id="indexing-nasa-label">
+				<div class="ix-src__kicker">NASA</div>
+				<div class="ix-src__name">Solar System Lithograph Set</div>
+				<div class="ix-src__pages"><span class="ix-src__n">42</span> pages</div>
+			</div>
+		</div>
+		<div class="ix-op ix-op--plus" id="indexing-plus">+</div>
+		<div class="ix-src ix-src--dlr">
+			<div class="ix-paper ix-paper--doc" id="indexing-dlr-doc">
+				<div class="ix-sheet">
+					<div class="ix-sheet__head">DLR</div>
+					<div class="ix-bar ix-bar--dark" style="width: 74%"></div>
+					<div class="ix-bar" style="width: 100%"></div>
+					<div class="ix-bar" style="width: 90%"></div>
+					<div class="ix-bar" style="width: 100%"></div>
+					<div class="ix-bar" style="width: 96%"></div>
+					<div class="ix-bar" style="width: 100%"></div>
+					<div class="ix-bar" style="width: 64%"></div>
+				</div>
+				<div class="ix-fold"></div>
+				<div class="ix-pdf" id="indexing-dlr-pdf">PDF</div>
+				<div class="ix-year" id="indexing-dlr-year">2013</div>
+			</div>
+			<div class="ix-src__label" id="indexing-dlr-label">
+				<div class="ix-src__kicker">DLR · German Aerospace Center</div>
+				<div class="ix-src__name">Our Solar System</div>
+				<div class="ix-src__pages"><span class="ix-src__n">100</span> pages</div>
+			</div>
+		</div>
+		<div class="ix-op ix-op--eq" id="indexing-eq">=</div>
+		<div class="ix-total" id="indexing-total">
+			<div class="ix-total__n" id="indexing-total-n">142</div>
+			<div class="ix-total__u">pages in total</div>
+		</div>
+	</div>
+
+	<!-- Beat 2: extract -->
+	<div class="ix-panel" id="indexing-p2">
+		<div class="ix-paper ix-paper--page" id="indexing-page">
+			<div class="ix-sheet">
+				<div class="ix-sheet__head">SATURN</div>
+				<div class="ix-planet"><i></i></div>
+				<div class="ix-bar ix-bar--hl" id="indexing-bar-1" style="width: 100%"></div>
+				<div class="ix-bar ix-bar--hl" id="indexing-bar-2" style="width: 100%"></div>
+				<div class="ix-bar ix-bar--hl" id="indexing-bar-3" style="width: 94%"></div>
+				<div class="ix-bar ix-bar--hl" id="indexing-bar-4" style="width: 70%"></div>
+				<div class="ix-bar" style="width: 100%"></div>
+				<div class="ix-bar" style="width: 96%"></div>
+				<div class="ix-bar" style="width: 100%"></div>
+				<div class="ix-bar" style="width: 58%"></div>
+			</div>
+			<div class="ix-fold"></div>
+		</div>
+		<div class="ix-cap ix-cap--page" id="indexing-page-cap">a PDF page</div>
+		<div class="ix-tool" id="indexing-tool">
+			<div class="ix-tool__chip">PyMuPDF</div>
+			<div class="arrow ix-tool__arrow"></div>
+		</div>
+		<div class="ix-cap ix-cap--text" id="indexing-text-cap">plain text</div>
+		<div class="code ix-text" id="indexing-text">
+			<div class="ix-ln" id="indexing-line-1">Saturn, the sixth planet from the Sun, is home to a vast array</div>
+			<div class="ix-ln" id="indexing-line-2">of intriguing and unique satellites — 53 plus 9 awaiting official</div>
+			<div class="ix-ln" id="indexing-line-3">confirmation. Christiaan Huygens discovered the first known</div>
+			<div class="ix-ln" id="indexing-line-4">moon of Saturn. The year was 1655 and the moon is Titan.</div>
+		</div>
+	</div>
+
+	<!-- Beat 3: clean -->
+	<div class="ix-panel" id="indexing-p3">
+		<div class="card ix-clean ix-clean--fix" id="indexing-fix">
+			<div class="ix-clean__title">Repair split words</div>
+			<div class="ix-snip">
+				<div class="ix-tag">in the PDF</div>
+				<div class="code ix-code" id="indexing-before">
+					<div class="ix-ln">…undergraduate education in <span class="ix-w" id="indexing-w1">plan-</span></div>
+					<div class="ix-ln"><span class="ix-w" id="indexing-w2">etary</span> science and solar and space physics.</div>
+				</div>
+			</div>
+			<div class="ix-down" id="indexing-down"></div>
+			<div class="ix-snip" id="indexing-aftersnip">
+				<div class="ix-tag ix-tag--good">after cleaning</div>
+				<div class="code ix-code ix-code--good">…undergraduate education in <span class="ix-w ix-w--good" id="indexing-w3">planetary</span> science and solar and space physics.</div>
+			</div>
+		</div>
+		<div class="card ix-clean ix-clean--drop" id="indexing-drop">
+			<div class="ix-clean__title">Drop almost-empty pages</div>
+			<div class="ix-thumbs">
+				<div class="ix-thumbcell">
+					<div class="ix-paper ix-paper--sm" id="indexing-th-0">
+						<div class="ix-sheet">
+							<div class="ix-bar ix-bar--dark" style="width: 80%"></div>
+							<div class="ix-bar" style="width: 56%"></div>
+							<div class="ix-bar" style="width: 40%"></div>
+						</div>
+						<div class="ix-fold"></div>
+						<div class="ix-flag" id="indexing-flag"></div>
+						<div class="ix-cross" id="indexing-cross"><i></i><i></i></div>
+					</div>
+					<div class="ix-thumbcap ix-thumbcap--bad" id="indexing-cap-0">under 500 characters</div>
+				</div>
+				<div class="ix-thumbcell">
+					<div class="ix-paper ix-paper--sm" id="indexing-th-1">
+						<div class="ix-sheet">
+							<div class="ix-bar" style="width: 100%"></div>
+							<div class="ix-bar" style="width: 94%"></div>
+							<div class="ix-bar" style="width: 100%"></div>
+							<div class="ix-bar" style="width: 88%"></div>
+							<div class="ix-bar" style="width: 100%"></div>
+							<div class="ix-bar" style="width: 96%"></div>
+							<div class="ix-bar" style="width: 100%"></div>
+							<div class="ix-bar" style="width: 60%"></div>
+						</div>
+						<div class="ix-fold"></div>
+					</div>
+					<div class="ix-thumbcap ix-thumbcap--good" id="indexing-cap-1">kept</div>
+				</div>
+				<div class="ix-thumbcell">
+					<div class="ix-paper ix-paper--sm" id="indexing-th-2">
+						<div class="ix-sheet">
+							<div class="ix-bar" style="width: 100%"></div>
+							<div class="ix-bar" style="width: 90%"></div>
+							<div class="ix-bar" style="width: 100%"></div>
+							<div class="ix-bar" style="width: 98%"></div>
+							<div class="ix-bar" style="width: 100%"></div>
+							<div class="ix-bar" style="width: 86%"></div>
+							<div class="ix-bar" style="width: 100%"></div>
+							<div class="ix-bar" style="width: 72%"></div>
+						</div>
+						<div class="ix-fold"></div>
+					</div>
+					<div class="ix-thumbcap ix-thumbcap--good" id="indexing-cap-2">kept</div>
+				</div>
+				<div class="ix-thumbcell">
+					<div class="ix-paper ix-paper--sm" id="indexing-th-3">
+						<div class="ix-sheet">
+							<div class="ix-bar" style="width: 100%"></div>
+							<div class="ix-bar" style="width: 96%"></div>
+							<div class="ix-bar" style="width: 100%"></div>
+							<div class="ix-bar" style="width: 92%"></div>
+							<div class="ix-bar" style="width: 100%"></div>
+							<div class="ix-bar" style="width: 100%"></div>
+							<div class="ix-bar" style="width: 100%"></div>
+							<div class="ix-bar" style="width: 48%"></div>
+						</div>
+						<div class="ix-fold"></div>
+					</div>
+					<div class="ix-thumbcap ix-thumbcap--good" id="indexing-cap-3">kept</div>
+				</div>
+			</div>
+			<div class="ix-count" id="indexing-countrow">
+				<span class="ix-count__n" id="indexing-count">142</span>
+				<span class="ix-count__u">pages</span>
+				<span class="ix-count__chip" id="indexing-dropped">23 dropped</span>
+			</div>
+		</div>
+	</div>
+
+	<!-- Beats 4-5: chunk -->
+	<div class="ix-panel" id="indexing-p4">
+		<div class="ix-pagelabel" id="indexing-pagelabel">one page of text</div>
+		<div class="ix-blk" id="indexing-blk-1"><i style="width: 100%"></i><i style="width: 94%"></i><i style="width: 100%"></i><i style="width: 100%"></i><i style="width: 62%"></i></div>
+		<div class="ix-blk" id="indexing-blk-2"><i style="width: 100%"></i><i style="width: 98%"></i><i style="width: 90%"></i><i style="width: 100%"></i><i style="width: 78%"></i></div>
+		<div class="ix-blk" id="indexing-blk-3"><i style="width: 96%"></i><i style="width: 100%"></i><i style="width: 100%"></i><i style="width: 88%"></i><i style="width: 54%"></i></div>
+		<div class="ix-blk" id="indexing-blk-4"><i style="width: 100%"></i><i style="width: 92%"></i><i style="width: 100%"></i><i style="width: 100%"></i><i style="width: 70%"></i></div>
+		<div class="ix-cut" id="indexing-cut-1"></div>
+		<div class="ix-cut" id="indexing-cut-2"></div>
+		<div class="ix-cut" id="indexing-cut-3"></div>
+		<div class="ix-topic" id="indexing-topic-1">moon discoveries</div>
+		<div class="ix-topic" id="indexing-topic-2">the Cassini mission</div>
+		<div class="ix-topic" id="indexing-topic-3">fast-facts table</div>
+		<div class="ix-blkcap" id="indexing-blkcap-1">chunk 1</div>
+		<div class="ix-blkcap" id="indexing-blkcap-2">chunk 2</div>
+		<div class="ix-blkcap" id="indexing-blkcap-3">chunk 3</div>
+		<div class="ix-blkcap" id="indexing-blkcap-4">chunk 4</div>
+		<div class="ix-size" id="indexing-size"><span class="amber">≈ 1,000</span> characters each</div>
+	</div>
+
+	<div class="ix-panel" id="indexing-p5">
+		<div class="ix-pair">
+			<div class="ix-col">
+				<div class="card ix-chunk" id="indexing-c1">
+					<div class="ix-chunk__tag"><span class="chip">chunk 1 · the end</span></div>
+					<p class="ix-chunk__text"><span class="ix-dim">… added to the moon count. Cassini has discovered </span><mark class="ix-ov" id="indexing-ov-1">six moons and may find more during its mission. <span class="ix-s" id="indexing-s-1">Cassini focuses its cameras mainly on objects relatively close to Saturn; the</span></mark><span class="ix-cutmark" id="indexing-cutmark"></span></p>
+				</div>
+				<div class="ix-note ix-note--bad" id="indexing-note-1">chunk 1 stops mid-sentence</div>
+			</div>
+			<div class="ix-col">
+				<div class="card ix-chunk" id="indexing-c2">
+					<div class="ix-chunk__tag"><span class="chip">chunk 2 · the start</span></div>
+					<p class="ix-chunk__text"><mark class="ix-ov" id="indexing-ov-2">six moons and may find more during its mission. <span class="ix-s" id="indexing-s-2">Cassini focuses its cameras mainly on objects relatively close to Saturn; the</span></mark><span class="ix-s" id="indexing-s-3"> bright rings complicate moon-hunting efforts.</span><span class="ix-dim"> Earth-based telescopes focus on the outer part of the Saturn system …</span></p>
+				</div>
+				<div class="ix-note ix-note--good" id="indexing-note-2">chunk 2 has the whole sentence</div>
+			</div>
+		</div>
+		<div class="ix-overlap" id="indexing-overlap-label"><span class="ix-overlap__sw"></span>overlap: up to 150 characters, shared by both chunks</div>
+	</div>
+
+	<div class="ix-panel" id="indexing-p5b">
+		<div class="ix-sum">
+			<div class="ix-sum__from" id="indexing-sum-from">119 pages</div>
+			<div class="arrow ix-sum__arrow" id="indexing-sum-arrow"></div>
+			<div class="ix-sum__to" id="indexing-sum-to">
+				<span class="ix-sum__n" id="indexing-chunkcount">0</span>
+				<span class="ix-sum__u">chunks</span>
+			</div>
+		</div>
+	</div>
+
+	<!-- Beat 6: embed -->
+	<div class="ix-panel" id="indexing-p6">
+		<div class="card ix-embchunk" id="indexing-embchunk">
+			<div class="ix-tag">one chunk</div>
+			<p class="ix-embchunk__text">Saturn, the sixth planet from the Sun, is home to a vast array of intriguing and unique satellites — 53 plus 9 awaiting official confirmation. Christiaan Huygens discovered …</p>
+		</div>
+		<div class="arrow ix-emb-arrow ix-emb-arrow--1" id="indexing-emb-a1"></div>
+		<div class="node node--vector ix-model" id="indexing-model">
+			<div class="ix-model__name">nomic-embed-text</div>
+			<div class="ix-model__note">embedding model</div>
+		</div>
+		<div class="arrow ix-emb-arrow ix-emb-arrow--2" id="indexing-emb-a2"></div>
+		<div class="card ix-vec" id="indexing-vec">
+			<div class="ix-vec__label" id="indexing-vec-label">vector</div>
+			<div class="ix-vec__list">
+				<div class="ix-num" id="indexing-num-1">0.12</div>
+				<div class="ix-num" id="indexing-num-2">-0.48</div>
+				<div class="ix-num" id="indexing-num-3">0.07</div>
+				<div class="ix-num" id="indexing-num-4">0.31</div>
+				<div class="ix-num" id="indexing-num-5">-0.22</div>
+				<div class="ix-num ix-num--dots" id="indexing-num-6">...</div>
+			</div>
+			<div class="ix-vec__foot" id="indexing-vec-foot">768 numbers per chunk</div>
+		</div>
+	</div>
+
+	<!-- Beat 7: meaning space -->
+	<div class="ix-panel" id="indexing-p7">
+		<svg class="ix-plot" id="indexing-plot" width="1180" height="604" viewBox="0 0 1180 604">
+			<line class="ix-axis" x1="260" y1="540" x2="1120" y2="540" />
+			<line class="ix-axis" x1="260" y1="540" x2="260" y2="30" />
+			<path class="ix-arc ix-arc--small" id="indexing-arc-small" d="M 445 465 A 200 200 0 0 0 404 401" />
+			<path class="ix-arc ix-arc--big" id="indexing-arc-big" d="M 368 436 A 150 150 0 0 0 204 401" />
+		</svg>
+		<div class="ix-vecarrow ix-vecarrow--moon" id="indexing-va-1"></div>
+		<div class="ix-vecarrow ix-vecarrow--moon" id="indexing-va-2"></div>
+		<div class="ix-vecarrow ix-vecarrow--moon" id="indexing-va-3"></div>
+		<div class="ix-vecarrow ix-vecarrow--comet" id="indexing-va-4"></div>
+		<div class="ix-tip ix-tip--moon" id="indexing-tip-1">Titan's atmosphere</div>
+		<div class="ix-tip ix-tip--moon" id="indexing-tip-2">Enceladus' ice volcanoes</div>
+		<div class="ix-tip ix-tip--moon" id="indexing-tip-3">Phoebe's orbit</div>
+		<div class="ix-tip ix-tip--comet" id="indexing-tip-4">comet tails</div>
+		<div class="ix-legend ix-legend--small" id="indexing-legend-small">
+			<div class="ix-legend__head">small angle</div>
+			<div class="ix-legend__text">similar meaning</div>
+		</div>
+		<div class="ix-legend ix-legend--big" id="indexing-legend-big">
+			<div class="ix-legend__head">large angle</div>
+			<div class="ix-legend__text">different meaning</div>
+		</div>
+		<div class="ix-sketch" id="indexing-sketch">a 2-number sketch; real vectors have 768</div>
+	</div>
+
+	<!-- Beat 8: store -->
+	<div class="ix-panel" id="indexing-p8">
+		<div class="ix-db" id="indexing-db">
+			<div class="ix-db__body"></div>
+			<div class="ix-db__ring ix-db__ring--1"></div>
+			<div class="ix-db__ring ix-db__ring--2"></div>
+			<div class="ix-db__top"></div>
+		</div>
+		<div class="ix-dblabel" id="indexing-dblabel">
+			<div class="ix-dblabel__name">Chroma</div>
+			<div class="ix-dblabel__note">vector database</div>
+		</div>
+		<div class="ix-table" id="indexing-table">
+			<div class="ix-row ix-row--head" id="indexing-head">
+				<div class="ix-cell ix-c-vec">vector</div>
+				<div class="ix-cell ix-c-text">text</div>
+				<div class="ix-cell ix-c-file">file</div>
+				<div class="ix-cell ix-c-page">page</div>
+			</div>
+			<div class="ix-row" id="indexing-row-1">
+				<div class="ix-cell ix-c-vec">[0.12, -0.48, 0.07, …]</div>
+				<div class="ix-cell ix-c-text">Saturn, the sixth planet from the Sun, is home to a vast array of intriguing and unique satellites — 53 plus 9 awaiting official confirmation.</div>
+				<div class="ix-cell ix-c-file">nasa_solar_system_lithographs_2013.pdf</div>
+				<div class="ix-cell ix-c-page">30</div>
+			</div>
+			<div class="ix-row" id="indexing-row-2">
+				<div class="ix-cell ix-c-vec">[0.09, -0.41, 0.15, …]</div>
+				<div class="ix-cell ix-c-text">six moons and may find more during its mission. Cassini focuses its cameras mainly on objects relatively close to Saturn; the bright rings complicate moon-hunting efforts.</div>
+				<div class="ix-cell ix-c-file">nasa_solar_system_lithographs_2013.pdf</div>
+				<div class="ix-cell ix-c-page">30</div>
+			</div>
+			<div class="ix-row" id="indexing-row-3">
+				<div class="ix-cell ix-c-vec">[-0.27, 0.33, 0.20, …]</div>
+				<div class="ix-cell ix-c-text">Moons — also called satellites — come in many shapes, sizes, and types. They are generally solid bodies, and few have atmospheres.</div>
+				<div class="ix-cell ix-c-file">nasa_solar_system_lithographs_2013.pdf</div>
+				<div class="ix-cell ix-c-page">22</div>
+			</div>
+			<div class="ix-row" id="indexing-row-4">
+				<div class="ix-cell ix-c-vec">[0.05, -0.36, 0.11, …]</div>
+				<div class="ix-cell ix-c-text">Saturn terrestrial telescopes. The last time the planet was observed in its ‘ringless’ state was in August 2009, when the Earth crossed …</div>
+				<div class="ix-cell ix-c-file">dlr_our_solar_system_2013.pdf</div>
+				<div class="ix-cell ix-c-page">56</div>
+			</div>
+			<div class="ix-row ix-row--more" id="indexing-row-more">… 532 rows in all, one per chunk</div>
+		</div>
+	</div>
+
+	<!-- Beat 9: one file -->
+	<div class="ix-panel" id="indexing-p9">
+		<div class="ix-file" id="indexing-file">
+			<div class="ix-paper ix-paper--sm ix-paper--py">
+				<div class="ix-sheet"><div class="ix-sheet__head">.py</div></div>
+				<div class="ix-fold"></div>
+			</div>
+			<div class="ix-file__name">app/ingest.py</div>
+		</div>
+		<div class="ix-summary" id="indexing-summary">
+			<span class="amber">142 pages</span><span class="ix-summary__arrow">→</span><span class="amber">119 pages</span><span class="ix-summary__arrow">→</span><span class="amber">532 chunks</span>
+		</div>
+		<div class="ix-run" id="indexing-run">
+			<div class="code ix-cmd"><span class="muted">$</span> uv run python -m app.ingest</div>
+			<div class="ix-badge" id="indexing-badge">run once</div>
+		</div>
+	</div>
+</section>

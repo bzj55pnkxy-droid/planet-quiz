@@ -1,0 +1,75 @@
+<section class="scene" id="scene-code">
+	<div class="code__frame" id="code-frame"><span class="code__legend">app/</span></div>
+
+	<!-- Row 1 and 2: the web side, stacked above rag.py -->
+	<div class="card code__file code__file--web" id="code-index">
+		<div class="code__name">index.html</div>
+		<div class="code__job" id="code-index-job">the user interface</div>
+	</div>
+	<div class="code__flip code__down" id="code-a-idx-wrap"><div class="arrow" id="code-a-idx"></div></div>
+	<div class="card code__file code__file--web" id="code-main">
+		<div class="code__name">main.py</div>
+		<div class="code__job" id="code-main-job">the web server (FastAPI)</div>
+	</div>
+	<div class="code__flip code__down" id="code-a-main-wrap"><div class="arrow" id="code-a-main"></div></div>
+
+	<!-- Row 3: ingest.py -> Chroma store -> rag.py <- prompts.py -->
+	<div class="card code__file code__file--doc" id="code-ingest">
+		<div class="code__name">ingest.py</div>
+		<div class="code__job" id="code-ingest-job">builds the index</div>
+	</div>
+	<div class="code__flip code__right" id="code-a-ing-wrap"><div class="arrow" id="code-a-ing"></div></div>
+	<div class="card code__file code__file--store" id="code-store">
+		<div class="code__name code__name--sans">Chroma store</div>
+		<div class="code__job" id="code-store-job">chunk vectors + text</div>
+	</div>
+	<div class="code__flip code__right" id="code-a-chr-wrap"><div class="arrow" id="code-a-chr"></div></div>
+	<div class="card code__file code__file--rag" id="code-rag">
+		<div class="code__name">rag.py</div>
+		<div class="code__job" id="code-rag-job">retrieval + <span id="code-rag-model">model calls</span></div>
+	</div>
+	<div class="code__flip code__left" id="code-a-pr-wrap"><div class="arrow" id="code-a-pr"></div></div>
+	<div class="card code__file code__file--prompt" id="code-prompts">
+		<div class="code__name">prompts.py</div>
+		<div class="code__job" id="code-prompts-job">the instructions</div>
+	</div>
+
+	<!-- Beat 3: LangChain building blocks, attached to the file that uses them -->
+	<div class="code__lc" id="code-lc">
+		<div class="code__lctitle">LangChain</div>
+		<div class="code__lcsub" id="code-lcsub">ready-made building blocks</div>
+	</div>
+
+	<div class="code__group code__group--doc" id="code-g-ingest">
+		<div class="code__tool" id="code-t-loader">
+			<div class="code__plain">PDF loader</div>
+			<div class="chip">PyMuPDFLoader</div>
+		</div>
+		<div class="code__tool" id="code-t-splitter">
+			<div class="code__plain">text splitter</div>
+			<div class="chip">RecursiveCharacterTextSplitter</div>
+		</div>
+	</div>
+	<div class="code__group code__group--store" id="code-g-store">
+		<div class="code__tool" id="code-t-chroma">
+			<div class="code__plain">vector store</div>
+			<div class="chip">Chroma</div>
+		</div>
+	</div>
+	<div class="code__group code__group--rag" id="code-g-rag">
+		<div class="code__tool" id="code-t-embed">
+			<div class="code__plain">embedding client</div>
+			<div class="chip">OllamaEmbeddings</div>
+		</div>
+		<div class="code__tool" id="code-t-chat">
+			<div class="code__plain">chat client</div>
+			<div class="chip">ChatOllama</div>
+		</div>
+	</div>
+	<div class="code__group code__group--prompt" id="code-g-prompts">
+		<div class="code__tool" id="code-t-template">
+			<div class="code__plain">prompt template</div>
+			<div class="chip">ChatPromptTemplate</div>
+		</div>
+	</div>
+</section>
