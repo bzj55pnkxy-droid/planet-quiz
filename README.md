@@ -230,6 +230,16 @@ Every run overwrites the result files and uses `CHAT_MODEL` and `EMBED_MODEL` fr
 
 The discussion is in the synopsis; the full tables are in `experiment/results.md`.
 
+### Notebook with graphs
+
+The linear regression part can also be run in a Jupyter notebook that draws the graphs. It needs no Ollama, because it uses the same functions as the script and reads the language model's answers from `experiment/results.json`.
+
+```bash
+uv run jupyter notebook experiment/regression.ipynb
+```
+
+Choose *Run > Run All Cells*. The notebook also saves the regression graph as `docs/regression.png`, which the synopsis uses.
+
 ## Explainer videos
 
 Two narrated videos of about 7 minutes each are in `docs/video/`, with subtitles in the `.srt` files next to them:

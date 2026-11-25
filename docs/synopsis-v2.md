@@ -85,6 +85,8 @@ The result is close to 1 when the two vectors point in the same direction. Cosin
 
 **Linear regression.** Linear regression finds the straight line that fits the training points best. Our data is not a straight line, because the period grows faster than the distance. Kepler's third law says $T = a^{1.5}$. If we take the logarithm of both numbers, this becomes $\log T = 1.5\log a$, which is a straight line. So we train scikit-learn's `LinearRegression` on the logarithms. The slope it finds is 1.4998, which is almost exactly Kepler's 1.5. For comparison we also train a line on the raw numbers without logarithms.
 
+![The two regression models, drawn by the notebook `experiment/regression.ipynb`. Left: on normal axes the data is a curve and the raw line misses. Right: on log-log axes the same points lie on a straight line.](regression.png)
+
 **LLM + RAG.** The RAG collection has one short sentence for each training body with its distance and period, and one general note. For each test case we only give the distance. The 4 most similar sentences are put in the prompt as examples, and the model must answer with one number. Here we use JSON output, and it works because the reply is only a single number. We also run the same prompt without examples. The LLM does not get the regression model, its numbers or the possibility to run code.
 
 **Error measure.** We use the mean absolute error (MAE). For each test case we take the difference between the predicted and the actual value without the sign, and then we take the average of the three: $\text{MAE} = \frac{1}{n}\sum |\text{predicted} - \text{actual}|$.
