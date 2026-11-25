@@ -1,0 +1,122 @@
+<section class="scene" id="scene-task">
+	<!-- Beat 1: a near body with a short, fast orbit; a far body with a long, slow orbit -->
+	<div class="task__b1" id="task-b1">
+		<svg class="task__sky" id="task-sky" viewBox="0 0 760 780" width="760" height="780">
+			<defs>
+				<radialGradient id="task-sungrad" cx="50%" cy="50%" r="50%">
+					<stop offset="0%" stop-color="#fff3c4" />
+					<stop offset="60%" stop-color="#fbbf24" />
+					<stop offset="100%" stop-color="#fb923c" />
+				</radialGradient>
+			</defs>
+			<circle class="task__ring" cx="380" cy="390" r="120" />
+			<circle class="task__ring" cx="380" cy="390" r="330" />
+			<g id="task-spin-far">
+				<line class="task__spoke" x1="380" y1="390" x2="710" y2="390" />
+				<circle cx="710" cy="390" r="20" fill="#eef1fb" />
+			</g>
+			<g id="task-spin-near">
+				<line class="task__spoke" x1="380" y1="390" x2="500" y2="390" />
+				<circle cx="500" cy="390" r="16" fill="#7c9cff" />
+			</g>
+			<circle cx="380" cy="390" r="46" fill="url(#task-sungrad)" />
+			<text class="task__sunlab" x="380" y="399" text-anchor="middle">Sun</text>
+		</svg>
+		<div class="task__side">
+			<div class="kicker" id="task-kicker">Our task</div>
+			<div class="card task__body" id="task-near">
+				<i class="task__swatch task__swatch--near"></i>
+				<div>
+					<div class="task__bname">Near the Sun</div>
+					<div class="task__bnote">short orbit: one lap is quick</div>
+				</div>
+			</div>
+			<div class="card task__body" id="task-far">
+				<i class="task__swatch task__swatch--far"></i>
+				<div>
+					<div class="task__bname">Far from the Sun</div>
+					<div class="task__bnote">long orbit: one lap takes a long time</div>
+				</div>
+			</div>
+			<div class="task__flow" id="task-flow">
+				<div class="node task__fnode"><div class="node__name">distance from the Sun</div></div>
+				<i class="arrow task__farrow"></i>
+				<div class="node task__fnode"><div class="node__name">time for one orbit</div></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Beat 2: input and output -->
+	<div class="task__b2" id="task-b2">
+		<div class="node task__io" id="task-in">
+			<div class="task__iotag">Input</div>
+			<div class="node__name task__ioname">Distance from the Sun</div>
+			<div class="task__ionote">in AU (Earth = 1)</div>
+			<svg viewBox="0 0 600 190" width="600" height="190">
+				<circle cx="60" cy="90" r="44" fill="url(#task-sungrad)" />
+				<circle cx="530" cy="90" r="20" fill="#7c9cff" />
+				<line x1="128" y1="90" x2="480" y2="90" stroke="#eef1fb" stroke-width="4" />
+				<polygon points="116,90 140,77 140,103" fill="#eef1fb" />
+				<polygon points="492,90 468,77 468,103" fill="#eef1fb" />
+				<text class="task__il" x="304" y="66" text-anchor="middle">1 AU</text>
+				<text class="task__is" x="60" y="172" text-anchor="middle">Sun</text>
+				<text class="task__is" x="530" y="172" text-anchor="middle">Earth</text>
+			</svg>
+			<div class="task__iocap">Earth is 1 AU from the Sun</div>
+		</div>
+		<i class="arrow task__bigarrow" id="task-b2-arrow"></i>
+		<div class="node task__io" id="task-out">
+			<div class="task__iotag">Output</div>
+			<div class="node__name task__ioname">Orbital period</div>
+			<div class="task__ionote">in Earth years (Earth = 1)</div>
+			<svg viewBox="0 0 600 190" width="600" height="190">
+				<circle cx="150" cy="95" r="72" fill="none" stroke="#9daad0" stroke-width="4" />
+				<circle cx="150" cy="95" r="14" fill="url(#task-sungrad)" />
+				<circle cx="222" cy="95" r="18" fill="#7c9cff" />
+				<polygon points="176,23 150,10 150,36" fill="#9daad0" />
+				<text class="task__il" x="290" y="92" text-anchor="start">1 lap</text>
+				<text class="task__il" x="290" y="148" text-anchor="start">= 1 year</text>
+			</svg>
+			<div class="task__iocap">Earth takes 1 year to go round</div>
+		</div>
+	</div>
+
+	<!-- Beats 3 to 5: the data table and its side notes -->
+	<div class="task__b3" id="task-b3">
+		<div class="task__table" id="task-table">
+			<div class="task__trow task__trow--head" id="task-head">
+				<span>Body</span><span>Distance (AU)</span><span>Period (Earth years)</span><span id="task-splithead">Split</span>
+			</div>
+			<div class="task__trow" id="task-row-0"><i class="task__tint task__tint--train"></i><span>Mercury</span><span>0.3871</span><span>0.2408</span><span class="task__role task__role--train">train</span></div>
+			<div class="task__trow" id="task-row-1"><i class="task__tint task__tint--train"></i><span>Venus</span><span>0.7233</span><span>0.6152</span><span class="task__role task__role--train">train</span></div>
+			<div class="task__trow" id="task-row-2"><i class="task__tint task__tint--train"></i><span>Earth</span><span>1</span><span>1</span><span class="task__role task__role--train">train</span></div>
+			<div class="task__trow" id="task-row-3"><i class="task__tint task__tint--test"></i><span>Mars</span><span>1.524</span><span>1.881</span><span class="task__role task__role--test">test</span></div>
+			<div class="task__trow" id="task-row-4"><i class="task__tint task__tint--train"></i><span>Jupiter</span><span>5.203</span><span>11.86</span><span class="task__role task__role--train">train</span></div>
+			<div class="task__trow" id="task-row-5"><i class="task__tint task__tint--train"></i><span>Saturn</span><span>9.537</span><span>29.4</span><span class="task__role task__role--train">train</span></div>
+			<div class="task__trow" id="task-row-6"><i class="task__tint task__tint--test"></i><span>Uranus</span><span>19.19</span><span>84.02</span><span class="task__role task__role--test">test</span></div>
+			<div class="task__trow" id="task-row-7"><i class="task__tint task__tint--train"></i><span>Neptune</span><span>30.07</span><span>164.8</span><span class="task__role task__role--train">train</span></div>
+			<div class="task__trow" id="task-row-8"><i class="task__tint task__tint--train"></i><span>Pluto</span><span>39.48</span><span>247.9</span><span class="task__role task__role--train">train</span></div>
+			<div class="task__trow" id="task-row-9"><i class="task__tint task__tint--test"></i><i class="task__made" id="task-made"></i><span>Hypothetical body</span><span>15</span><span>58.09</span><span class="task__role task__role--test">test</span></div>
+		</div>
+
+		<div class="card task__source" id="task-source">
+			<div class="card__label">Source</div>
+			<div class="task__srctext">NASA Solar System Lithograph Set, FAST FACTS tables</div>
+		</div>
+		<div class="card task__count" id="task-count">
+			<div class="task__countnum"><b id="task-countnum">0</b></div>
+			<div class="task__countlab" id="task-countlab-1">bodies, Mercury to Pluto</div>
+			<div class="task__countlab task__countlab--2" id="task-countlab-2">9 real + 1 made up</div>
+		</div>
+		<div class="task__split" id="task-split">
+			<div class="task__box task__box--train" id="task-box-train"><span>Train</span><b id="task-trainnum">0</b></div>
+			<div class="task__box task__box--test" id="task-box-test"><span>Test</span><b id="task-testnum">0</b></div>
+		</div>
+
+		<div class="task__tagrow" id="task-tag">
+			<i class="arrow task__tagarrow"></i>
+			<div class="task__tagchip">made up: cannot be memorised</div>
+		</div>
+		<div class="task__note" id="task-note">true value from Kepler&rsquo;s law: 15<sup>1.5</sup></div>
+	</div>
+</section>

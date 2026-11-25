@@ -1,10 +1,12 @@
-// Builds the Planet Quiz explainer video.
+// Builds the Planet Quiz explainer videos.
 //
 //   bun build.ts                 narration audio -> timing -> render -> final MP4 with sound
 //   bun build.ts --audio-only    only (re)generate narration and print the timing table
 //   bun build.ts --stage-only    assemble the composition into .build/<stage> without rendering
 //   bun build.ts --stage=NAME    use .build/NAME as the staging folder (default: video)
 //   bun build.ts --scenes=04,05  include only the scene files with these number prefixes
+//   bun build.ts --video=NAME    build the second video kept in NAME/ (script.json, scenes/);
+//                                without it the RAG video (script.json, src/scenes/) is built
 //
 // How it fits together:
 //   script.json   chapters and beats; each beat is one or two narrated sentences
@@ -28,7 +30,7 @@ import { join } from "node:path";
 
 const HERE = import.meta.dir;
 const SRC = join(HERE, "src");
-const AUDIO = join(HERE, "audio");
+const SCRIPT_FIELDS = "voice, speed, beatGap, chapterGap, leadIn, tailOut, output?, chapters";
 const RENDERS = join(HERE, "renders");
 const OUT_DIR = join(HERE, "../docs/video");
 const HYPERFRAMES = join(HERE, "node_modules/.bin/hyperframes");
@@ -44,6 +46,8 @@ type Script = {
 	chapterGap: number;
 	leadIn: number;
 	tailOut: number;
+	/** File name of the finished video, without extension. */
+	output?: string;
 	chapters: Array<{ id: string; title: string; beats: Beat[] }>;
 };
 type Timing = {
@@ -54,10 +58,17 @@ type Timing = {
 
 const args = process.argv.slice(2);
 const flag = (name: string) => args.includes(`--${name}`);
-const stageName = args.find((a) => a.startsWith("--stage="))?.split("=")[1] ?? "video";
-const STAGE = join(HERE, ".build", stageName);
-const onlyScenes = args.find((a) => a.startsWith("--scenes="))?.split("=")[1]?.split(",");
-const script: Script = JSON.parse(readFileSync(join(HERE, "script.json"), "utf8"));
+const option = (name: string) => args.find((a) => a.startsWith(`--${name}=`))?.split("=")[1];
+// A named video keeps its own script, scenes and audio in a subfolder and shares src/.
+const video = option("video");
+const BASE = video ? join(HERE, video) : HERE;
+const SCENES = video ? join(BASE, "scenes") : join(SRC, "scenes");
+const AUDIO = video ? join(HERE, "audio", video) : join(HERE, "audio");
+const STAGE = join(HERE, ".build", option("stage") ?? video ?? "video");
+const onlyScenes = option("scenes")?.split(",");
+const script: Script = JSON.parse(readFileSync(join(BASE, "script.json"), "utf8"));
+if (!script.chapters) throw new Error(`script.json needs: ${SCRIPT_FIELDS}`);
+const OUTPUT = script.output ?? "planet-quiz-rag-explained";
 
 function run(cmd: string[], quiet = true): string {
 	const proc = Bun.spawnSync(cmd, {
@@ -149,10 +160,10 @@ function schedule(lengths: Map<string, number>): Timing {
 }
 
 const sceneFiles = (ext: string) =>
-	readdirSync(join(SRC, "scenes"))
+	readdirSync(SCENES)
 		.filter((f) => f.endsWith(ext) && (!onlyScenes || onlyScenes.includes(f.slice(0, 2))))
 		.sort()
-		.map((f) => readFileSync(join(SRC, "scenes", f), "utf8"));
+		.map((f) => readFileSync(join(SCENES, f), "utf8"));
 
 /** Assembles src/ and the per-chapter scene files into one composition folder. */
 function stage(timing: Timing) {
@@ -225,7 +236,10 @@ for (const c of timing.chapters)
 	console.log(`  ${c.start.toFixed(1).padStart(6)} s  ${c.id}`);
 console.log(`  total ${timing.duration.toFixed(1)} s (${(timing.duration / 60).toFixed(1)} min)`);
 mkdirSync(join(HERE, ".build"), { recursive: true });
-writeFileSync(join(HERE, ".build/timing.json"), `${JSON.stringify(timing, null, "\t")}\n`);
+writeFileSync(
+	join(HERE, ".build", video ? `timing.${video}.json` : "timing.json"),
+	`${JSON.stringify(timing, null, "\t")}\n`,
+);
 
 if (!flag("audio-only")) {
 	stage(timing);
@@ -235,9 +249,9 @@ if (!flag("audio-only")) {
 if (!flag("audio-only") && !flag("stage-only")) {
 	mkdirSync(RENDERS, { recursive: true });
 	mkdirSync(OUT_DIR, { recursive: true });
-	const silent = join(RENDERS, "silent.mp4");
-	const narration = join(RENDERS, "narration.wav");
-	const final = join(OUT_DIR, "planet-quiz-rag-explained.mp4");
+	const silent = join(RENDERS, `${OUTPUT}.silent.mp4`);
+	const narration = join(RENDERS, `${OUTPUT}.wav`);
+	const final = join(OUT_DIR, `${OUTPUT}.mp4`);
 	console.log("Rendering picture with Hyperframes");
 	run([HYPERFRAMES, "render", STAGE, "--output", silent, "--fps", String(FPS), "--strict", "--quiet"], false);
 	console.log("Mixing narration");
@@ -273,6 +287,6 @@ if (!flag("audio-only") && !flag("stage-only")) {
 		"-shortest",
 		final,
 	]);
-	writeSubtitles(timing, join(OUT_DIR, "planet-quiz-rag-explained.srt"));
+	writeSubtitles(timing, join(OUT_DIR, `${OUTPUT}.srt`));
 	console.log(`Wrote ${final} (${seconds(final).toFixed(1)} s)`);
 }

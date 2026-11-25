@@ -1,0 +1,236 @@
+<section class="scene" id="scene-llm">
+	<!-- Beat 1: the second contestant gets the three test distances -->
+	<div class="llm__b" id="llm-b1">
+		<div class="kicker" id="llm-t-kick">The three test distances</div>
+		<div class="card llm__test" id="llm-t-0"><span class="llm__ring"></span><span class="llm__tv">1.5237 <small>AU</small></span></div>
+		<div class="card llm__test" id="llm-t-1"><span class="llm__ring"></span><span class="llm__tv">19.191 <small>AU</small></span></div>
+		<div class="card llm__test" id="llm-t-2"><span class="llm__ring"></span><span class="llm__tv">15 <small>AU</small></span></div>
+		<div class="arrow llm__arr" id="llm-ar-0"></div>
+		<div class="arrow llm__arr" id="llm-ar-1"></div>
+		<div class="arrow llm__arr" id="llm-ar-2"></div>
+		<div class="llm__cwrap" id="llm-cwrap">
+		<div class="llm__contestant" id="llm-card">
+			<svg class="llm__bubble" viewBox="0 0 140 110" width="140" height="110">
+				<path d="M20 8 H120 A14 14 0 0 1 134 22 V64 A14 14 0 0 1 120 78 H64 L34 104 V78 H20 A14 14 0 0 1 6 64 V22 A14 14 0 0 1 20 8 Z" fill="none" stroke="#b794ff" stroke-width="6" stroke-linejoin="round" />
+				<circle cx="42" cy="43" r="8" fill="#b794ff" />
+				<circle cx="70" cy="43" r="8" fill="#b794ff" />
+				<circle cx="98" cy="43" r="8" fill="#b794ff" />
+			</svg>
+			<div class="llm__ckick">Contestant 2</div>
+			<div class="llm__cname">gemma3:4b</div>
+			<div class="llm__csub" id="llm-csub">local language model + RAG</div>
+		</div>
+		</div>
+	</div>
+
+	<!-- Beat 2: build_store() turns 7 training rows into 7 sentences in a vector database -->
+	<div class="llm__b" id="llm-b2">
+		<div class="code llm__code llm__code--def" id="llm-b2-code"><div class="llm__ln">def build_store(train: list[dict], test: list[dict]) -> Chroma:</div></div>
+		<div class="llm__bodies" id="llm-bodies">
+			<div class="llm__colhead amber" id="llm-bodies-head">7 training bodies</div>
+			<div class="llm__body" id="llm-body-0"><span class="llm__dot"></span><span class="llm__bname">Mercury</span><span class="llm__bnum">0.3871 AU, 0.2408 yr</span></div>
+			<div class="llm__body" id="llm-body-1"><span class="llm__dot"></span><span class="llm__bname">Venus</span><span class="llm__bnum">0.7233 AU, 0.6152 yr</span></div>
+			<div class="llm__body" id="llm-body-2"><span class="llm__dot"></span><span class="llm__bname">Earth</span><span class="llm__bnum">1 AU, 1 yr</span></div>
+			<div class="llm__body" id="llm-body-3"><span class="llm__dot"></span><span class="llm__bname">Jupiter</span><span class="llm__bnum">5.2033 AU, 11.8565 yr</span></div>
+			<div class="llm__body" id="llm-body-4"><span class="llm__dot"></span><span class="llm__bname">Saturn</span><span class="llm__bnum">9.5365 AU, 29.4 yr</span></div>
+			<div class="llm__body" id="llm-body-5"><span class="llm__dot"></span><span class="llm__bname">Neptune</span><span class="llm__bnum">30.0685 AU, 164.79 yr</span></div>
+			<div class="llm__body" id="llm-body-6"><span class="llm__dot"></span><span class="llm__bname">Pluto</span><span class="llm__bnum">39.4811 AU, 247.92 yr</span></div>
+		</div>
+		<div class="arrow llm__arrow" id="llm-a2a"></div>
+		<div class="llm__sents" id="llm-sents">
+			<div class="llm__colhead" id="llm-sents-head">one sentence per body</div>
+			<div class="llm__sent" id="llm-sent-0"><span>Mercury orbits the Sun at a mean distance of <b class="llm__n llm__n--d">0.3871 AU</b> and takes <b class="llm__n llm__n--p">0.2408 Earth years</b> to complete one orbit.</span></div>
+			<div class="llm__sent" id="llm-sent-1"><span>Venus orbits the Sun at a mean distance of <b class="llm__n llm__n--d">0.7233 AU</b> and takes <b class="llm__n llm__n--p">0.6152 Earth years</b> to complete one orbit.</span></div>
+			<div class="llm__sent" id="llm-sent-2"><span>Earth orbits the Sun at a mean distance of <b class="llm__n llm__n--d">1 AU</b> and takes <b class="llm__n llm__n--p">1 Earth years</b> to complete one orbit.</span></div>
+			<div class="llm__more" id="llm-sent-more">+ 4 more sentences: Jupiter, Saturn, Neptune, Pluto</div>
+			<div class="llm__note" id="llm-sent-note"><span class="llm__notepill"></span>+ 1 background note</div>
+		</div>
+		<div class="arrow llm__arrow" id="llm-a2b"></div>
+		<div class="llm__db" id="llm-db">
+			<svg class="llm__cyl" viewBox="0 0 260 330" width="260" height="330">
+				<path d="M10 40 V280 A120 40 0 0 0 250 280 V40" fill="#0f2a2c" stroke="#2dd4bf" stroke-width="5" />
+				<ellipse cx="130" cy="40" rx="120" ry="40" fill="#14403f" stroke="#2dd4bf" stroke-width="5" />
+				<rect class="llm__pill" id="llm-pill-0" x="40" y="86" width="180" height="16" rx="8" fill="#2dd4bf" />
+				<rect class="llm__pill" id="llm-pill-1" x="40" y="114" width="180" height="16" rx="8" fill="#2dd4bf" />
+				<rect class="llm__pill" id="llm-pill-2" x="40" y="142" width="180" height="16" rx="8" fill="#2dd4bf" />
+				<rect class="llm__pill" id="llm-pill-3" x="40" y="170" width="180" height="16" rx="8" fill="#2dd4bf" />
+				<rect class="llm__pill" id="llm-pill-4" x="40" y="198" width="180" height="16" rx="8" fill="#2dd4bf" />
+				<rect class="llm__pill" id="llm-pill-5" x="40" y="226" width="180" height="16" rx="8" fill="#2dd4bf" />
+				<rect class="llm__pill" id="llm-pill-6" x="40" y="254" width="180" height="16" rx="8" fill="#2dd4bf" />
+				<rect class="llm__pill" id="llm-pill-7" x="40" y="282" width="180" height="16" rx="8" fill="#9daad0" />
+			</svg>
+			<div class="llm__dbname">vector database</div>
+			<div class="llm__dbcount" id="llm-dbcount">7 sentences + 1 note</div>
+		</div>
+	</div>
+
+	<!-- Beat 3: the leak check -->
+	<div class="llm__b" id="llm-b3">
+		<div class="code llm__code llm__code--assert" id="llm-b3-code">
+			<div class="llm__ln llm__ln--ctx">    for text in stored["documents"]:</div>
+			<div class="llm__ln llm__ln--ctx">        for r in test:</div>
+			<div class="llm__ln llm__ln--assert" id="llm-assert">            assert r["body"] not in text and f"{r['period_years']:g}" not in text, f"test data leaked: {text}"</div>
+		</div>
+		<div class="llm__db llm__db--small" id="llm-db3">
+			<svg class="llm__cyl" viewBox="0 0 260 330" width="220" height="279">
+				<path d="M10 40 V280 A120 40 0 0 0 250 280 V40" fill="#0f2a2c" stroke="#2dd4bf" stroke-width="5" />
+				<ellipse cx="130" cy="40" rx="120" ry="40" fill="#14403f" stroke="#2dd4bf" stroke-width="5" />
+				<rect x="40" y="86" width="180" height="16" rx="8" fill="#2dd4bf" />
+				<rect x="40" y="114" width="180" height="16" rx="8" fill="#2dd4bf" />
+				<rect x="40" y="142" width="180" height="16" rx="8" fill="#2dd4bf" />
+				<rect x="40" y="170" width="180" height="16" rx="8" fill="#2dd4bf" />
+				<rect x="40" y="198" width="180" height="16" rx="8" fill="#2dd4bf" />
+				<rect x="40" y="226" width="180" height="16" rx="8" fill="#2dd4bf" />
+				<rect x="40" y="254" width="180" height="16" rx="8" fill="#2dd4bf" />
+				<rect x="40" y="282" width="180" height="16" rx="8" fill="#9daad0" />
+			</svg>
+			<div class="llm__dbname llm__dbname--small">vector database</div>
+		</div>
+		<div class="llm__held llm__held--bodies" id="llm-held-b">
+			<div class="llm__colhead red" id="llm-held-b-head">test bodies</div>
+			<div class="llm__x" id="llm-xb-0"><span class="llm__xt"><span class="llm__xring"></span>Mars</span><span class="llm__strike" id="llm-sb-0"></span></div>
+			<div class="llm__x" id="llm-xb-1"><span class="llm__xt"><span class="llm__xring"></span>Uranus</span><span class="llm__strike" id="llm-sb-1"></span></div>
+			<div class="llm__x" id="llm-xb-2"><span class="llm__xt"><span class="llm__xring"></span>Hypothetical body</span><span class="llm__strike" id="llm-sb-2"></span></div>
+		</div>
+		<div class="llm__held llm__held--answers" id="llm-held-a">
+			<div class="llm__colhead red" id="llm-held-a-head">test answers</div>
+			<div class="llm__x" id="llm-xa-0"><span class="llm__xt">1.8807</span><span class="llm__strike" id="llm-sa-0"></span></div>
+			<div class="llm__x" id="llm-xa-1"><span class="llm__xt">84.02</span><span class="llm__strike" id="llm-sa-1"></span></div>
+			<div class="llm__x" id="llm-xa-2"><span class="llm__xt">58.0948</span><span class="llm__strike" id="llm-sa-2"></span></div>
+		</div>
+		<div class="llm__verdict" id="llm-verdict">
+			<svg class="llm__shield" viewBox="0 0 200 240" width="170" height="204">
+				<path d="M100 8 L184 40 V118 C184 176 146 214 100 232 C54 214 16 176 16 118 V40 Z" fill="#0f2f22" stroke="#4ade80" stroke-width="8" stroke-linejoin="round" />
+				<path id="llm-check" d="M58 122 L90 156 L148 84" fill="none" stroke="#4ade80" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="150" stroke-dashoffset="150" />
+			</svg>
+			<div class="llm__vtext green" id="llm-vtext">no test body,<br />no test answer</div>
+		</div>
+		<div class="llm__stop" id="llm-stop"><span class="llm__octo"></span>If one is found, the program stops</div>
+	</div>
+
+	<!-- Beat 4: run_cases() retrieves the top 4 and builds the prompt -->
+	<div class="llm__b" id="llm-b4">
+		<div class="code llm__code llm__code--run" id="llm-b4-code">
+			<div class="llm__ln" id="llm-ln-query">        query = f"A body orbits the Sun at a mean distance of {row['distance_au']:g} AU."</div>
+			<div class="llm__ln" id="llm-ln-hits">        hits = store.similarity_search_with_relevance_scores(query, k=K)</div>
+			<div class="llm__ln" id="llm-ln-examples">        examples = "\n".join(f"- {doc.page_content}" for doc, _ in hits)</div>
+		</div>
+		<div class="card llm__query" id="llm-query">
+			<div class="card__label">query</div>
+			<div class="llm__qtext">A body orbits the Sun at a mean distance of <b class="accent">19.191 AU</b>.</div>
+		</div>
+		<div class="arrow llm__arrow" id="llm-a4a"></div>
+		<div class="llm__db llm__db--mid" id="llm-db4">
+			<svg class="llm__cyl" viewBox="0 0 260 330" width="220" height="279">
+				<path d="M10 40 V280 A120 40 0 0 0 250 280 V40" fill="#0f2a2c" stroke="#2dd4bf" stroke-width="5" />
+				<ellipse cx="130" cy="40" rx="120" ry="40" fill="#14403f" stroke="#2dd4bf" stroke-width="5" />
+				<rect x="40" y="86" width="180" height="16" rx="8" fill="#2dd4bf" />
+				<rect x="40" y="114" width="180" height="16" rx="8" fill="#2dd4bf" />
+				<rect x="40" y="142" width="180" height="16" rx="8" fill="#2dd4bf" />
+				<rect x="40" y="170" width="180" height="16" rx="8" fill="#2dd4bf" />
+				<rect x="40" y="198" width="180" height="16" rx="8" fill="#2dd4bf" />
+				<rect x="40" y="226" width="180" height="16" rx="8" fill="#2dd4bf" />
+				<rect x="40" y="254" width="180" height="16" rx="8" fill="#2dd4bf" />
+				<rect x="40" y="282" width="180" height="16" rx="8" fill="#9daad0" />
+			</svg>
+			<div class="llm__dbname llm__dbname--small">vector database</div>
+		</div>
+		<div class="arrow llm__arrow" id="llm-a4b"></div>
+		<div class="llm__chip llm__chip--k" id="llm-k">top K = 4</div>
+		<div class="llm__slot llm__slot--0" id="llm-slot-0"></div>
+		<div class="llm__slot llm__slot--1" id="llm-slot-1"></div>
+		<div class="llm__slot llm__slot--2" id="llm-slot-2"></div>
+		<div class="llm__slot llm__slot--3" id="llm-slot-3"></div>
+		<div class="llm__panel" id="llm-panel"></div>
+		<div class="llm__ph llm__ph--human" id="llm-ph-human"><span class="violet">Human:</span> A body orbits the Sun at a mean distance of 19.191 AU.</div>
+		<div class="llm__ph llm__ph--ref" id="llm-ph-ref">Reference examples:</div>
+		<div class="llm__colhead llm__scorehead" id="llm-scorehead">score</div>
+		<div class="llm__hit llm__hit--0" id="llm-hit-0">- Earth orbits the Sun at a mean distance of 1 AU and takes 1 Earth years to complete one orbit.</div>
+		<div class="llm__hit llm__hit--1" id="llm-hit-1">- Mercury orbits the Sun at a mean distance of 0.3871 AU and takes 0.2408 Earth years to complete one orbit.</div>
+		<div class="llm__hit llm__hit--2" id="llm-hit-2">- Venus orbits the Sun at a mean distance of 0.7233 AU and takes 0.6152 Earth years to complete one orbit.</div>
+		<div class="llm__hit llm__hit--3" id="llm-hit-3">- Neptune orbits the Sun at a mean distance of 30.0685 AU and takes 164.79 Earth years to complete one orbit.</div>
+		<div class="llm__score llm__score--0" id="llm-score-0">0.8399</div>
+		<div class="llm__score llm__score--1" id="llm-score-1">0.8119</div>
+		<div class="llm__score llm__score--2" id="llm-score-2">0.8115</div>
+		<div class="llm__score llm__score--3" id="llm-score-3">0.8097</div>
+	</div>
+
+	<!-- Beat 5: one number back; asked twice -->
+	<div class="llm__b" id="llm-b5">
+		<div class="llm__a5" id="llm-a5">
+			<div class="llm__flow" id="llm-flow">
+				<div class="node node--model llm__flownode" id="llm-flow-node"><div class="node__name violet">gemma3:4b</div><div class="node__note">language model</div></div>
+				<div class="arrow llm__flowarrow" id="llm-flow-arrow"></div>
+				<div class="llm__replywrap" id="llm-reply">
+					<div class="llm__replylabel">the model's raw reply</div>
+					<div class="code llm__reply"><div class="llm__ln">{ "period_years": 14.11}</div></div>
+				</div>
+			</div>
+			<div class="code llm__code llm__code--pred" id="llm-pred">
+				<div class="llm__ln">class Prediction(BaseModel):</div>
+				<div class="llm__ln llm__ln--doc" id="llm-pred-doc">    """Structured LLM reply: exactly one number."""</div>
+				<div class="llm__ln">&nbsp;</div>
+				<div class="llm__ln">    period_years: float = Field(description="Predicted orbital period in Earth years")</div>
+			</div>
+		</div>
+		<div class="llm__cols" id="llm-cols">
+			<div class="card llm__col llm__col--with" id="llm-col-with">
+				<div class="llm__coltitle">with examples</div>
+				<div class="llm__mini" id="llm-mini-with">
+					<div class="llm__minilab">Reference examples:</div>
+					<div class="llm__skel"></div>
+					<div class="llm__skel"></div>
+					<div class="llm__skel"></div>
+					<div class="llm__skel"></div>
+				</div>
+				<div class="llm__downwrap" id="llm-dw-with"><div class="arrow llm__down"></div></div>
+				<div class="llm__result" id="llm-res-with"><span class="llm__rnum violet">14.11</span><span class="llm__runit">years</span></div>
+			</div>
+			<div class="card llm__col llm__col--without" id="llm-col-without">
+				<div class="llm__coltitle">without examples</div>
+				<div class="llm__mini" id="llm-mini-without">
+					<div class="llm__minilab">Reference examples:</div>
+					<div class="llm__ln llm__ln--noex">NO_EXAMPLES = "(no reference examples available)"</div>
+				</div>
+				<div class="llm__downwrap" id="llm-dw-without"><div class="arrow llm__down"></div></div>
+				<div class="llm__result" id="llm-res-without"><span class="llm__rnum violet">176.35</span><span class="llm__runit">years</span></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Beat 6: fairness -->
+	<div class="llm__b" id="llm-b6">
+		<div class="llm__fair" id="llm-fair-head">What the language model never gets</div>
+		<div class="llm__item" id="llm-i-0">
+			<div class="llm__itext">the regression model</div>
+			<svg class="llm__iicon" viewBox="0 0 120 100" width="120" height="100">
+				<line x1="8" y1="82" x2="112" y2="82" stroke="#9daad0" stroke-width="4" />
+				<line x1="8" y1="82" x2="8" y2="8" stroke="#9daad0" stroke-width="4" />
+				<line x1="14" y1="74" x2="108" y2="18" stroke="#4ade80" stroke-width="6" stroke-linecap="round" />
+				<circle cx="30" cy="66" r="7" fill="#fbbf24" />
+				<circle cx="58" cy="50" r="7" fill="#fbbf24" />
+				<circle cx="86" cy="32" r="7" fill="#fbbf24" />
+			</svg>
+		</div>
+		<div class="llm__item" id="llm-i-1">
+			<div class="llm__itext">its two numbers</div>
+			<div class="llm__inums"><span class="chip llm__ichip">slope 1.4998</span><span class="chip llm__ichip">intercept -0.0001</span></div>
+		</div>
+		<div class="llm__item" id="llm-i-2">
+			<div class="llm__itext">any code to run</div>
+			<div class="llm__icode">&lt;/&gt;</div>
+		</div>
+		<svg class="llm__blocked" id="llm-bl-0" viewBox="0 0 220 60" width="220" height="60"><line x1="4" y1="30" x2="216" y2="30" stroke="#9daad0" stroke-width="5" stroke-dasharray="14 10" /><circle cx="110" cy="30" r="25" fill="#2a1114" stroke="#f87171" stroke-width="5" /><path d="M99 19 L121 41 M121 19 L99 41" stroke="#f87171" stroke-width="6" stroke-linecap="round" /></svg>
+		<svg class="llm__blocked" id="llm-bl-1" viewBox="0 0 220 60" width="220" height="60"><line x1="4" y1="30" x2="216" y2="30" stroke="#9daad0" stroke-width="5" stroke-dasharray="14 10" /><circle cx="110" cy="30" r="25" fill="#2a1114" stroke="#f87171" stroke-width="5" /><path d="M99 19 L121 41 M121 19 L99 41" stroke="#f87171" stroke-width="6" stroke-linecap="round" /></svg>
+		<svg class="llm__blocked" id="llm-bl-2" viewBox="0 0 220 60" width="220" height="60"><line x1="4" y1="30" x2="216" y2="30" stroke="#9daad0" stroke-width="5" stroke-dasharray="14 10" /><circle cx="110" cy="30" r="25" fill="#2a1114" stroke="#f87171" stroke-width="5" /><path d="M99 19 L121 41 M121 19 L99 41" stroke="#f87171" stroke-width="6" stroke-linecap="round" /></svg>
+		<div class="llm__contestant llm__contestant--small" id="llm-card6">
+			<div class="llm__ckick">Contestant 2</div>
+			<div class="llm__cname llm__cname--small">gemma3:4b</div>
+			<div class="llm__csub llm__csub--small">sees only the prompt text</div>
+		</div>
+		<div class="llm__fairpill" id="llm-fair">
+			<svg class="llm__tick" viewBox="0 0 40 40" width="40" height="40"><path d="M7 21 L17 31 L34 10" fill="none" stroke="#4ade80" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+			A fair comparison
+		</div>
+	</div>
+</section>

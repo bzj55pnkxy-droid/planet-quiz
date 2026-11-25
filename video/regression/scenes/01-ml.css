@@ -1,0 +1,343 @@
+#scene-ml .ml__diagram,
+#scene-ml .ml__b4 {
+	position: absolute;
+	inset: 0;
+}
+#scene-ml .ml__diagram {
+	inset: 36px 0 -36px 0;
+}
+
+/* ---------- headings and column labels ---------- */
+#scene-ml .ml__head {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 20px;
+	text-align: center;
+	font-size: 56px;
+	font-weight: 700;
+	letter-spacing: -0.01em;
+}
+#scene-ml .ml__head--ml {
+	color: var(--accent);
+}
+#scene-ml .ml__lab {
+	position: absolute;
+	top: 112px;
+	width: 520px;
+	text-align: center;
+	font-family: var(--mono);
+	font-size: 26px;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--muted);
+}
+#scene-ml #ml-lab-in {
+	left: 40px;
+}
+#scene-ml #ml-lab-out {
+	left: 1216px;
+}
+
+/* ---------- arrows ---------- */
+#scene-ml .ml__arrows {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 1776px;
+	height: 780px;
+	overflow: visible;
+}
+#scene-ml .ml__arr {
+	stroke: var(--muted);
+	stroke-width: 6;
+	stroke-linecap: round;
+}
+#scene-ml .ml__headfill {
+	fill: var(--muted);
+}
+
+/* ---------- nodes ---------- */
+#scene-ml .ml__node {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	background: var(--surface);
+	border: 2px solid var(--border);
+	border-radius: var(--radius);
+	text-align: center;
+}
+#scene-ml #ml-input {
+	left: 40px;
+	top: 170px;
+	width: 520px;
+	height: 170px;
+}
+#scene-ml #ml-rule {
+	left: 40px;
+	top: 410px;
+	width: 520px;
+	height: 190px;
+	border-color: var(--green);
+}
+#scene-ml #ml-comp {
+	left: 692px;
+	top: 240px;
+	width: 392px;
+	height: 280px;
+	border-color: var(--muted);
+}
+#scene-ml #ml-output {
+	left: 1216px;
+	top: 295px;
+	width: 520px;
+	height: 170px;
+}
+#scene-ml .ml__name {
+	font-size: 46px;
+	font-weight: 700;
+	line-height: 1.1;
+}
+#scene-ml .ml__note {
+	font-size: 26px;
+	color: var(--muted);
+}
+#scene-ml .ml__sub {
+	position: relative;
+	width: 100%;
+	height: 40px;
+	font-size: 26px;
+	color: var(--muted);
+}
+#scene-ml .ml__sub > span {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	white-space: nowrap;
+}
+#scene-ml .ml__sub-b {
+	color: var(--text);
+}
+#scene-ml .ml__person {
+	fill: var(--muted);
+}
+#scene-ml .ml__laptop {
+	margin-bottom: 4px;
+}
+#scene-ml .ml__screen {
+	fill: none;
+	stroke: var(--muted);
+	stroke-width: 5;
+}
+#scene-ml .ml__base {
+	fill: var(--muted);
+}
+
+/* ---------- beat 2: examples table ---------- */
+#scene-ml .ml__examples {
+	position: absolute;
+	left: 40px;
+	top: 165px;
+	width: 520px;
+	height: 430px;
+	padding: 22px 20px;
+	border-color: var(--amber);
+}
+#scene-ml .ml__extitle {
+	margin-bottom: 12px;
+	text-align: center;
+	font-size: 40px;
+	font-weight: 700;
+	color: var(--amber);
+}
+#scene-ml .ml__tab {
+	position: relative;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+#scene-ml .ml__th {
+	position: relative;
+	z-index: 1;
+	height: 88px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+	font-size: 26px;
+	color: var(--muted);
+	white-space: nowrap;
+}
+#scene-ml .ml__tag {
+	font-family: var(--mono);
+	font-size: 22px;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+#scene-ml .ml__tag--in {
+	color: var(--accent);
+}
+#scene-ml .ml__tag--out {
+	color: var(--green);
+}
+#scene-ml .ml__td {
+	position: relative;
+	z-index: 1;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	font-size: 42px;
+	font-weight: 700;
+	font-variant-numeric: tabular-nums;
+}
+#scene-ml .ml__hl {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: calc(50% - 6px);
+	border-radius: 14px;
+}
+#scene-ml .ml__hl--in {
+	left: 0;
+	background: rgba(124, 156, 255, 0.16);
+	border: 2px solid var(--accent);
+}
+#scene-ml .ml__hl--out {
+	right: 0;
+	background: rgba(74, 222, 128, 0.14);
+	border: 2px solid var(--green);
+}
+
+/* ---------- beat 3: the two names ---------- */
+#scene-ml .ml__pill {
+	position: absolute;
+	width: 230px;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	border-radius: 999px;
+	font-size: 38px;
+	font-weight: 800;
+	color: var(--bg);
+}
+#scene-ml .ml__pill::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	bottom: -12px;
+	margin-left: -13px;
+	border: 13px solid transparent;
+	border-bottom: 0;
+}
+#scene-ml .ml__pill--train {
+	left: 773px;
+	top: 168px;
+	background: var(--accent);
+}
+#scene-ml .ml__pill--train::after {
+	border-top-color: var(--accent);
+}
+#scene-ml .ml__pill--model {
+	left: 1361px;
+	top: 213px;
+	background: var(--green);
+}
+#scene-ml .ml__pill--model::after {
+	border-top-color: var(--green);
+}
+
+/* ---------- beat 4: output is a number ---------- */
+#scene-ml .ml__numcard {
+	position: absolute;
+	left: 288px;
+	top: 40px;
+	width: 1200px;
+	height: 140px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 22px;
+	font-size: 70px;
+	font-weight: 700;
+	letter-spacing: -0.01em;
+}
+#scene-ml .ml__such {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 198px;
+	text-align: center;
+	font-size: 30px;
+	color: var(--muted);
+}
+#scene-ml .ml__chip {
+	position: absolute;
+	top: 252px;
+	width: 520px;
+	height: 190px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	background: var(--surface);
+	border: 2px solid var(--border);
+	border-radius: var(--radius);
+}
+#scene-ml .ml__chip--1 {
+	left: 0;
+}
+#scene-ml .ml__chip--2 {
+	left: 628px;
+}
+#scene-ml .ml__chip--3 {
+	left: 1256px;
+}
+#scene-ml .ml__chip-label {
+	font-size: 32px;
+	font-weight: 600;
+	color: var(--muted);
+}
+#scene-ml .ml__chip-val {
+	font-size: 74px;
+	font-weight: 800;
+	line-height: 1.05;
+	font-variant-numeric: tabular-nums;
+}
+#scene-ml .ml__down {
+	position: absolute;
+	left: 868px;
+	top: 456px;
+	width: 40px;
+	height: 90px;
+	overflow: visible;
+}
+#scene-ml .ml__regcard {
+	position: absolute;
+	left: 388px;
+	top: 560px;
+	width: 1000px;
+	height: 170px;
+	display: flex;
+	align-items: baseline;
+	justify-content: center;
+	gap: 30px;
+	padding-top: 34px;
+	border-color: var(--green);
+}
+#scene-ml .ml__reg-pre {
+	font-size: 38px;
+	color: var(--muted);
+}
+#scene-ml .ml__reg-word {
+	font-size: 92px;
+	font-weight: 800;
+	letter-spacing: -0.01em;
+}

@@ -1,0 +1,114 @@
+<section class="scene" id="scene-loglog">
+	<!-- The one chart of this chapter. Axes, curve, dots and the callouts are drawn by 06-loglog.js from the real numbers. -->
+	<svg class="loglog__chart" id="loglog-chart" width="1060" height="780" viewBox="0 0 1060 780">
+		<g id="loglog-frame">
+			<text class="loglog__charttitle" id="loglog-title-lin" x="120" y="36">Normal axes</text>
+			<text class="loglog__charttitle" id="loglog-title-log" x="120" y="36">Both axes on a log scale</text>
+			<g id="loglog-legend">
+				<circle cx="620" cy="27" r="11" fill="var(--amber)" />
+				<text class="loglog__legend" x="640" y="35">training examples</text>
+				<circle cx="866" cy="27" r="9.5" fill="none" stroke="var(--accent)" stroke-width="4" />
+				<text class="loglog__legend" x="886" y="35">test cases</text>
+			</g>
+		</g>
+		<g id="loglog-plot">
+			<g id="loglog-grid-lin"></g>
+			<g id="loglog-grid-log"></g>
+			<line class="loglog__axis" x1="120" y1="650" x2="1040" y2="650" />
+			<line class="loglog__axis" x1="120" y1="70" x2="120" y2="650" />
+			<g id="loglog-ticks-lin"></g>
+			<g id="loglog-ticks-log"></g>
+			<text class="loglog__axistitle" id="loglog-xt-lin" x="580" y="738" text-anchor="middle">distance from the Sun (AU)</text>
+			<text class="loglog__axistitle" id="loglog-xt-log" x="580" y="738" text-anchor="middle">distance from the Sun (AU), log scale</text>
+			<text class="loglog__axistitle" id="loglog-yt-lin" x="34" y="360" text-anchor="middle" transform="rotate(-90 34 360)">orbit period (years)</text>
+			<text class="loglog__axistitle" id="loglog-yt-log" x="34" y="360" text-anchor="middle" transform="rotate(-90 34 360)">orbit period (years), log scale</text>
+			<g id="loglog-curve-wrap"></g>
+			<g id="loglog-raw-wrap"></g>
+			<g id="loglog-errs"></g>
+			<g id="loglog-zoom"></g>
+			<g id="loglog-green-wrap"></g>
+			<g id="loglog-tri"></g>
+			<g id="loglog-dots"></g>
+			<g id="loglog-names"></g>
+			<g id="loglog-inset"></g>
+		</g>
+	</svg>
+
+	<!-- Beat 1: the data as a table, row by row with its dot -->
+	<div class="loglog__p" id="loglog-p1">
+		<div class="card loglog__table" id="loglog-table">
+			<div class="loglog__head">
+				<span></span><span>body</span><span class="loglog__num">distance (AU)</span><span class="loglog__num">period (years)</span>
+			</div>
+			<div id="loglog-rows"></div>
+		</div>
+	</div>
+
+	<!-- Beat 2: the straight line, and what it says for Mars -->
+	<div class="loglog__p" id="loglog-p2">
+		<div class="card loglog__fcard" id="loglog-fcard">
+			<div class="loglog__cardlabel">The straight line we fitted</div>
+			<div class="loglog__formula">period = 6.2399 &times; distance &minus; 11.9006</div>
+		</div>
+		<div class="card loglog__mars" id="loglog-mars">
+			<div class="loglog__cardlabel" id="loglog-mars-label">Mars, 1.5237 AU away</div>
+			<div class="loglog__formula" id="loglog-mars-sum">6.2399 &times; 1.5237 &minus; 11.9006</div>
+			<div class="loglog__marsnum red" id="loglog-mars-num">= &minus;2.39 years</div>
+			<div class="loglog__stamp" id="loglog-mars-stamp">impossible: below zero</div>
+			<div class="loglog__actual" id="loglog-mars-actual">Mars really takes <b>1.88</b> years.</div>
+		</div>
+	</div>
+
+	<!-- Beat 3: what a logarithm does -->
+	<div class="loglog__p" id="loglog-p3">
+		<div class="kicker" id="loglog-lg-kicker">The logarithm</div>
+		<div class="loglog__chips">
+			<span class="loglog__chip" id="loglog-chip-0">log10( distance )</span>
+			<span class="loglog__chip" id="loglog-chip-1">log10( period )</span>
+		</div>
+		<div class="loglog__lgnote" id="loglog-lg-note">log10 counts the zeros:</div>
+		<div class="loglog__strip">
+			<div class="loglog__srow" id="loglog-s-0">
+				<span class="loglog__sin">1</span><span class="arrow"></span><span class="loglog__sout">0</span><span class="loglog__zeros">no zeros</span>
+			</div>
+			<div class="loglog__srow" id="loglog-s-1">
+				<span class="loglog__sin">10</span><span class="arrow"></span><span class="loglog__sout">1</span><span class="loglog__zeros">one zero</span>
+			</div>
+			<div class="loglog__srow" id="loglog-s-2">
+				<span class="loglog__sin">100</span><span class="arrow"></span><span class="loglog__sout">2</span><span class="loglog__zeros">two zeros</span>
+			</div>
+			<div class="loglog__srow" id="loglog-s-3">
+				<span class="loglog__sin">1000</span><span class="arrow"></span><span class="loglog__sout">3</span><span class="loglog__zeros">three zeros</span>
+			</div>
+		</div>
+	</div>
+
+	<!-- Beat 4: reading the log chart, and the verdict -->
+	<div class="loglog__p" id="loglog-p4">
+		<div class="card loglog__read" id="loglog-read">
+			<div class="loglog__cardlabel">How to read this chart</div>
+			<div class="loglog__readtext">Each gridline is <b>10 times</b> the one before: 0.1, 1, 10, 100.</div>
+		</div>
+		<div class="card loglog__fits" id="loglog-fits">
+			<div class="loglog__fitsbig green">A straight line.</div>
+			<div class="loglog__fitstext">Linear regression fits.</div>
+			<div class="loglog__formula">log10(period) = slope &times; log10(distance) + intercept</div>
+		</div>
+	</div>
+
+	<!-- Beat 5: the slope and Kepler -->
+	<div class="loglog__p" id="loglog-p5">
+		<div class="card loglog__k loglog__k--found" id="loglog-k-found">
+			<div class="loglog__klabel">slope found by the model</div>
+			<div class="loglog__kbig green" id="loglog-slope-num">1.4998</div>
+		</div>
+		<div class="card loglog__k loglog__k--law" id="loglog-k-law">
+			<div class="loglog__klabel">Kepler's third law</div>
+			<div class="loglog__kbig" id="loglog-kepler-num">1.5</div>
+		</div>
+		<div class="loglog__found" id="loglog-found">
+			<div class="loglog__foundnote">found from 7 examples</div>
+			<div class="loglog__foundrow" id="loglog-found-dots"></div>
+		</div>
+	</div>
+</section>

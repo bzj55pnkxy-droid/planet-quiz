@@ -1,0 +1,115 @@
+<section class="scene" id="scene-ml">
+	<!-- Beats 1-3: the two diagrams share one layout (goes in on the left, comes out on the right) -->
+	<div class="ml__diagram" id="ml-diagram">
+		<div class="ml__head" id="ml-head-a">Normal programming</div>
+		<div class="ml__head ml__head--ml" id="ml-head-b">Machine learning</div>
+		<div class="ml__lab" id="ml-lab-in">Goes in</div>
+		<div class="ml__lab" id="ml-lab-out">Comes out</div>
+
+		<svg class="ml__arrows" viewBox="0 0 1776 780">
+			<defs>
+				<marker id="ml-head" markerWidth="4" markerHeight="4" refX="2.6" refY="2" orient="auto">
+					<path d="M0 0 L4 2 L0 4 Z" class="ml__headfill" />
+				</marker>
+			</defs>
+			<g id="ml-arr-in">
+				<line class="ml__arr" x1="572" y1="255" x2="684" y2="332" marker-end="url(#ml-head)" />
+				<line class="ml__arr" x1="572" y1="505" x2="684" y2="428" marker-end="url(#ml-head)" />
+			</g>
+			<g id="ml-arr-ex">
+				<line class="ml__arr" x1="572" y1="380" x2="684" y2="380" marker-end="url(#ml-head)" />
+			</g>
+			<g id="ml-arr-out">
+				<line class="ml__arr" x1="1096" y1="380" x2="1204" y2="380" marker-end="url(#ml-head)" />
+			</g>
+		</svg>
+
+		<!-- Beat 1: input and the rule go in -->
+		<div class="ml__node ml__node--in" id="ml-input">
+			<div class="ml__name">Input</div>
+			<div class="ml__note">for example, a temperature</div>
+		</div>
+		<div class="ml__node ml__node--rule" id="ml-rule">
+			<div class="ml__name green">Rule</div>
+			<div class="ml__sub">
+				<span class="ml__sub-a">
+					<svg viewBox="0 0 30 30" width="34" height="34">
+						<circle cx="15" cy="9" r="7" class="ml__person" />
+						<path d="M2 29 a13 13 0 0 1 26 0 Z" class="ml__person" />
+					</svg>
+					written by a person
+				</span>
+				<span class="ml__sub-q">to be found</span>
+				<span class="ml__sub-b">found by the computer</span>
+			</div>
+		</div>
+		<div class="ml__node ml__node--comp" id="ml-comp">
+			<svg class="ml__laptop" viewBox="0 0 100 70" width="100" height="70">
+				<rect x="14" y="4" width="72" height="46" rx="6" class="ml__screen" />
+				<path d="M4 58 H96 L90 66 H10 Z" class="ml__base" />
+			</svg>
+			<div class="ml__name">Computer</div>
+			<div class="ml__sub ml__sub--comp">
+				<span class="ml__comp-a">runs the rule</span>
+				<span class="ml__comp-b">finds the rule</span>
+			</div>
+		</div>
+		<div class="ml__node ml__node--out" id="ml-output">
+			<div class="ml__name">Output</div>
+			<div class="ml__note">for example, ice creams sold</div>
+		</div>
+
+		<!-- Beat 2: examples go in instead -->
+		<div class="card ml__examples" id="ml-examples">
+			<div class="ml__extitle">Examples</div>
+			<div class="ml__tab">
+				<div class="ml__hl ml__hl--in" id="ml-hl-in"></div>
+				<div class="ml__hl ml__hl--out" id="ml-hl-out"></div>
+				<div class="ml__th"><span class="ml__tag ml__tag--in">input</span>temperature (&deg;C)</div>
+				<div class="ml__th"><span class="ml__tag ml__tag--out">correct output</span>ice creams sold</div>
+				<div class="ml__td">12</div>
+				<div class="ml__td">20</div>
+				<div class="ml__td">18</div>
+				<div class="ml__td">41</div>
+				<div class="ml__td">24</div>
+				<div class="ml__td">63</div>
+				<div class="ml__td">30</div>
+				<div class="ml__td">88</div>
+			</div>
+		</div>
+
+		<!-- Beat 3: the two new names -->
+		<div class="ml__pill ml__pill--train" id="ml-pill-train">training</div>
+		<div class="ml__pill ml__pill--model" id="ml-pill-model">model</div>
+	</div>
+
+	<!-- Beat 4: the output is a number -->
+	<div class="ml__b4" id="ml-b4">
+		<div class="card ml__numcard" id="ml-numcard">The output is a <span class="accent">number</span></div>
+		<div class="ml__such" id="ml-such">such as</div>
+		<div class="ml__chip ml__chip--1" id="ml-chip-1">
+			<div class="ml__chip-label">a price</div>
+			<div class="ml__chip-val">$49.90</div>
+		</div>
+		<div class="ml__chip ml__chip--2" id="ml-chip-2">
+			<div class="ml__chip-label">a temperature</div>
+			<div class="ml__chip-val">21 &deg;C</div>
+		</div>
+		<div class="ml__chip ml__chip--3" id="ml-chip-3">
+			<div class="ml__chip-label">a time</div>
+			<div class="ml__chip-val">3 h 20 min</div>
+		</div>
+		<svg class="ml__down" id="ml-down" viewBox="0 0 40 90">
+			<defs>
+				<marker id="ml-head-down" markerWidth="4" markerHeight="4" refX="2.6" refY="2" orient="auto">
+					<path d="M0 0 L4 2 L0 4 Z" class="ml__headfill" />
+				</marker>
+			</defs>
+			<line class="ml__arr" x1="20" y1="4" x2="20" y2="78" marker-end="url(#ml-head-down)" />
+		</svg>
+		<div class="card ml__regcard" id="ml-regcard">
+			<span class="ml__reg-pre">the job is called</span>
+			<span class="ml__reg-word green">regression</span>
+		</div>
+	</div>
+</section>

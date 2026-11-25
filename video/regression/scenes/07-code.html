@@ -1,0 +1,148 @@
+<section class="scene" id="scene-code">
+	<!-- Beat 1: the file and the order its functions run in -->
+	<div class="code__view code__v1" id="code-v1">
+		<div class="code__pathcard" id="code-path">
+			<div class="kicker">one file</div>
+			<div class="code__pathtext"><span id="code-dir">experiment/</span><span id="code-fname">run_experiment.py</span></div>
+		</div>
+		<div class="code__outline" id="code-outline">
+			<div class="node code__node code__node--now" id="code-n-0">
+				<div class="code__nm">build_dataset()</div>
+				<div class="node__note">reads the PDF into a table</div>
+			</div>
+			<div class="arrow code__arr" id="code-a-0"></div>
+			<div class="node code__node code__node--now" id="code-n-1">
+				<div class="code__nm">fit_regressions()</div>
+				<div class="node__note">trains the two straight lines</div>
+			</div>
+			<div class="arrow code__arr" id="code-a-1"></div>
+			<div class="node code__node code__node--later" id="code-n-2">
+				<div class="code__nm">build_store()</div>
+				<div class="node__note">builds the search index</div>
+			</div>
+			<div class="arrow code__arr" id="code-a-2"></div>
+			<div class="node code__node code__node--later" id="code-n-3">
+				<div class="code__nm">run_cases()</div>
+				<div class="node__note">asks every approach</div>
+			</div>
+			<div class="arrow code__arr" id="code-a-3"></div>
+			<div class="node code__node code__node--later" id="code-n-4">
+				<div class="code__nm">results.md</div>
+				<div class="node__note">the report</div>
+			</div>
+		</div>
+		<div class="code__brackets">
+			<div class="code__bracket code__bracket--now" id="code-br-now">this chapter</div>
+			<div class="code__bracket code__bracket--later" id="code-br-later">later chapters</div>
+		</div>
+	</div>
+
+	<!-- Beat 2: build_dataset() -->
+	<div class="code__view" id="code-v2">
+		<div class="code__panel" id="code-panel-2">
+			<div class="code__bar">experiment/run_experiment.py</div>
+			<div class="code__body">
+				<div class="code__band" id="code-band-b0" style="top: 20px"></div>
+				<div class="code__band" id="code-band-b2" style="top: 92px"></div>
+				<div class="code__band" id="code-band-b3" style="top: 128px"></div>
+				<div class="code__band" id="code-band-b5" style="top: 200px"></div>
+				<div class="code__band" id="code-band-b6" style="top: 236px"></div>
+				<div class="code__band" id="code-band-b7" style="top: 272px"></div>
+				<div class="code__l" id="code-l-b0"><span class="code__n">86</span><span class="code__t">def build_dataset() -&gt; list[dict]:</span></div>
+				<div class="code__l" id="code-l-b1"><span class="code__n"></span><span class="code__t">    ...</span></div>
+				<div class="code__l" id="code-l-b2"><span class="code__n">92</span><span class="code__t">        distance_km = find(<span class="tk" id="code-tk-rx0">r"Mean Distance from the Sun\s+([\d,.]+) million km"</span>, text, body).group(1)</span></div>
+				<div class="code__l" id="code-l-b3"><span class="code__n">93</span><span class="code__t">        period, unit = find(<span class="tk" id="code-tk-rx1">r"Orbit Period\s+([\d,.]+)\s+(?:Earth )?(days|years)"</span>, text, body).groups()</span></div>
+				<div class="code__l" id="code-l-b4"><span class="code__n"></span><span class="code__t">        ...</span></div>
+				<div class="code__l" id="code-l-b5"><span class="code__n">97</span><span class="code__t">            "distance_au": round(float(distance_km.replace(",", "")) / AU_MILLION_KM, 4),</span></div>
+				<div class="code__l" id="code-l-b6"><span class="code__n">98</span><span class="code__t">            "period_years": round(period / EARTH_YEAR_DAYS if unit == "days" else period, 4),</span></div>
+				<div class="code__l" id="code-l-b7"><span class="code__n">99</span><span class="code__t">            "split": "test" if body in TEST_BODIES else "train",</span></div>
+			</div>
+		</div>
+		<div class="code__notes">
+			<div class="card code__note" id="code-note-1">
+				<div class="code__nt"><span class="code__badge">1</span>Two text patterns</div>
+				<div class="code__nx">find the distance and the orbit period in the PDF text</div>
+			</div>
+			<div class="card code__note" id="code-note-2">
+				<div class="code__nt"><span class="code__badge">2</span>Convert the units</div>
+				<div class="code__nx">kilometres to AU, days to years</div>
+			</div>
+			<div class="card code__note" id="code-note-3">
+				<div class="code__nt"><span class="code__badge">3</span>Train or test</div>
+				<div class="code__nx">Mars and Uranus are held back as test; every other row trains</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Beats 3 to 6: fit_regressions() -->
+	<div class="code__view" id="code-v3">
+		<div class="code__panel code__panel--big" id="code-panel-3">
+			<div class="code__bar">experiment/run_experiment.py</div>
+			<div class="code__body">
+				<div class="code__band" id="code-band-f0" style="top: 20px"></div>
+				<div class="code__band" id="code-band-f2" style="top: 104px"></div>
+				<div class="code__band" id="code-band-f3" style="top: 146px"></div>
+				<div class="code__band" id="code-band-f5" style="top: 230px"></div>
+				<div class="code__band" id="code-band-f6" style="top: 272px"></div>
+				<div class="code__band" id="code-band-f8" style="top: 356px"></div>
+				<div class="code__l" id="code-l-f0"><span class="code__n">117</span><span class="code__t">def fit_regressions(<span class="tk" id="code-tk-train">train: list[dict]</span>, test: list[dict]) -&gt; tuple[dict, dict]:</span></div>
+				<div class="code__l" id="code-l-f1"><span class="code__n"></span><span class="code__t">    ...</span></div>
+				<div class="code__l" id="code-l-f2"><span class="code__n">119</span><span class="code__t">    x_train = np.array([[<span class="tk" id="code-tk-x">r["distance_au"]</span>] for r in train])</span></div>
+				<div class="code__l" id="code-l-f3"><span class="code__n">120</span><span class="code__t">    y_train = np.array([<span class="tk" id="code-tk-y">r["period_years"]</span> for r in train])</span></div>
+				<div class="code__l" id="code-l-f4"><span class="code__n"></span><span class="code__t">    ...</span></div>
+				<div class="code__l" id="code-l-f5"><span class="code__n">123</span><span class="code__t">    loglog = <span class="tk" id="code-tk-lr">LinearRegression</span>()<span class="tk" id="code-tk-fit">.fit</span>(<span class="tk" id="code-tk-l0">np.log10</span>(<span class="tk2" id="code-tk-lx">x_train</span>), <span class="tk" id="code-tk-l1">np.log10</span>(<span class="tk2" id="code-tk-ly">y_train</span>))</span></div>
+				<div class="code__l" id="code-l-f6"><span class="code__n">124</span><span class="code__t">    raw = LinearRegression().fit(<span class="tk" id="code-tk-raw">x_train, y_train</span>)</span></div>
+				<div class="code__l" id="code-l-f7"><span class="code__n">125</span><span class="code__t">    predictions = {</span></div>
+				<div class="code__l" id="code-l-f8"><span class="code__n">126</span><span class="code__t">        "loglog": (<span class="tk" id="code-tk-pow">10 **</span> <span class="tk" id="code-tk-pred">loglog.predict(np.log10(x_test))</span>).tolist(),</span></div>
+				<div class="code__l" id="code-l-f9"><span class="code__n"></span><span class="code__t">        ...</span></div>
+				<div class="code__l" id="code-l-f10"><span class="code__n">128</span><span class="code__t">    }</span></div>
+			</div>
+		</div>
+		<div class="code__notes code__notes--stack">
+			<!-- beat 3 -->
+			<div class="code__noteset" id="code-ns-3">
+				<div class="card code__note code__note--wide" id="code-note-x">
+					<div class="code__nt"><span class="code__sym">x</span>= distance</div>
+					<div class="code__nx">the input we know: how far from the Sun, in AU</div>
+				</div>
+				<div class="card code__note code__note--wide" id="code-note-y">
+					<div class="code__nt"><span class="code__sym">y</span>= period</div>
+					<div class="code__nx">the answer we want: years for one orbit</div>
+				</div>
+			</div>
+			<!-- beat 4 -->
+			<div class="code__noteset" id="code-ns-4">
+				<div class="card code__note code__note--a" id="code-note-lr">
+					<div class="code__nt code__mono">LinearRegression</div>
+					<div class="code__nx" id="code-note-lr-text">from scikit-learn</div>
+				</div>
+				<div class="card code__note code__note--b" id="code-note-fit">
+					<div class="code__nt code__mono">.fit</div>
+					<div class="code__nx">= train</div>
+				</div>
+				<div class="card code__note code__note--c" id="code-note-log">
+					<div class="code__nt code__mono">np.log10</div>
+					<div class="code__nx">= take the logarithm</div>
+				</div>
+			</div>
+			<!-- beat 5 -->
+			<div class="code__noteset" id="code-ns-5">
+				<div class="card code__note code__note--wide code__note--base" id="code-note-raw">
+					<div class="code__nt">baseline: no logarithms</div>
+					<div class="code__nx">x_train and y_train go straight in, as they are</div>
+				</div>
+			</div>
+			<!-- beat 6 -->
+			<div class="code__noteset" id="code-ns-6">
+				<div class="card code__note code__note--wide code__note--a" id="code-note-pred">
+					<div class="code__nt code__mono">predict</div>
+					<div class="code__nx">&rarr; the logarithm of the period</div>
+				</div>
+				<div class="card code__note code__note--wide code__note--b" id="code-note-pow">
+					<div class="code__nt code__mono">10 ** ...</div>
+					<div class="code__nx">&rarr; back to years</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

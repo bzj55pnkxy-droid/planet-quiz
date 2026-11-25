@@ -230,28 +230,33 @@ Every run overwrites the result files and uses `CHAT_MODEL` and `EMBED_MODEL` fr
 
 The discussion is in the synopsis; the full tables are in `experiment/results.md`.
 
-## Explainer video
+## Explainer videos
 
-`docs/video/planet-quiz-rag-explained.mp4` is a narrated introduction of about 7 minutes for people who are new to RAG: what RAG is, the two phases of the pipeline, and where each step lives in this project. Subtitles are in the `.srt` file next to it.
+Two narrated videos of about 7 minutes each are in `docs/video/`, with subtitles in the `.srt` files next to them:
 
-The video is built from code in `video/`:
+- `planet-quiz-rag-explained.mp4`, for people who are new to RAG: what RAG is, the two phases of the pipeline, and where each step lives in this project.
+- `planet-quiz-regression-explained.mp4`, for people who are new to machine learning: what linear regression is, the regression experiment, its code in `experiment/run_experiment.py`, and the results.
+
+The videos are built from code in `video/`:
 
 | File | Purpose |
 | --- | --- |
-| `script.json` | The narration, split into chapters and beats (one or two sentences each) |
-| `src/` | The pictures: one HTML/CSS/JS scene per chapter, animated with GSAP and rendered by Hyperframes |
+| `script.json` | The narration of the RAG video, split into chapters and beats (one or two sentences each) |
+| `src/` | Shared look and timeline code, and the RAG video's pictures: one HTML/CSS/JS scene per chapter, animated with GSAP and rendered by Hyperframes |
+| `regression/` | The regression video's own `script.json` and `scenes/` |
 | `audio/` | Generated, git-ignored: one WAV per beat, spoken by Kokoro (a local text-to-speech model) |
 | `capture.ts` | Takes the real app screenshots used in the demo chapter |
 | `build.ts` | Measures the audio, times the pictures to it, renders and adds the sound |
 
-To rebuild it you need Bun, `ffmpeg` and uv:
+To rebuild them you need Bun, `ffmpeg` and uv:
 
 ```bash
 cd video
 bun install
 uv venv --python 3.12 .tts-venv
 uv pip install --python .tts-venv/bin/python kokoro-onnx soundfile
-bun build.ts
+bun build.ts                      # the RAG video
+bun build.ts --video=regression   # the regression video
 ```
 
 Only beats whose text changed are spoken again, and the picture timing follows the new audio automatically.
@@ -264,7 +269,7 @@ Only beats whose text changed are spoken again, and the picture timing follows t
 ├── exam.md                         the exam assignment
 ├── docs/
 │   ├── synopsis.md                 the synopsis (maximum 5 pages)
-│   └── video/                      explainer video (MP4) and its subtitles (SRT)
+│   └── video/                      explainer videos (MP4) and their subtitles (SRT)
 ├── pyproject.toml                  project metadata and dependencies (Python 3.12)
 ├── uv.lock                         pinned dependency versions
 ├── .env.example                    every setting with its default; copy to .env
@@ -291,7 +296,7 @@ Only beats whose text changed are spoken again, and the picture timing follows t
 │   ├── results.json                generated results as data
 │   ├── data/bodies.csv             generated dataset
 │   └── chroma/                     generated scratch vector store (git-ignored)
-└── video/                          sources of the explainer video (see "Explainer video")
+└── video/                          sources of the explainer videos (see "Explainer videos")
 ```
 
 ## API reference

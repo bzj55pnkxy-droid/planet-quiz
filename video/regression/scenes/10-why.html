@@ -1,0 +1,211 @@
+<section class="scene" id="scene-why">
+	<!-- Beat 1: regression fits 2 numbers to a numeric pattern -->
+	<div class="why__b" id="why-b1">
+		<div class="card why__card why__card--green" id="why-card-reg">
+			<div class="why__kick green">Linear regression</div>
+			<div class="why__big" id="why-t1a">fits 2 numbers</div>
+			<div class="why__big" id="why-t1b">to a numeric pattern</div>
+			<div class="why__chips">
+				<span class="chip why__chip why__chip--green" id="why-c1a">slope 1.4998</span>
+				<span class="chip why__chip why__chip--green" id="why-c1b">intercept -0.0001</span>
+			</div>
+		</div>
+		<div class="card why__chart" id="why-chart">
+			<svg viewBox="0 0 960 640" width="960" height="640">
+				<!-- grid and axes: log10 of distance (x) and of period (y) -->
+				<line x1="320" y1="30" x2="320" y2="540" stroke="#2e3b6b" stroke-width="2" />
+				<line x1="653.3" y1="30" x2="653.3" y2="540" stroke="#2e3b6b" stroke-width="2" />
+				<line x1="120" y1="420" x2="920" y2="420" stroke="#2e3b6b" stroke-width="2" />
+				<line x1="120" y1="270" x2="920" y2="270" stroke="#2e3b6b" stroke-width="2" />
+				<line x1="120" y1="120" x2="920" y2="120" stroke="#2e3b6b" stroke-width="2" />
+				<line x1="120" y1="540" x2="920" y2="540" stroke="#9daad0" stroke-width="4" />
+				<line x1="120" y1="30" x2="120" y2="540" stroke="#9daad0" stroke-width="4" />
+				<text x="320" y="578" text-anchor="middle" font-size="24" fill="#9daad0">1 AU</text>
+				<text x="653.3" y="578" text-anchor="middle" font-size="24" fill="#9daad0">10 AU</text>
+				<text x="104" y="428" text-anchor="end" font-size="24" fill="#9daad0">1</text>
+				<text x="104" y="278" text-anchor="end" font-size="24" fill="#9daad0">10</text>
+				<text x="104" y="128" text-anchor="end" font-size="24" fill="#9daad0">100</text>
+				<text x="520" y="624" text-anchor="middle" font-size="26" fill="#9daad0">distance from the Sun (log scale)</text>
+				<text transform="translate(34 285) rotate(-90)" text-anchor="middle" font-size="26" fill="#9daad0">period in years (log scale)</text>
+				<!-- legend -->
+				<circle cx="640" cy="470" r="11" fill="#fbbf24" />
+				<text x="664" y="479" font-size="24" fill="#eef1fb">training bodies</text>
+				<circle cx="640" cy="510" r="9" fill="#161f3d" stroke="#7c9cff" stroke-width="4" />
+				<text x="664" y="519" font-size="24" fill="#eef1fb">test bodies</text>
+				<!-- the fitted line -->
+				<line id="why-line" x1="153.3" y1="532.5" x2="886.7" y2="37.6" stroke="#4ade80" stroke-width="6" stroke-linecap="round" stroke-dasharray="890" stroke-dashoffset="890" />
+				<!-- the ten bodies, all lying on the line -->
+				<circle class="why__d" id="why-d-0" cx="182.6" cy="512.8" r="11" fill="#fbbf24" />
+				<circle class="why__d" id="why-d-1" cx="273.1" cy="451.6" r="11" fill="#fbbf24" />
+				<circle class="why__d" id="why-d-2" cx="320" cy="420" r="11" fill="#fbbf24" />
+				<circle class="why__d" id="why-d-3" cx="381" cy="378.9" r="9" fill="#161f3d" stroke="#7c9cff" stroke-width="4" />
+				<circle class="why__d" id="why-d-4" cx="558.8" cy="258.9" r="11" fill="#fbbf24" />
+				<circle class="why__d" id="why-d-5" cx="646.5" cy="199.7" r="11" fill="#fbbf24" />
+				<circle class="why__d" id="why-d-6" cx="747.7" cy="131.3" r="9" fill="#161f3d" stroke="#7c9cff" stroke-width="4" />
+				<circle class="why__d" id="why-d-7" cx="812.7" cy="87.5" r="11" fill="#fbbf24" />
+				<circle class="why__d" id="why-d-8" cx="852.1" cy="60.9" r="11" fill="#fbbf24" />
+				<circle class="why__d" id="why-d-9" cx="712" cy="155.4" r="9" fill="#161f3d" stroke="#7c9cff" stroke-width="4" />
+			</svg>
+			<div class="why__charttext green" id="why-straight">the dots lie<br />on one straight line</div>
+		</div>
+	</div>
+
+	<!-- Beat 2: the language model predicts likely words -->
+	<div class="why__b" id="why-b2">
+		<div class="card why__card why__card--violet" id="why-card-llm">
+			<div class="why__kick violet">Language model</div>
+			<div class="why__big" id="why-t2a">predicts likely words</div>
+			<div class="why__big why__big--red" id="why-t2b">does not calculate</div>
+		</div>
+		<div class="why__prompt" id="why-prompt">
+			<div class="why__plabel" id="why-plabel">in the prompt: 4 examples</div>
+			<div class="why__pl" id="why-ex-0">Earth: 1 AU -&gt; 1 year</div>
+			<div class="why__pl" id="why-ex-1">Mercury: 0.39 AU -&gt; 0.24 years</div>
+			<div class="why__pl" id="why-ex-2">Venus: 0.72 AU -&gt; 0.62 years</div>
+			<div class="why__pl" id="why-ex-3">Neptune: 30.07 AU -&gt; 164.79 years</div>
+			<div class="why__divider" id="why-divider"></div>
+			<div class="why__ask" id="why-ask">
+				<span class="why__q">19.19 AU -&gt;</span>
+				<span class="why__slot"><span class="why__qm" id="why-qm">?</span><span class="why__ans" id="why-ans">14.11</span></span>
+			</div>
+			<div class="why__actual" id="why-actual"><span class="why__actualtag">actual:</span><span class="why__actualnum">84.02</span><span class="why__actualyr">years</span></div>
+		</div>
+	</div>
+
+	<!-- Beat 3: retrieval finds similar text, not nearby numbers -->
+	<div class="why__b" id="why-b3">
+		<div class="why__rkick" id="why-r-kick">three different questions, the same four answers</div>
+		<div class="why__rrow" id="why-row-0" style="top: 70px">
+			<div class="card why__qchip"><span class="why__ring"></span><span class="why__qt">1.52 AU?</span></div>
+			<div class="arrow why__rarrow"></div>
+			<div class="why__hits">
+				<div class="why__hit"><span class="why__hname">Earth</span><span class="why__hau">1 AU</span></div>
+				<div class="why__hit"><span class="why__hname">Mercury</span><span class="why__hau">0.39 AU</span></div>
+				<div class="why__hit"><span class="why__hname">Venus</span><span class="why__hau">0.72 AU</span></div>
+				<div class="why__hit"><span class="why__hname">Neptune</span><span class="why__hau">30.07 AU</span></div>
+			</div>
+		</div>
+		<div class="why__rrow" id="why-row-1" style="top: 215px">
+			<div class="card why__qchip"><span class="why__ring"></span><span class="why__qt">19.19 AU?</span></div>
+			<div class="arrow why__rarrow"></div>
+			<div class="why__hits">
+				<div class="why__hit"><span class="why__hname">Earth</span><span class="why__hau">1 AU</span></div>
+				<div class="why__hit"><span class="why__hname">Mercury</span><span class="why__hau">0.39 AU</span></div>
+				<div class="why__hit"><span class="why__hname">Venus</span><span class="why__hau">0.72 AU</span></div>
+				<div class="why__hit"><span class="why__hname">Neptune</span><span class="why__hau">30.07 AU</span></div>
+			</div>
+		</div>
+		<div class="why__rrow" id="why-row-2" style="top: 360px">
+			<div class="card why__qchip"><span class="why__ring"></span><span class="why__qt">15 AU?</span></div>
+			<div class="arrow why__rarrow"></div>
+			<div class="why__hits">
+				<div class="why__hit"><span class="why__hname">Earth</span><span class="why__hau">1 AU</span></div>
+				<div class="why__hit"><span class="why__hname">Mercury</span><span class="why__hau">0.39 AU</span></div>
+				<div class="why__hit"><span class="why__hname">Venus</span><span class="why__hau">0.72 AU</span></div>
+				<div class="why__hit"><span class="why__hname">Neptune</span><span class="why__hau">30.07 AU</span></div>
+			</div>
+		</div>
+		<div class="why__never" id="why-never">
+			<div class="why__nlabel">never retrieved</div>
+			<div class="why__nchips">
+				<div class="why__nchip"><span class="why__hname">Saturn</span><span class="why__hau">9.54 AU</span></div>
+				<div class="why__nchip"><span class="why__hname">Jupiter</span><span class="why__hau">5.20 AU</span></div>
+			</div>
+			<div class="why__nnote">For the 19.19 AU question, both are closer in number than Earth, Mercury or Venus.</div>
+		</div>
+		<div class="why__banner" id="why-banner">similar text, not nearby numbers</div>
+		<div class="why__bsub" id="why-bsub">All the sentences use the same words; only the names and numbers differ.</div>
+	</div>
+
+	<!-- Beat 4: the rule of thumb -->
+	<div class="why__b" id="why-b4">
+		<div class="why__lesson" id="why-lesson">The lesson</div>
+		<div class="card why__col why__col--green" id="why-col-a">
+			<svg class="why__icon" viewBox="0 0 160 120" width="160" height="120">
+				<line x1="10" y1="104" x2="150" y2="104" stroke="#9daad0" stroke-width="5" />
+				<line x1="10" y1="104" x2="10" y2="10" stroke="#9daad0" stroke-width="5" />
+				<line x1="18" y1="94" x2="148" y2="22" stroke="#4ade80" stroke-width="8" stroke-linecap="round" />
+				<circle cx="38" cy="84" r="9" fill="#fbbf24" />
+				<circle cx="72" cy="65" r="9" fill="#fbbf24" />
+				<circle cx="106" cy="46" r="9" fill="#fbbf24" />
+				<circle cx="132" cy="32" r="9" fill="#fbbf24" />
+			</svg>
+			<div class="why__cond" id="why-cond-a">A number that follows a pattern</div>
+			<div class="arrow why__down"></div>
+			<div class="why__tool why__tool--green" id="why-tool-a">train a small model</div>
+		</div>
+		<div class="card why__col why__col--violet" id="why-col-b">
+			<svg class="why__icon" viewBox="0 0 160 120" width="160" height="120">
+				<rect x="40" y="6" width="80" height="108" rx="10" fill="#1d2850" stroke="#fbbf24" stroke-width="5" />
+				<line x1="56" y1="72" x2="104" y2="72" stroke="#9daad0" stroke-width="5" stroke-linecap="round" />
+				<line x1="56" y1="90" x2="92" y2="90" stroke="#9daad0" stroke-width="5" stroke-linecap="round" />
+				<text x="80" y="62" text-anchor="middle" font-size="64" font-weight="800" fill="#fbbf24">&#8220;</text>
+			</svg>
+			<div class="why__cond" id="why-cond-b">A fact you can quote from a document</div>
+			<div class="arrow why__down"></div>
+			<div class="why__tool why__tool--violet" id="why-tool-b">language model + RAG</div>
+		</div>
+	</div>
+
+	<!-- Beat 5: two honest limits -->
+	<div class="why__b" id="why-b5">
+		<div class="card why__limit why__limit--a" id="why-lim-a">
+			<div class="why__ltitle">3 test cases</div>
+			<div class="why__rings">
+				<span class="why__bigring" id="why-ring-0"></span>
+				<span class="why__bigring" id="why-ring-1"></span>
+				<span class="why__bigring" id="why-ring-2"></span>
+			</div>
+			<span class="why__runpill" id="why-run"><span class="why__play"></span>1 run</span>
+			<div class="why__lsub">a very small sample</div>
+		</div>
+		<div class="card why__limit why__limit--b" id="why-lim-b">
+			<div class="why__ltitle">works because we chose the right shape (log-log)</div>
+			<div class="why__minis">
+				<div class="why__mini" id="why-mini-raw">
+					<svg viewBox="0 0 400 300" width="400" height="300">
+						<line x1="50" y1="260" x2="380" y2="260" stroke="#9daad0" stroke-width="4" />
+						<line x1="50" y1="20" x2="50" y2="260" stroke="#9daad0" stroke-width="4" />
+						<line x1="65.7" y1="260" x2="380" y2="31.8" stroke="#f87171" stroke-width="6" stroke-linecap="round" />
+						<line x1="92.9" y1="248.6" x2="92.9" y2="240.3" stroke="#f87171" stroke-width="4" />
+						<line x1="128.7" y1="231.8" x2="128.7" y2="214.3" stroke="#f87171" stroke-width="4" />
+						<line x1="173.8" y1="204.2" x2="173.8" y2="181.5" stroke="#f87171" stroke-width="4" />
+						<line x1="208.3" y1="179.3" x2="208.3" y2="156.5" stroke="#f87171" stroke-width="4" />
+						<line x1="298.1" y1="101.8" x2="298.1" y2="91.3" stroke="#f87171" stroke-width="4" />
+						<line x1="375.7" y1="22" x2="375.7" y2="34.9" stroke="#f87171" stroke-width="4" />
+						<circle cx="53.2" cy="259.8" r="8" fill="#fbbf24" />
+						<circle cx="56" cy="259.4" r="8" fill="#fbbf24" />
+						<circle cx="58.3" cy="259" r="8" fill="#fbbf24" />
+						<circle cx="62.6" cy="258.2" r="8" fill="#161f3d" stroke="#7c9cff" stroke-width="3" />
+						<circle cx="92.9" cy="248.6" r="8" fill="#fbbf24" />
+						<circle cx="128.7" cy="231.8" r="8" fill="#fbbf24" />
+						<circle cx="208.3" cy="179.3" r="8" fill="#161f3d" stroke="#7c9cff" stroke-width="3" />
+						<circle cx="298.1" cy="101.8" r="8" fill="#fbbf24" />
+						<circle cx="375.7" cy="22" r="8" fill="#fbbf24" />
+						<circle cx="173.8" cy="204.2" r="8" fill="#161f3d" stroke="#7c9cff" stroke-width="3" />
+					</svg>
+					<div class="why__minilab red">raw numbers: the line misses</div>
+				</div>
+				<div class="why__mini" id="why-mini-log">
+					<svg viewBox="0 0 400 300" width="400" height="300">
+						<line x1="50" y1="260" x2="380" y2="260" stroke="#9daad0" stroke-width="4" />
+						<line x1="50" y1="20" x2="50" y2="260" stroke="#9daad0" stroke-width="4" />
+						<line x1="63.8" y1="256.5" x2="366.2" y2="23.6" stroke="#4ade80" stroke-width="6" stroke-linecap="round" />
+						<circle cx="75.8" cy="247.2" r="8" fill="#fbbf24" />
+						<circle cx="113.2" cy="218.4" r="8" fill="#fbbf24" />
+						<circle cx="132.5" cy="203.5" r="8" fill="#fbbf24" />
+						<circle cx="157.6" cy="184.2" r="8" fill="#161f3d" stroke="#7c9cff" stroke-width="3" />
+						<circle cx="231" cy="127.7" r="8" fill="#fbbf24" />
+						<circle cx="267.2" cy="99.9" r="8" fill="#fbbf24" />
+						<circle cx="308.9" cy="67.7" r="8" fill="#161f3d" stroke="#7c9cff" stroke-width="3" />
+						<circle cx="335.7" cy="47" r="8" fill="#fbbf24" />
+						<circle cx="352" cy="34.5" r="8" fill="#fbbf24" />
+						<circle cx="294.2" cy="79" r="8" fill="#161f3d" stroke="#7c9cff" stroke-width="3" />
+					</svg>
+					<div class="why__minilab green">log-log: the line fits</div>
+				</div>
+			</div>
+		</div>
+		<div class="why__closing" id="why-closing">Pick the tool that fits the question.</div>
+	</div>
+</section>

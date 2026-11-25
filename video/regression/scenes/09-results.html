@@ -1,0 +1,92 @@
+<section class="scene" id="scene-results">
+	<!-- Beats 1 and 2: Uranus on a scale of 0 to 180 years -->
+	<div class="results__b" id="results-scale">
+		<div class="results__head" id="results-head"><b>Uranus</b><span>19.191 AU from the Sun</span></div>
+
+		<!-- axis: 0 to 180 years, 7.2222 px per year, starting at x = 420 -->
+		<div class="results__axis"></div>
+		<div class="results__tick" style="left: 420px">0</div>
+		<div class="results__tick" style="left: 636.7px">30</div>
+		<div class="results__tick" style="left: 853.3px">60</div>
+		<div class="results__tick" style="left: 1070px">90</div>
+		<div class="results__tick" style="left: 1286.7px">120</div>
+		<div class="results__tick" style="left: 1503.3px">150</div>
+		<div class="results__tick" style="left: 1720px">180</div>
+		<div class="results__axistitle">predicted orbital period, in years</div>
+
+		<!-- the four tracks -->
+		<div class="results__row" id="results-row-0">
+			<div class="results__track" style="top: 215px"></div>
+			<div class="results__name" id="results-name-0" style="top: 193px">Log-log regression</div>
+			<div class="results__dotbox" id="results-dot-0" style="left: 1008.7px; top: 197px"><span class="results__dot results__dot--green"></span></div>
+			<div class="results__val results__val--green" id="results-val-0" style="left: 1066px; top: 150px">84.00</div>
+			<div class="results__off results__off--green" id="results-off-0" style="left: 1066px; top: 242px">off by 0.02</div>
+		</div>
+		<div class="results__row" id="results-row-1">
+			<div class="results__track" style="top: 345px"></div>
+			<div class="results__name" id="results-name-1" style="top: 323px">Straight-line baseline</div>
+			<div class="results__seg results__seg--red results__seg--l" id="results-seg-1" style="left: 1026.8px; top: 341px; width: 172.1px"></div>
+			<div class="results__dotbox" id="results-dot-1" style="left: 1180.9px; top: 327px"><span class="results__dot results__dot--red"></span></div>
+			<div class="results__val results__val--red" id="results-val-1" style="left: 1238px; top: 280px">107.85</div>
+			<div class="results__off results__off--red" id="results-off-1" style="left: 1000px; top: 372px; width: 230px; text-align: center">off by 23.83</div>
+		</div>
+		<div class="results__row" id="results-row-2">
+			<div class="results__track" style="top: 475px"></div>
+			<div class="results__name" id="results-name-2" style="top: 453px">Language model + RAG</div>
+			<div class="results__seg results__seg--red results__seg--r" id="results-seg-2" style="left: 521.9px; top: 471px; width: 504.9px"></div>
+			<div class="results__dotbox" id="results-dot-2" style="left: 503.9px; top: 457px"><span class="results__dot results__dot--violet"></span></div>
+			<div class="results__val results__val--violet" id="results-val-2" style="left: 560px; top: 410px">14.11</div>
+			<div class="results__off results__off--red" id="results-off-2" style="left: 650px; top: 502px; width: 250px; text-align: center">off by 69.91</div>
+		</div>
+		<div class="results__row" id="results-row-3">
+			<div class="results__track" style="top: 605px"></div>
+			<div class="results__name" id="results-name-3" style="top: 583px">Language model, no RAG</div>
+			<div class="results__seg results__seg--red results__seg--l" id="results-seg-3" style="left: 1026.8px; top: 601px; width: 666.7px"></div>
+			<div class="results__dotbox" id="results-dot-3" style="left: 1675.5px; top: 587px"><span class="results__dot results__dot--violet"></span></div>
+			<div class="results__val results__val--violet results__val--right" id="results-val-3" style="left: 1358px; top: 540px">176.35</div>
+			<div class="results__off results__off--red" id="results-off-3" style="left: 1230px; top: 632px; width: 260px; text-align: center">off by 92.33</div>
+		</div>
+
+		<!-- the true answer, drawn over the tracks -->
+		<div class="results__actualline" id="results-actual-line"></div>
+		<div class="results__actual" id="results-actual"><span class="results__actualval">Actual 84.02 years</span><span class="results__pointer"></span></div>
+	</div>
+
+	<!-- Beat 3: mean absolute error, bars to scale (1100 px = 44.83 years) -->
+	<div class="results__b" id="results-bars">
+		<div class="results__title" id="results-title">Mean absolute error (years), lower is better</div>
+		<div class="results__subtitle" id="results-subtitle">average over the 3 test cases</div>
+
+		<div class="results__grid" style="left: 470px"></div>
+		<div class="results__grid" style="left: 715.4px"></div>
+		<div class="results__grid" style="left: 960.8px"></div>
+		<div class="results__grid" style="left: 1206.2px"></div>
+		<div class="results__grid" style="left: 1451.6px"></div>
+		<div class="results__grid results__axisline--h"></div>
+		<div class="results__grid results__axisline--v"></div>
+		<div class="results__gtick" style="left: 470px">0</div>
+		<div class="results__gtick" style="left: 715.4px">10</div>
+		<div class="results__gtick" style="left: 960.8px">20</div>
+		<div class="results__gtick" style="left: 1206.2px">30</div>
+		<div class="results__gtick" style="left: 1451.6px">40</div>
+		<div class="results__gunit">years</div>
+
+		<div class="results__brow" id="results-brow-0" style="top: 170px">
+			<div class="results__bname" style="color: var(--green)">Log-log regression</div>
+			<div class="results__bar results__bar--green" id="results-bar-0"><span class="results__bval results__bval--green" id="results-num-0">0.00</span></div>
+			<div class="results__thin" id="results-thin"><span class="arrow results__thinarrow"></span>too thin to see at this scale</div>
+		</div>
+		<div class="results__brow" id="results-brow-1" style="top: 305px">
+			<div class="results__bname" style="color: var(--red)">Straight-line baseline</div>
+			<div class="results__bar results__bar--red" id="results-bar-1"><span class="results__bval results__bval--red" id="results-num-1">0.00</span></div>
+		</div>
+		<div class="results__brow" id="results-brow-2" style="top: 440px">
+			<div class="results__bname" style="color: var(--violet)">Language model + RAG</div>
+			<div class="results__bar results__bar--violet" id="results-bar-2"><span class="results__bval results__bval--violet" id="results-num-2">0.00</span></div>
+		</div>
+		<div class="results__brow" id="results-brow-3" style="top: 575px">
+			<div class="results__bname" style="color: var(--violet)">Language model, no RAG</div>
+			<div class="results__bar results__bar--violet" id="results-bar-3"><span class="results__bval results__bval--violet" id="results-num-3">0.00</span></div>
+		</div>
+	</div>
+</section>

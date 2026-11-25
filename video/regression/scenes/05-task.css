@@ -1,0 +1,321 @@
+#scene-task .task__b1,
+#scene-task .task__b2,
+#scene-task .task__b3 {
+	position: absolute;
+	inset: 0;
+}
+#scene-task .card__label {
+	font-size: 24px;
+}
+
+/* ---------- beat 1: near and far bodies ---------- */
+#scene-task .task__sky {
+	position: absolute;
+	left: 20px;
+	top: 0;
+	overflow: visible;
+}
+#scene-task .task__ring {
+	fill: none;
+	stroke: rgba(157, 170, 208, 0.45);
+	stroke-width: 3;
+}
+#scene-task .task__spoke {
+	stroke: rgba(238, 241, 251, 0.55);
+	stroke-width: 3;
+	stroke-dasharray: 8 8;
+}
+#scene-task .task__sunlab {
+	font-size: 26px;
+	font-weight: 800;
+	fill: #4a2a00;
+}
+#scene-task .task__side {
+	position: absolute;
+	left: 840px;
+	top: 0;
+	width: 936px;
+	height: 780px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 28px;
+}
+#scene-task .task__body {
+	display: flex;
+	align-items: center;
+	gap: 30px;
+	padding: 26px 34px;
+}
+#scene-task .task__swatch {
+	flex: none;
+	width: 34px;
+	height: 34px;
+	border-radius: 50%;
+}
+#scene-task .task__swatch--near {
+	background: var(--accent);
+}
+#scene-task .task__swatch--far {
+	background: var(--text);
+}
+#scene-task .task__bname {
+	font-size: 42px;
+	font-weight: 700;
+}
+#scene-task .task__bnote {
+	margin-top: 4px;
+	font-size: 30px;
+	color: var(--muted);
+}
+#scene-task .task__flow {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 18px;
+	margin-top: 22px;
+}
+#scene-task .task__fnode {
+	min-width: 0;
+	padding: 24px 28px;
+}
+#scene-task .task__fnode .node__name {
+	font-size: 36px;
+	white-space: nowrap;
+}
+#scene-task .task__farrow {
+	width: 76px;
+}
+
+/* ---------- beat 2: input and output ---------- */
+#scene-task .task__b2 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 36px;
+}
+#scene-task .task__io {
+	width: 740px;
+	min-width: 0;
+	padding: 48px 40px 50px;
+	gap: 14px;
+}
+#scene-task .task__io svg {
+	width: 100%;
+	height: auto;
+}
+#scene-task .task__iotag {
+	font-family: var(--mono);
+	font-size: 26px;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--accent);
+}
+#scene-task .task__ioname {
+	font-size: 58px;
+	line-height: 1.1;
+}
+#scene-task .task__ionote {
+	margin-bottom: 14px;
+	font-size: 42px;
+	color: var(--muted);
+}
+#scene-task .task__il {
+	font-size: 46px;
+	font-weight: 800;
+	fill: var(--text);
+}
+#scene-task .task__is {
+	font-size: 26px;
+	fill: var(--muted);
+}
+#scene-task .task__iocap {
+	margin-top: 8px;
+	font-size: 32px;
+	color: var(--muted);
+}
+#scene-task .task__bigarrow {
+	width: 120px;
+	height: 6px;
+}
+
+/* ---------- beats 3 to 5: the data table ---------- */
+#scene-task .task__table {
+	position: absolute;
+	left: 40px;
+	top: 73px;
+	width: 1060px;
+}
+#scene-task .task__trow {
+	position: relative;
+	display: grid;
+	grid-template-columns: 340px 230px 300px 1fr;
+	align-items: center;
+	height: 58px;
+	padding: 0 24px;
+	font-size: 32px;
+	border-bottom: 1px solid rgba(46, 59, 107, 0.7);
+}
+#scene-task .task__trow--head {
+	height: 54px;
+	font-size: 24px;
+	color: var(--muted);
+	border-bottom: 2px solid var(--border);
+}
+#scene-task .task__trow span:nth-of-type(2),
+#scene-task .task__trow span:nth-of-type(3) {
+	text-align: right;
+	padding-right: 56px;
+	font-variant-numeric: tabular-nums;
+}
+#scene-task .task__tint,
+#scene-task .task__made {
+	position: absolute;
+	inset: 0;
+	border-radius: 10px;
+	opacity: 0;
+	pointer-events: none;
+}
+#scene-task .task__tint--train {
+	background: rgba(251, 191, 36, 0.16);
+	box-shadow: inset 8px 0 0 var(--amber);
+}
+#scene-task .task__tint--test {
+	background: rgba(124, 156, 255, 0.24);
+	box-shadow: inset 8px 0 0 var(--accent);
+}
+#scene-task .task__made {
+	border: 3px solid var(--red);
+}
+#scene-task .task__role {
+	font-family: var(--mono);
+	font-size: 26px;
+	font-weight: 700;
+	opacity: 0;
+}
+#scene-task .task__role--train {
+	color: var(--amber);
+}
+#scene-task .task__role--test {
+	color: var(--accent);
+}
+#scene-task #task-splithead {
+	opacity: 0;
+}
+
+#scene-task .task__source {
+	position: absolute;
+	left: 1160px;
+	top: 73px;
+	width: 616px;
+}
+#scene-task .task__srctext {
+	font-size: 34px;
+	font-weight: 700;
+	line-height: 1.3;
+}
+#scene-task .task__count {
+	position: absolute;
+	left: 1160px;
+	top: 300px;
+	width: 616px;
+	height: 262px;
+	text-align: center;
+	padding: 20px 32px;
+}
+#scene-task .task__countnum b {
+	font-size: 150px;
+	font-weight: 800;
+	line-height: 1.1;
+	font-variant-numeric: tabular-nums;
+}
+#scene-task .task__countlab {
+	margin-top: 6px;
+	font-size: 32px;
+	color: var(--muted);
+}
+#scene-task .task__countlab--2 {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 204px;
+	opacity: 0;
+}
+#scene-task .task__split {
+	position: absolute;
+	left: 1160px;
+	top: 300px;
+	width: 616px;
+	display: flex;
+	flex-direction: column;
+	gap: 26px;
+}
+#scene-task .task__box {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 16px 44px;
+	border: 3px solid;
+	border-radius: 20px;
+}
+#scene-task .task__box span {
+	font-size: 54px;
+	font-weight: 700;
+}
+#scene-task .task__box b {
+	font-size: 100px;
+	font-weight: 800;
+	line-height: 1.1;
+	font-variant-numeric: tabular-nums;
+}
+#scene-task .task__box--train {
+	color: var(--amber);
+	border-color: var(--amber);
+	background: rgba(251, 191, 36, 0.1);
+}
+#scene-task .task__box--test {
+	color: var(--accent);
+	border-color: var(--accent);
+	background: rgba(124, 156, 255, 0.12);
+}
+
+#scene-task .task__tagrow {
+	position: absolute;
+	left: 1112px;
+	top: 650px;
+	height: 56px;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+#scene-task .task__tagarrow {
+	width: 56px;
+	background: var(--red);
+	transform: rotate(180deg);
+}
+#scene-task .task__tagarrow::after {
+	border-top-color: var(--red);
+	border-right-color: var(--red);
+}
+#scene-task .task__tagchip {
+	padding: 8px 26px;
+	border: 3px solid var(--red);
+	border-radius: 999px;
+	background: rgba(248, 113, 113, 0.12);
+	font-size: 30px;
+	font-weight: 700;
+	color: var(--red);
+	white-space: nowrap;
+}
+#scene-task .task__note {
+	position: absolute;
+	left: 1184px;
+	top: 724px;
+	font-size: 28px;
+	color: var(--muted);
+	white-space: nowrap;
+}
+#scene-task .task__note sup {
+	font-size: 0.72em;
+	line-height: 0;
+}

@@ -1,0 +1,297 @@
+/* ---------- the chart (980 x 740), left side, stays for the whole chapter ---------- */
+#scene-line .line__chart {
+	position: absolute;
+	left: 0;
+	top: 20px;
+	width: 980px;
+	height: 740px;
+	overflow: visible;
+}
+#scene-line .line__bg {
+	fill: var(--surface);
+	stroke: var(--border);
+	stroke-width: 2;
+}
+#scene-line .line__grid line {
+	stroke: var(--border);
+	stroke-width: 2;
+	opacity: 0.75;
+}
+#scene-line .line__axis {
+	stroke: var(--muted);
+	stroke-width: 4;
+	stroke-linecap: round;
+}
+#scene-line .line__tick {
+	font-size: 24px;
+	fill: var(--muted);
+}
+#scene-line .line__axt {
+	font-size: 28px;
+	font-weight: 700;
+	fill: var(--text);
+}
+#scene-line .line__axs {
+	font-weight: 500;
+	fill: var(--muted);
+}
+#scene-line .line__fit {
+	fill: none;
+	stroke: var(--green);
+	stroke-width: 7;
+	stroke-linecap: round;
+}
+#scene-line .line__dot {
+	fill: var(--amber);
+	stroke: var(--surface);
+	stroke-width: 3;
+}
+
+/* annotations on the chart: white, so they never get mixed up with data (amber) or the line (green) */
+#scene-line .line__note {
+	fill: none;
+	stroke: var(--text);
+	stroke-width: 4;
+	stroke-dasharray: 10 8;
+}
+#scene-line .line__lab {
+	font-size: 26px;
+	font-weight: 600;
+	fill: var(--text);
+}
+#scene-line .line__pt {
+	fill: var(--text);
+}
+#scene-line .line__chip {
+	fill: var(--surface-2);
+	stroke: var(--text);
+	stroke-width: 2.5;
+}
+#scene-line .line__chiptxt {
+	font-size: 26px;
+	font-weight: 700;
+	fill: var(--text);
+	dominant-baseline: central;
+}
+#scene-line .line__chip--out {
+	stroke: var(--green);
+}
+#scene-line .line__chiptxt--out {
+	font-size: 30px;
+	fill: var(--green);
+}
+#scene-line .line__ring {
+	fill: none;
+	stroke: var(--text);
+	stroke-width: 5;
+}
+#scene-line .line__guide {
+	stroke: var(--text);
+	stroke-width: 4;
+	stroke-dasharray: 12 9;
+	opacity: 0;
+}
+#scene-line .line__preddot {
+	fill: var(--green);
+	stroke: var(--text);
+	stroke-width: 4;
+}
+#scene-line .line__predaxis {
+	fill: var(--green);
+	stroke: var(--text);
+	stroke-width: 3;
+}
+
+/* ---------- right-hand panels (one per beat) ---------- */
+#scene-line .line__panel {
+	position: absolute;
+	left: 1020px;
+	top: 20px;
+	width: 756px;
+	height: 740px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 22px;
+}
+#scene-line .line__ptitle {
+	font-size: 50px;
+	font-weight: 700;
+	line-height: 1.1;
+}
+#scene-line .line__farrow {
+	align-self: center;
+	flex: none;
+	width: 40px;
+	height: 56px;
+	overflow: visible;
+}
+#scene-line .line__arr {
+	stroke: var(--muted);
+	stroke-width: 6;
+	stroke-linecap: round;
+}
+#scene-line .line__headfill {
+	fill: var(--muted);
+}
+
+/* beat 1: table */
+#scene-line .line__table {
+	padding: 22px 26px;
+	border-color: var(--amber);
+}
+#scene-line .line__table .line__ptitle {
+	margin-bottom: 8px;
+	text-align: center;
+	font-size: 44px;
+}
+#scene-line .line__tr {
+	position: relative;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+	height: 56px;
+	text-align: center;
+	font-size: 36px;
+	font-weight: 700;
+	font-variant-numeric: tabular-nums;
+	border-bottom: 1px solid rgba(46, 59, 107, 0.7);
+}
+#scene-line .line__tr > div {
+	position: relative;
+	z-index: 1;
+}
+#scene-line .line__tr--head {
+	height: 64px;
+	font-size: 26px;
+	font-weight: 500;
+	color: var(--muted);
+}
+#scene-line .line__tr:last-child {
+	border-bottom: 0;
+}
+#scene-line .line__flash {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 2px;
+	bottom: 2px;
+	border-radius: 12px;
+	background: rgba(251, 191, 36, 0.22);
+	border: 2px solid var(--amber);
+}
+
+/* beat 2: the line */
+#scene-line .line__fitcard {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+	padding: 36px 40px;
+	border-color: var(--green);
+}
+#scene-line .line__ptext {
+	font-size: 40px;
+	line-height: 1.25;
+}
+#scene-line .line__key {
+	margin-top: 14px;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	font-size: 30px;
+	color: var(--muted);
+}
+#scene-line .line__keyrow {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+/* beat 3: slope and intercept */
+#scene-line .line__head3 {
+	font-size: 46px;
+	font-weight: 700;
+	line-height: 1.15;
+}
+#scene-line .line__numcard {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	padding: 26px 34px;
+	border-color: rgba(238, 241, 251, 0.75);
+}
+#scene-line .line__nname {
+	font-size: 56px;
+	font-weight: 800;
+	line-height: 1.1;
+}
+#scene-line .line__nwhat {
+	font-size: 36px;
+	color: var(--text);
+}
+#scene-line .line__nnote {
+	margin-top: 6px;
+	font-size: 30px;
+	color: var(--muted);
+}
+
+/* beat 4: the formula */
+#scene-line .line__formula {
+	padding: 24px 34px;
+	border-color: var(--green);
+}
+#scene-line .line__fl {
+	font-size: 50px;
+	font-weight: 700;
+	line-height: 1.35;
+	white-space: nowrap;
+}
+#scene-line .line__fl > span {
+	display: inline-block;
+}
+#scene-line .line__pill {
+	padding: 0 14px;
+	border-radius: 14px;
+	background: rgba(74, 222, 128, 0.14);
+	color: var(--green);
+}
+#scene-line .line__train {
+	text-align: center;
+	font-size: 42px;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+/* beat 5: read-out */
+#scene-line .line__readout {
+	text-align: center;
+	padding: 26px 34px;
+}
+#scene-line .line__readout--out {
+	border-color: var(--green);
+}
+#scene-line .line__rk {
+	font-family: var(--mono);
+	font-size: 26px;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--muted);
+}
+#scene-line .line__rv {
+	font-size: 96px;
+	font-weight: 800;
+	line-height: 1.1;
+	font-variant-numeric: tabular-nums;
+}
+#scene-line .line__rsub {
+	font-size: 38px;
+	color: var(--muted);
+}
+#scene-line .line__rmath {
+	margin-top: 18px;
+	padding-top: 16px;
+	border-top: 2px solid var(--border);
+	font-size: 40px;
+	font-weight: 600;
+	font-variant-numeric: tabular-nums;
+}

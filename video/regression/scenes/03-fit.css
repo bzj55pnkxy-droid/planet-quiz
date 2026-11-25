@@ -1,0 +1,217 @@
+/* ---------- chart ---------- */
+#scene-fit .fit__chart {
+	position: absolute;
+	left: 0;
+	top: 0;
+	overflow: visible;
+}
+#scene-fit .fit__grid {
+	stroke: var(--border);
+	stroke-width: 1.5;
+	opacity: 0.7;
+}
+#scene-fit .fit__axis {
+	stroke: var(--muted);
+	stroke-width: 3;
+}
+#scene-fit .fit__tick {
+	font-size: 24px;
+	fill: var(--muted);
+}
+#scene-fit .fit__axtitle {
+	font-size: 28px;
+	fill: var(--muted);
+}
+#scene-fit .fit__dot {
+	fill: var(--amber);
+	stroke: var(--bg);
+	stroke-width: 3;
+}
+#scene-fit .fit__seg {
+	stroke: #f87171;
+	stroke-width: 6;
+	stroke-linecap: butt;
+}
+#scene-fit .fit__sq {
+	fill: rgba(248, 113, 113, 0.3);
+	stroke: #f87171;
+	stroke-width: 3;
+}
+#scene-fit .fit__sqlab {
+	font-size: 28px;
+	font-weight: 700;
+	fill: var(--text);
+}
+#scene-fit .fit__errlab {
+	font-size: 28px;
+	font-weight: 700;
+	fill: var(--red);
+	paint-order: stroke;
+	stroke: var(--bg);
+	stroke-width: 7px;
+	stroke-linejoin: round;
+}
+#scene-fit .fit__eq {
+	font-size: 30px;
+	fill: var(--muted);
+	paint-order: stroke;
+	stroke: var(--bg);
+	stroke-width: 8px;
+	stroke-linejoin: round;
+}
+#scene-fit .fit__eqb {
+	font-weight: 700;
+	fill: var(--text);
+}
+#scene-fit .fit__eq--best .fit__eqb {
+	fill: var(--green);
+}
+#scene-fit .fit__small {
+	font-size: 26px;
+	fill: var(--muted);
+	paint-order: stroke;
+	stroke: var(--bg);
+	stroke-width: 7px;
+	stroke-linejoin: round;
+}
+#scene-fit .fit__legend {
+	font-size: 28px;
+	fill: var(--text);
+	paint-order: stroke;
+	stroke: var(--bg);
+	stroke-width: 8px;
+	stroke-linejoin: round;
+}
+#scene-fit .fit__co {
+	font-size: 28px;
+	fill: var(--text);
+}
+#scene-fit .fit__cob {
+	font-weight: 800;
+	fill: var(--red);
+}
+#scene-fit .fit__co--ratio {
+	font-size: 30px;
+	font-weight: 700;
+}
+
+/* ---------- right-hand panels ---------- */
+#scene-fit .fit__panel {
+	position: absolute;
+	left: 1190px;
+	width: 586px;
+}
+#scene-fit .fit__panel .card__label {
+	font-size: 24px;
+}
+
+/* beat 1: one dot, up close */
+#scene-fit .fit__ex {
+	top: 200px;
+	padding: 28px 32px 24px;
+	border-color: var(--red);
+}
+#scene-fit .fit__exrow {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 16px;
+	padding: 16px 0;
+	border-top: 2px solid var(--border);
+}
+#scene-fit .fit__exrow span {
+	font-size: 26px;
+	color: var(--muted);
+}
+#scene-fit .fit__exrow b {
+	font-size: 38px;
+	font-weight: 700;
+	font-variant-numeric: tabular-nums;
+	white-space: nowrap;
+}
+#scene-fit .fit__exrow--err {
+	border-top-color: var(--red);
+}
+
+/* beats 2 and 3: the table of squared errors */
+#scene-fit .fit__tab {
+	top: 36px;
+	padding: 20px 28px 20px;
+}
+#scene-fit .fit__thead,
+#scene-fit .fit__trow {
+	display: grid;
+	grid-template-columns: 168px 120px 1fr;
+	align-items: center;
+	height: 46px;
+}
+#scene-fit .fit__thead {
+	height: 50px;
+	font-family: var(--mono);
+	font-size: 24px;
+	color: var(--muted);
+	border-bottom: 2px solid var(--border);
+	margin-bottom: 4px;
+}
+#scene-fit .fit__thead span:nth-child(n + 2) {
+	text-align: right;
+}
+#scene-fit .fit__trow {
+	border-radius: 10px;
+	background-color: rgba(248, 113, 113, 0);
+}
+#scene-fit .fit__tt {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	padding-left: 8px;
+	font-size: 28px;
+}
+#scene-fit .fit__tt i {
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: var(--amber);
+}
+#scene-fit .fit__te,
+#scene-fit .fit__ts {
+	text-align: right;
+	font-size: 30px;
+	font-weight: 700;
+	font-variant-numeric: tabular-nums;
+	padding-right: 8px;
+}
+#scene-fit .fit__te {
+	color: var(--red);
+}
+#scene-fit .fit__ts {
+	color: var(--text);
+}
+#scene-fit .fit__tsum {
+	margin-top: 14px;
+	padding-top: 12px;
+	border-top: 2px solid var(--border);
+	text-align: center;
+}
+#scene-fit .fit__tlabel {
+	font-size: 26px;
+	color: var(--muted);
+}
+#scene-fit .fit__tnum {
+	font-size: 112px;
+	font-weight: 800;
+	line-height: 1.12;
+	letter-spacing: -0.02em;
+	font-variant-numeric: tabular-nums;
+	color: #f87171;
+}
+#scene-fit .fit__verdict {
+	margin-top: 6px;
+	padding: 14px 10px;
+	border: 2px solid var(--green);
+	border-radius: 14px;
+	text-align: center;
+	font-size: 30px;
+	font-weight: 700;
+	color: var(--green);
+}

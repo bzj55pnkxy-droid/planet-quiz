@@ -1,0 +1,195 @@
+1
+00:00:00,800 --> 00:00:06,240
+Our exam project has a second part: a small experiment, separate from the quiz app.
+
+2
+00:00:06,840 --> 00:00:15,544
+The assignment: let a linear regression model and a local language model with RAG predict the same number, then compare them.
+
+3
+00:00:16,144 --> 00:00:24,315
+First: what linear regression is. Then our task, our code, and the results.
+
+4
+00:00:25,915 --> 00:00:32,336
+In normal programming, a person writes the rule: input goes in, the rule runs, output comes out.
+
+5
+00:00:32,936 --> 00:00:42,024
+In machine learning we give the computer examples of inputs with their correct outputs, and it finds the rule itself.
+
+6
+00:00:42,624 --> 00:00:46,763
+Finding the rule is called training. The finished rule is called a model.
+
+7
+00:00:47,363 --> 00:00:53,507
+When the output is a number, such as a price, a temperature or a time, the job is called regression.
+
+8
+00:00:55,107 --> 00:01:03,107
+Put every example on a chart: the input along the bottom, the output up the side. Each example is one dot.
+
+9
+00:01:03,707 --> 00:01:07,781
+Linear regression draws the straight line that fits the dots best.
+
+10
+00:01:08,381 --> 00:01:14,589
+A straight line is just two numbers: the slope (how steep) and the intercept (where it starts).
+
+11
+00:01:15,189 --> 00:01:23,765
+Output = slope × input + intercept. Training means finding those two numbers.
+
+12
+00:01:24,365 --> 00:01:28,611
+To predict, take a new input, go up to the line, and read off the output.
+
+13
+00:01:30,211 --> 00:01:36,013
+For each dot, measure how far the line is from it. That gap is the error.
+
+14
+00:01:36,613 --> 00:01:42,544
+Square every error and add them up. Squaring makes big misses count much more than small ones.
+
+15
+00:01:43,144 --> 00:01:50,995
+The best line is the one with the smallest total. This method is called least squares.
+
+16
+00:01:52,595 --> 00:01:58,227
+A model can look good simply because it has already seen the answers.
+
+17
+00:01:58,827 --> 00:02:05,077
+So we split the data. The training set is used to fit the line. The test set is hidden until the end.
+
+18
+00:02:05,677 --> 00:02:13,869
+Then we predict the test cases and compare with the true values. The difference is the absolute error.
+
+19
+00:02:14,469 --> 00:02:19,632
+The average over all test cases is the mean absolute error, MAE. Lower is better.
+
+20
+00:02:21,232 --> 00:02:27,376
+Our task: predict how long a body takes to orbit the Sun, from its distance to the Sun.
+
+21
+00:02:27,976 --> 00:02:35,848
+Input: distance in astronomical units (Earth = 1 AU). Output: orbital period in Earth years.
+
+22
+00:02:36,448 --> 00:02:44,491
+The data comes from the fact tables in the same NASA document the quiz app uses: nine bodies, Mercury to Pluto.
+
+23
+00:02:45,091 --> 00:02:52,344
+We add a tenth, made-up body at 15 AU. The language model cannot have memorised it.
+
+24
+00:02:52,944 --> 00:02:59,621
+Seven bodies are for training. Three are for testing: Mars, Uranus and the made-up body.
+
+25
+00:03:01,221 --> 00:03:09,136
+On a chart our data is not a straight line. It bends upward: far-away bodies take much longer.
+
+26
+00:03:09,736 --> 00:03:17,224
+A straight line through that curve fits badly. For Mars it predicts minus 2.39 years.
+
+27
+00:03:17,824 --> 00:03:26,891
+The trick: take the logarithm of both numbers. A logarithm counts the size of a number: 10 becomes 1, 100 becomes 2.
+
+28
+00:03:27,491 --> 00:03:33,571
+On this log-log chart the same dots fall on a straight line, so linear regression fits.
+
+29
+00:03:34,171 --> 00:03:46,480
+The slope it finds is 1.4998. Kepler's third law says exactly 1.5: the model rediscovered the law from seven examples.
+
+30
+00:03:48,080 --> 00:03:54,373
+Everything is in one file: experiment/run_experiment.py.
+
+31
+00:03:54,973 --> 00:04:05,597
+build_dataset() reads distance and orbit period from the PDF with two text patterns, converts the units, and marks each row train or test.
+
+32
+00:04:06,197 --> 00:04:11,957
+fit_regressions() gets the train rows. x is the distance, y is the period.
+
+33
+00:04:12,557 --> 00:04:20,707
+One line trains the model: LinearRegression().fit(), from the scikit-learn library, on the logarithms of x and y.
+
+34
+00:04:21,307 --> 00:04:27,173
+A second model is fitted on the raw numbers, without logarithms, as a baseline to compare with.
+
+35
+00:04:27,773 --> 00:04:33,448
+predict() gives the logarithm of the period, so 10 to that power turns it back into years.
+
+36
+00:04:35,048 --> 00:04:41,939
+The other contestant is the local language model with RAG. It gets the same three test distances.
+
+37
+00:04:42,539 --> 00:04:50,624
+build_store() writes one sentence per training body, with its distance and period, and saves them in a vector database.
+
+38
+00:04:51,224 --> 00:04:58,691
+The code then checks that no test body and no test answer is in that database, and stops if one is.
+
+39
+00:04:59,291 --> 00:05:07,141
+For each test case, run_cases() retrieves the 4 most similar sentences and puts them in the prompt as reference examples.
+
+40
+00:05:07,741 --> 00:05:14,035
+The model must reply with a single number. We ask twice: with the examples, and without.
+
+41
+00:05:14,635 --> 00:05:21,461
+The language model never sees the regression, its two numbers, or any code. That keeps the comparison fair.
+
+42
+00:05:23,061 --> 00:05:35,072
+Uranus takes 84.02 years. Log-log regression: 84.00. Straight-line baseline: 107.85.
+
+43
+00:05:35,672 --> 00:05:42,904
+The language model with RAG says 14.11 years. Without RAG it says 176.35.
+
+44
+00:05:43,504 --> 00:05:57,648
+Mean absolute error over the three test cases: 0.02 years for log-log regression, 17.24 for the baseline, 38.73 with RAG, 44.83 without.
+
+45
+00:05:59,248 --> 00:06:08,144
+Regression is built for exactly this: it fits two numbers to a numeric pattern, and here the pattern is a straight line.
+
+46
+00:06:08,744 --> 00:06:16,083
+The language model predicts likely words. It does not calculate, and it did not work out the pattern from four examples.
+
+47
+00:06:16,683 --> 00:06:25,429
+Retrieval did not help much: it finds similar text, not nearby numbers. The same four bodies came back for all three questions.
+
+48
+00:06:26,029 --> 00:06:35,949
+A number that follows a pattern: train a small model. A fact you can quote from a document: use a language model with RAG.
+
+49
+00:06:36,549 --> 00:06:45,659
+Honest limits: three test cases and one run. And the regression only works because we picked the right shape.

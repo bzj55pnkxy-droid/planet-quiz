@@ -1,0 +1,120 @@
+<section class="scene" id="scene-intro">
+	<!-- Beat 1: part 2 of the exam project, next to a faded hint of the quiz app -->
+	<div class="intro__b1" id="intro-b1">
+		<div class="intro__headline">
+			<div class="kicker" id="intro-kicker">The exam project</div>
+			<div class="intro__part" id="intro-part">Part 2</div>
+			<h1 class="title" id="intro-title">A small experiment</h1>
+			<p class="subtitle" id="intro-sub">Separate from the quiz app</p>
+		</div>
+		<div class="intro__quiz">
+			<div class="shot" id="intro-quiz"><img src="./assets/quiz-question.png" alt="" /></div>
+			<div class="intro__quiztag" id="intro-quiztag">Part 1: the quiz app</div>
+		</div>
+	</div>
+
+	<!-- Beat 2: two contestants, one number to predict -->
+	<div class="intro__b2" id="intro-b2">
+		<div class="card intro__fighter intro__fighter--reg" id="intro-reg">
+			<svg class="intro__icon" viewBox="0 0 160 110">
+				<path class="intro__ax" d="M12 8 V98 H152" />
+				<line class="intro__ln" x1="22" y1="88" x2="148" y2="22" />
+				<circle class="intro__dot" cx="36" cy="72" r="7" />
+				<circle class="intro__dot" cx="62" cy="68" r="7" />
+				<circle class="intro__dot" cx="88" cy="50" r="7" />
+				<circle class="intro__dot" cx="116" cy="44" r="7" />
+				<circle class="intro__dot" cx="140" cy="24" r="7" />
+			</svg>
+			<div class="intro__fname green">Linear regression</div>
+			<div class="intro__fnote">Learns a straight line from examples</div>
+		</div>
+		<div class="intro__vs" id="intro-vs">vs</div>
+		<div class="card intro__fighter intro__fighter--llm" id="intro-llm">
+			<svg class="intro__icon" viewBox="0 0 160 110">
+				<path
+					class="intro__bubble"
+					d="M20 10 H100 a12 12 0 0 1 12 12 V64 a12 12 0 0 1 -12 12 H60 L38 96 V76 H20 a12 12 0 0 1 -12 -12 V22 a12 12 0 0 1 12 -12 Z"
+				/>
+				<line class="intro__txt" x1="26" y1="30" x2="94" y2="30" />
+				<line class="intro__txt" x1="26" y1="44" x2="84" y2="44" />
+				<line class="intro__txt" x1="26" y1="58" x2="90" y2="58" />
+				<rect class="intro__doc" x="124" y="30" width="30" height="44" rx="4" />
+				<line class="intro__docln" x1="131" y1="44" x2="147" y2="44" />
+				<line class="intro__docln" x1="131" y1="54" x2="147" y2="54" />
+				<line class="intro__docln" x1="131" y1="64" x2="143" y2="64" />
+			</svg>
+			<div class="intro__fname violet">Local language model + RAG</div>
+			<div class="intro__fnote">Answers in words, using retrieved text</div>
+		</div>
+
+		<svg class="intro__arrows" viewBox="0 0 1776 780">
+			<defs>
+				<marker id="intro-head-green" markerWidth="4" markerHeight="4" refX="2.6" refY="2" orient="auto">
+					<path d="M0 0 L4 2 L0 4 Z" class="intro__headg" />
+				</marker>
+				<marker id="intro-head-violet" markerWidth="4" markerHeight="4" refX="2.6" refY="2" orient="auto">
+					<path d="M0 0 L4 2 L0 4 Z" class="intro__headv" />
+				</marker>
+			</defs>
+			<g id="intro-arrow-reg">
+				<line class="intro__arrg" x1="400" y1="372" x2="668" y2="494" marker-end="url(#intro-head-green)" />
+			</g>
+			<g id="intro-arrow-llm">
+				<line class="intro__arrv" x1="1376" y1="372" x2="1108" y2="494" marker-end="url(#intro-head-violet)" />
+			</g>
+		</svg>
+
+		<div class="card intro__target" id="intro-target">
+			<span class="intro__q">?</span>
+			<span class="intro__ttext" id="intro-ttext">the same number<br />to predict</span>
+		</div>
+		<div class="intro__compare" id="intro-compare">Then we compare the two answers</div>
+	</div>
+
+	<!-- Beat 3: the roadmap -->
+	<div class="intro__b3" id="intro-b3">
+		<h2 class="intro__head3" id="intro-head3">No machine learning background needed</h2>
+		<div class="card intro__step intro__step--first" id="intro-step-1">
+			<div class="intro__num">1</div>
+			<svg class="intro__icon" viewBox="0 0 160 110">
+				<path class="intro__ax" d="M12 8 V98 H152" />
+				<line class="intro__ln" x1="22" y1="88" x2="148" y2="22" />
+				<circle class="intro__dot" cx="36" cy="72" r="7" />
+				<circle class="intro__dot" cx="62" cy="68" r="7" />
+				<circle class="intro__dot" cx="88" cy="50" r="7" />
+				<circle class="intro__dot" cx="116" cy="44" r="7" />
+				<circle class="intro__dot" cx="140" cy="24" r="7" />
+			</svg>
+			<div class="intro__stitle">What linear regression is</div>
+		</div>
+		<svg class="intro__chev" id="intro-chev-1" viewBox="0 0 48 40"><path d="M10 6 L36 20 L10 34" /></svg>
+		<div class="card intro__step" id="intro-step-2">
+			<div class="intro__num">2</div>
+			<svg class="intro__icon" viewBox="0 0 160 110">
+				<ellipse class="intro__orbit" cx="80" cy="55" rx="70" ry="42" />
+				<circle class="intro__sun" cx="80" cy="55" r="12" />
+				<circle class="intro__planet" cx="138" cy="34" r="8" />
+			</svg>
+			<div class="intro__stitle">Our task</div>
+		</div>
+		<svg class="intro__chev" id="intro-chev-2" viewBox="0 0 48 40"><path d="M10 6 L36 20 L10 34" /></svg>
+		<div class="card intro__step" id="intro-step-3">
+			<div class="intro__num">3</div>
+			<svg class="intro__icon" viewBox="0 0 160 110">
+				<text class="intro__code" x="80" y="76" text-anchor="middle">&lt;/&gt;</text>
+			</svg>
+			<div class="intro__stitle">Our code</div>
+		</div>
+		<svg class="intro__chev" id="intro-chev-3" viewBox="0 0 48 40"><path d="M10 6 L36 20 L10 34" /></svg>
+		<div class="card intro__step" id="intro-step-4">
+			<div class="intro__num">4</div>
+			<svg class="intro__icon" viewBox="0 0 160 110">
+				<path class="intro__ax" d="M12 8 V98 H152" />
+				<rect class="intro__bar" x="30" y="52" width="26" height="46" rx="3" />
+				<rect class="intro__bar" x="70" y="30" width="26" height="68" rx="3" />
+				<rect class="intro__bar" x="110" y="64" width="26" height="34" rx="3" />
+			</svg>
+			<div class="intro__stitle">The results</div>
+		</div>
+	</div>
+</section>

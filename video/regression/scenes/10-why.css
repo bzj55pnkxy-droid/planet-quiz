@@ -1,0 +1,476 @@
+#scene-why .why__b {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 1776px;
+	height: 780px;
+}
+#scene-why .why__b > * {
+	position: absolute;
+}
+#scene-why .why__kick {
+	font-family: var(--mono);
+	font-size: 28px;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+#scene-why .why__big {
+	font-size: 64px;
+	font-weight: 800;
+	line-height: 1.12;
+}
+#scene-why .why__big--red {
+	color: var(--red);
+	font-size: 54px;
+}
+
+/* ---------- beat 1 ---------- */
+#scene-why .why__card {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 18px;
+	box-sizing: border-box;
+	padding: 36px 44px;
+	border-width: 4px;
+}
+#scene-why .why__card--green {
+	border-color: var(--green);
+}
+#scene-why .why__card--violet {
+	border-color: var(--violet);
+}
+#scene-why #why-card-reg {
+	left: 0;
+	top: 50px;
+	width: 690px;
+	height: 680px;
+}
+#scene-why .why__chips {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 16px;
+	margin-top: 22px;
+}
+#scene-why .why__chip {
+	font-size: 34px;
+	padding: 10px 24px;
+}
+#scene-why .why__chip--green {
+	border-color: var(--green);
+	color: var(--green);
+}
+#scene-why #why-chart {
+	left: 750px;
+	top: 50px;
+	width: 1026px;
+	height: 680px;
+	box-sizing: border-box;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#scene-why #why-chart svg {
+	display: block;
+	flex: none;
+}
+#scene-why .why__charttext {
+	position: absolute;
+	left: 184px;
+	top: 38px;
+	font-size: 34px;
+	font-weight: 800;
+	line-height: 1.2;
+}
+
+/* ---------- beat 2 ---------- */
+#scene-why #why-card-llm {
+	left: 0;
+	top: 110px;
+	width: 560px;
+	height: 560px;
+}
+#scene-why .why__prompt {
+	left: 620px;
+	top: 110px;
+	width: 1156px;
+	height: 560px;
+	box-sizing: border-box;
+	padding: 30px 48px;
+	border: 4px solid var(--violet);
+	border-radius: 22px;
+	background: #0a0f1f;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-variant-ligatures: none;
+}
+#scene-why .why__plabel {
+	margin-bottom: 14px;
+	font-family: var(--mono);
+	font-size: 26px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--muted);
+}
+#scene-why .why__pl {
+	font-family: var(--mono);
+	font-size: 38px;
+	line-height: 56px;
+	white-space: pre;
+	color: var(--amber);
+}
+#scene-why .why__divider {
+	height: 3px;
+	margin: 16px 0 18px;
+	border-radius: 2px;
+	background: var(--border);
+}
+#scene-why .why__ask {
+	display: flex;
+	align-items: center;
+	gap: 18px;
+	height: 72px;
+	font-family: var(--mono);
+	font-size: 52px;
+	font-weight: 700;
+	white-space: pre;
+}
+#scene-why .why__q {
+	color: var(--text);
+}
+#scene-why .why__slot {
+	position: relative;
+	display: inline-block;
+	min-width: 220px;
+	height: 72px;
+	line-height: 72px;
+}
+#scene-why .why__qm {
+	position: absolute;
+	left: 0;
+	top: 0;
+	color: var(--violet);
+}
+#scene-why .why__ans {
+	position: absolute;
+	left: 0;
+	top: 0;
+	color: var(--red);
+	opacity: 0;
+}
+#scene-why .why__actual {
+	display: flex;
+	align-items: baseline;
+	gap: 16px;
+	margin-top: 8px;
+}
+#scene-why .why__actualtag {
+	font-size: 34px;
+	color: var(--muted);
+}
+#scene-why .why__actualnum {
+	font-family: var(--mono);
+	font-size: 52px;
+	font-weight: 700;
+	color: var(--green);
+}
+#scene-why .why__actualyr {
+	font-size: 34px;
+	color: var(--muted);
+}
+
+/* ---------- beat 3 ---------- */
+#scene-why #why-b3 {
+	top: 20px;
+}
+#scene-why .why__rkick {
+	left: 0;
+	top: 0;
+	font-family: var(--mono);
+	font-size: 28px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--teal);
+}
+#scene-why .why__rrow {
+	left: 0;
+	width: 1190px;
+	height: 120px;
+}
+#scene-why .why__rrow > * {
+	position: absolute;
+}
+#scene-why .why__qchip {
+	left: 0;
+	top: 10px;
+	width: 310px;
+	height: 100px;
+	box-sizing: border-box;
+	padding: 0 20px;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+#scene-why .why__ring {
+	display: block;
+	flex: none;
+	width: 26px;
+	height: 26px;
+	border-radius: 50%;
+	border: 5px solid var(--accent);
+}
+#scene-why .why__qt {
+	font-size: 40px;
+	font-weight: 800;
+	white-space: nowrap;
+}
+#scene-why .why__rarrow {
+	left: 334px;
+	top: 58px;
+}
+#scene-why .why__hits {
+	left: 424px;
+	top: 10px;
+	display: flex;
+	gap: 14px;
+}
+#scene-why .why__hit,
+#scene-why .why__nchip {
+	box-sizing: border-box;
+	width: 182px;
+	height: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2px;
+	border: 3px solid var(--border);
+	border-radius: 14px;
+	background: var(--surface);
+}
+#scene-why .why__hname {
+	font-size: 30px;
+	font-weight: 800;
+}
+#scene-why .why__hau {
+	font-size: 26px;
+	color: var(--muted);
+	font-variant-numeric: tabular-nums;
+}
+#scene-why .why__never {
+	left: 1236px;
+	top: 70px;
+	width: 540px;
+	height: 410px;
+	box-sizing: border-box;
+	padding: 26px 28px;
+	border: 3px dashed var(--muted);
+	border-radius: 22px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+#scene-why .why__nlabel {
+	font-family: var(--mono);
+	font-size: 30px;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--red);
+}
+#scene-why .why__nchips {
+	display: flex;
+	gap: 18px;
+}
+#scene-why .why__nchip {
+	width: 224px;
+	border-style: dashed;
+	border-color: var(--muted);
+	background: transparent;
+}
+#scene-why .why__nnote {
+	font-size: 28px;
+	line-height: 1.3;
+	color: var(--muted);
+}
+#scene-why .why__banner {
+	left: 0;
+	top: 548px;
+	width: 1776px;
+	text-align: center;
+	font-size: 64px;
+	font-weight: 800;
+	color: var(--teal);
+}
+#scene-why .why__bsub {
+	left: 0;
+	top: 636px;
+	width: 1776px;
+	text-align: center;
+	font-size: 30px;
+	color: var(--muted);
+}
+
+/* ---------- beat 4 ---------- */
+#scene-why .why__lesson {
+	left: 0;
+	top: 10px;
+	width: 1776px;
+	text-align: center;
+	font-size: 56px;
+	font-weight: 800;
+}
+#scene-why .why__col {
+	top: 110px;
+	width: 840px;
+	height: 620px;
+	box-sizing: border-box;
+	padding: 30px 40px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-width: 4px;
+}
+#scene-why #why-col-a {
+	left: 0;
+	border-color: var(--green);
+}
+#scene-why #why-col-b {
+	left: 936px;
+	border-color: var(--violet);
+}
+#scene-why .why__icon {
+	display: block;
+	width: 220px;
+	height: 165px;
+	margin-bottom: 24px;
+}
+#scene-why .why__cond {
+	max-width: 720px;
+	text-align: center;
+	font-size: 52px;
+	font-weight: 800;
+	line-height: 1.15;
+}
+#scene-why .why__down {
+	margin: 52px 0 52px;
+	transform: rotate(90deg);
+}
+#scene-why .why__tool {
+	padding: 22px 38px;
+	border: 4px solid var(--border);
+	border-radius: 20px;
+	background: var(--surface-2);
+	text-align: center;
+	font-size: 50px;
+	font-weight: 800;
+	line-height: 1.1;
+}
+#scene-why .why__tool--green {
+	border-color: var(--green);
+	color: var(--green);
+}
+#scene-why .why__tool--violet {
+	border-color: var(--violet);
+	color: var(--violet);
+}
+
+/* ---------- beat 5 ---------- */
+#scene-why .why__limit {
+	top: 50px;
+	height: 580px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 30px;
+	padding: 28px 36px;
+}
+#scene-why #why-lim-a {
+	left: 0;
+	width: 640px;
+}
+#scene-why #why-lim-b {
+	left: 700px;
+	width: 1076px;
+	gap: 24px;
+}
+#scene-why .why__ltitle {
+	text-align: center;
+	font-size: 54px;
+	font-weight: 800;
+	line-height: 1.15;
+}
+#scene-why #why-lim-b .why__ltitle {
+	font-size: 44px;
+}
+#scene-why .why__rings {
+	display: flex;
+	align-items: center;
+	gap: 22px;
+}
+#scene-why .why__bigring {
+	display: block;
+	width: 52px;
+	height: 52px;
+	box-sizing: border-box;
+	border-radius: 50%;
+	border: 7px solid var(--accent);
+}
+#scene-why .why__runpill {
+	display: inline-flex;
+	align-items: center;
+	gap: 14px;
+	margin-left: 0;
+	padding: 10px 26px;
+	border: 3px solid var(--muted);
+	border-radius: 999px;
+	font-family: var(--mono);
+	font-size: 36px;
+	font-weight: 700;
+	white-space: nowrap;
+}
+#scene-why .why__play {
+	display: block;
+	width: 0;
+	height: 0;
+	border-top: 14px solid transparent;
+	border-bottom: 14px solid transparent;
+	border-left: 22px solid var(--muted);
+}
+#scene-why .why__lsub {
+	font-size: 32px;
+	color: var(--muted);
+}
+#scene-why .why__minis {
+	display: flex;
+	gap: 40px;
+}
+#scene-why .why__mini {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
+}
+#scene-why .why__mini svg {
+	display: block;
+}
+#scene-why .why__minilab {
+	font-size: 30px;
+	font-weight: 800;
+}
+#scene-why .why__closing {
+	left: 0;
+	top: 690px;
+	width: 1776px;
+	text-align: center;
+	font-size: 46px;
+	font-weight: 700;
+	color: var(--text);
+}

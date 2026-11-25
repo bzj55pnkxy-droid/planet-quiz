@@ -1,0 +1,307 @@
+/* Layout on the 1776 x 780 stage: the chart takes the left 1060 px, the explanation panel the right 676 px (x = 1100).
+   Chart geometry (plot area x 120..1040, y 70..650) lives in 06-loglog.js. */
+#scene-loglog .loglog__chart {
+	position: absolute;
+	left: 0;
+	top: 0;
+	overflow: visible;
+}
+#scene-loglog text {
+	font-family: var(--sans);
+	fill: var(--text);
+}
+#scene-loglog .loglog__charttitle {
+	font-size: 30px;
+	font-weight: 700;
+}
+#scene-loglog .loglog__legend {
+	font-size: 24px;
+	fill: var(--muted);
+}
+#scene-loglog .loglog__axis {
+	stroke: var(--muted);
+	stroke-width: 3;
+}
+#scene-loglog .loglog__grid {
+	stroke: var(--border);
+	stroke-width: 1.5;
+}
+#scene-loglog .loglog__tick {
+	font-size: 24px;
+	fill: var(--muted);
+}
+#scene-loglog .loglog__axistitle {
+	font-size: 26px;
+	fill: #c9d2f0;
+}
+#scene-loglog .loglog__name {
+	font-size: 24px;
+	fill: var(--text);
+}
+#scene-loglog .loglog__curve {
+	fill: none;
+	stroke: var(--muted);
+	stroke-width: 5;
+	stroke-dasharray: 1;
+	stroke-dashoffset: 1;
+	opacity: 0.55;
+}
+#scene-loglog .loglog__raw {
+	stroke: var(--red);
+	stroke-width: 6;
+	stroke-linecap: round;
+}
+#scene-loglog .loglog__green {
+	stroke: var(--green);
+	stroke-width: 7;
+	stroke-linecap: round;
+}
+#scene-loglog .loglog__err {
+	stroke: var(--red);
+	stroke-width: 6;
+	stroke-linecap: round;
+}
+#scene-loglog .loglog__dot--train {
+	fill: var(--amber);
+}
+#scene-loglog .loglog__dot--test {
+	fill: none;
+	stroke: var(--accent);
+	stroke-width: 4;
+}
+#scene-loglog .loglog__tri {
+	stroke: var(--text);
+	stroke-width: 3;
+	stroke-dasharray: 10 8;
+}
+#scene-loglog .loglog__trilabel {
+	font-size: 28px;
+	font-weight: 700;
+}
+#scene-loglog .loglog__ins-text {
+	font-size: 24px;
+	fill: var(--muted);
+}
+
+/* ---------- right-hand panel ---------- */
+#scene-loglog .loglog__p {
+	position: absolute;
+	left: 1100px;
+	top: 0;
+	width: 676px;
+	height: 780px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 26px;
+}
+#scene-loglog .loglog__cardlabel {
+	margin-bottom: 12px;
+	font-family: var(--mono);
+	font-size: 24px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--muted);
+}
+#scene-loglog .loglog__formula {
+	font-family: var(--mono);
+	font-size: 27px;
+	line-height: 1.4;
+}
+
+/* beat 1: the table */
+#scene-loglog .loglog__table {
+	padding: 20px 22px 16px;
+}
+#scene-loglog .loglog__head,
+#scene-loglog .loglog__row {
+	display: grid;
+	grid-template-columns: 36px 240px 166px 190px;
+	align-items: center;
+	height: 48px;
+	font-size: 26px;
+}
+#scene-loglog .loglog__head {
+	height: 46px;
+	font-size: 24px;
+	color: var(--muted);
+	border-bottom: 2px solid var(--border);
+	margin-bottom: 4px;
+}
+#scene-loglog .loglog__row {
+	border-radius: 10px;
+	padding-right: 4px;
+}
+#scene-loglog .loglog__num {
+	text-align: right;
+	font-variant-numeric: tabular-nums;
+}
+#scene-loglog .loglog__mk {
+	display: block;
+	width: 24px;
+	height: 24px;
+	margin-left: 6px;
+	border-radius: 50%;
+	box-sizing: border-box;
+}
+#scene-loglog .loglog__mk--train {
+	background: var(--amber);
+}
+#scene-loglog .loglog__mk--test {
+	border: 4px solid var(--accent);
+}
+
+/* beat 2 */
+#scene-loglog .loglog__fcard {
+	border-color: var(--red);
+}
+#scene-loglog .loglog__fcard .loglog__formula,
+#scene-loglog .loglog__fits .loglog__formula {
+	color: var(--text);
+}
+#scene-loglog .loglog__mars {
+	padding: 24px 32px 26px;
+}
+#scene-loglog #loglog-mars-label {
+	font-family: var(--sans);
+	font-size: 30px;
+	font-weight: 700;
+	letter-spacing: 0;
+	text-transform: none;
+	color: var(--text);
+	margin-bottom: 8px;
+}
+#scene-loglog .loglog__formula {
+	color: var(--muted);
+}
+#scene-loglog .loglog__marsnum {
+	margin-top: 6px;
+	font-size: 78px;
+	font-weight: 800;
+	line-height: 1.1;
+	font-variant-numeric: tabular-nums;
+}
+#scene-loglog .loglog__stamp {
+	display: inline-block;
+	margin: 14px 0 12px;
+	padding: 8px 20px;
+	border: 3px solid var(--red);
+	border-radius: 12px;
+	font-size: 28px;
+	font-weight: 700;
+	color: var(--red);
+}
+#scene-loglog .loglog__actual {
+	font-size: 28px;
+	color: var(--muted);
+}
+#scene-loglog .loglog__actual b {
+	color: var(--text);
+}
+
+/* beat 3 */
+#scene-loglog .loglog__chips {
+	display: flex;
+	gap: 16px;
+}
+#scene-loglog .loglog__chip {
+	padding: 12px 22px;
+	border: 2px solid var(--border);
+	border-radius: 999px;
+	background: var(--surface-2);
+	font-family: var(--mono);
+	font-size: 28px;
+	white-space: nowrap;
+}
+#scene-loglog .loglog__lgnote {
+	font-size: 32px;
+	font-weight: 700;
+	margin-top: 4px;
+}
+#scene-loglog .loglog__strip {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+#scene-loglog .loglog__srow {
+	display: grid;
+	grid-template-columns: 170px 96px 60px 1fr;
+	align-items: center;
+	height: 84px;
+	padding: 0 24px;
+	background: var(--surface);
+	border: 2px solid var(--border);
+	border-radius: 16px;
+}
+#scene-loglog .loglog__sin,
+#scene-loglog .loglog__sout {
+	font-family: var(--mono);
+	font-size: 54px;
+	font-weight: 700;
+}
+#scene-loglog .loglog__sin {
+	text-align: right;
+	padding-right: 18px;
+}
+#scene-loglog .loglog__srow .arrow {
+	width: 60px;
+	margin-left: 4px;
+}
+#scene-loglog .loglog__zeros {
+	font-size: 28px;
+	color: var(--muted);
+}
+
+/* beat 4 */
+#scene-loglog .loglog__readtext {
+	font-size: 32px;
+	line-height: 1.35;
+}
+#scene-loglog .loglog__fits {
+	border-color: var(--green);
+}
+#scene-loglog .loglog__fitsbig {
+	font-size: 54px;
+	font-weight: 800;
+	line-height: 1.1;
+}
+#scene-loglog .loglog__fitstext {
+	margin: 4px 0 14px;
+	font-size: 34px;
+}
+
+/* beat 5 */
+#scene-loglog .loglog__k {
+	padding: 22px 32px 18px;
+}
+#scene-loglog .loglog__k--found {
+	border-color: var(--green);
+}
+#scene-loglog .loglog__klabel {
+	font-size: 30px;
+	color: var(--muted);
+}
+#scene-loglog .loglog__kbig {
+	font-size: 130px;
+	font-weight: 800;
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+	font-variant-numeric: tabular-nums;
+}
+#scene-loglog .loglog__foundnote {
+	font-size: 34px;
+	font-weight: 700;
+	text-align: center;
+}
+#scene-loglog .loglog__foundrow {
+	display: flex;
+	justify-content: center;
+	gap: 14px;
+	margin-top: 14px;
+}
+#scene-loglog .loglog__fdot {
+	width: 26px;
+	height: 26px;
+	border-radius: 50%;
+	background: var(--amber);
+}

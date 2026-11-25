@@ -1,0 +1,322 @@
+{
+	"voice": "af_heart",
+	"speed": 0.92,
+	"beatGap": 0.6,
+	"chapterGap": 1.6,
+	"leadIn": 0.8,
+	"tailOut": 2.0,
+	"output": "planet-quiz-regression-explained",
+	"chapters": [
+		{
+			"id": "intro",
+			"title": "The assignment",
+			"beats": [
+				{
+					"id": "intro-1",
+					"caption": "Our exam project has a second part: a small experiment, separate from the quiz app.",
+					"say": "Our exam project has a second part: a small experiment, separate from the quiz app."
+				},
+				{
+					"id": "intro-2",
+					"caption": "The assignment: let a linear regression model and a local language model with RAG predict the same number, then compare them.",
+					"say": "The assignment says: let a linear regression model, and a local language model with RAG, predict the same number. Then compare them."
+				},
+				{
+					"id": "intro-3",
+					"caption": "First: what linear regression is. Then our task, our code, and the results.",
+					"say": "You do not need to know anything about machine learning. We start with what linear regression is. Then our task, our code, and the results."
+				}
+			]
+		},
+		{
+			"id": "ml",
+			"title": "Learning from examples",
+			"beats": [
+				{
+					"id": "ml-1",
+					"caption": "In normal programming, a person writes the rule: input goes in, the rule runs, output comes out.",
+					"say": "In normal programming, a person writes the rule. Input goes in, the rule runs, output comes out."
+				},
+				{
+					"id": "ml-2",
+					"caption": "In machine learning we give the computer examples of inputs with their correct outputs, and it finds the rule itself.",
+					"say": "In machine learning we turn that around. We give the computer examples, inputs together with their correct outputs, and it finds the rule itself."
+				},
+				{
+					"id": "ml-3",
+					"caption": "Finding the rule is called training. The finished rule is called a model.",
+					"say": "Finding the rule is called training. The finished rule is called a model."
+				},
+				{
+					"id": "ml-4",
+					"caption": "When the output is a number, such as a price, a temperature or a time, the job is called regression.",
+					"say": "When the output is a number, such as a price, a temperature or a time, the job is called regression."
+				}
+			]
+		},
+		{
+			"id": "line",
+			"title": "Linear regression",
+			"beats": [
+				{
+					"id": "line-1",
+					"caption": "Put every example on a chart: the input along the bottom, the output up the side. Each example is one dot.",
+					"say": "Put every example on a chart. The input goes along the bottom, the output goes up the side. Each example is one dot."
+				},
+				{
+					"id": "line-2",
+					"caption": "Linear regression draws the straight line that fits the dots best.",
+					"say": "Linear regression draws the straight line that fits the dots best."
+				},
+				{
+					"id": "line-3",
+					"caption": "A straight line is just two numbers: the slope (how steep) and the intercept (where it starts).",
+					"say": "A straight line is just two numbers. The slope says how steep it is. The intercept says where it starts."
+				},
+				{
+					"id": "line-4",
+					"caption": "Output = slope × input + intercept. Training means finding those two numbers.",
+					"say": "So the model is one small formula: output equals slope times input, plus intercept. Training means finding those two numbers."
+				},
+				{
+					"id": "line-5",
+					"caption": "To predict, take a new input, go up to the line, and read off the output.",
+					"say": "To predict, take a new input, go up to the line, and read off the output."
+				}
+			]
+		},
+		{
+			"id": "fit",
+			"title": "What \"best\" means",
+			"beats": [
+				{
+					"id": "fit-1",
+					"caption": "For each dot, measure how far the line is from it. That gap is the error.",
+					"say": "But which line is best? For each dot, measure how far the line is from it. That gap is the error."
+				},
+				{
+					"id": "fit-2",
+					"caption": "Square every error and add them up. Squaring makes big misses count much more than small ones.",
+					"say": "Square every error and add them up. Squaring makes big misses count much more than small ones."
+				},
+				{
+					"id": "fit-3",
+					"caption": "The best line is the one with the smallest total. This method is called least squares.",
+					"say": "The best line is the one with the smallest total. This method is called least squares, and the computer solves it in an instant."
+				}
+			]
+		},
+		{
+			"id": "test",
+			"title": "Training and testing",
+			"beats": [
+				{
+					"id": "test-1",
+					"caption": "A model can look good simply because it has already seen the answers.",
+					"say": "How do we know the model is any good? It can look good simply because it has already seen the answers."
+				},
+				{
+					"id": "test-2",
+					"caption": "So we split the data. The training set is used to fit the line. The test set is hidden until the end.",
+					"say": "So we split the data. The training set is used to fit the line. The test set is hidden until the end."
+				},
+				{
+					"id": "test-3",
+					"caption": "Then we predict the test cases and compare with the true values. The difference is the absolute error.",
+					"say": "Then we predict the test cases and compare with the true values. The difference, ignoring plus or minus, is the absolute error."
+				},
+				{
+					"id": "test-4",
+					"caption": "The average over all test cases is the mean absolute error, MAE. Lower is better.",
+					"say": "The average over all test cases is the mean absolute error. Lower is better."
+				}
+			]
+		},
+		{
+			"id": "task",
+			"title": "Our task and data",
+			"beats": [
+				{
+					"id": "task-1",
+					"caption": "Our task: predict how long a body takes to orbit the Sun, from its distance to the Sun.",
+					"say": "Now our task. We predict how long a body takes to go around the Sun, from its distance to the Sun."
+				},
+				{
+					"id": "task-2",
+					"caption": "Input: distance in astronomical units (Earth = 1 AU). Output: orbital period in Earth years.",
+					"say": "The input is the distance in astronomical units, where Earth is at one. The output is the orbital period in Earth years."
+				},
+				{
+					"id": "task-3",
+					"caption": "The data comes from the fact tables in the same NASA document the quiz app uses: nine bodies, Mercury to Pluto.",
+					"say": "The data comes from the fact tables in the same NASA document the quiz app uses. Nine bodies, from Mercury to Pluto."
+				},
+				{
+					"id": "task-4",
+					"caption": "We add a tenth, made-up body at 15 AU. The language model cannot have memorised it.",
+					"say": "We add a tenth, made-up body at fifteen astronomical units. The language model cannot have memorised that one."
+				},
+				{
+					"id": "task-5",
+					"caption": "Seven bodies are for training. Three are for testing: Mars, Uranus and the made-up body.",
+					"say": "Seven bodies are for training. Three are held back for testing: Mars, Uranus and the made-up body."
+				}
+			]
+		},
+		{
+			"id": "loglog",
+			"title": "Making the curve straight",
+			"beats": [
+				{
+					"id": "loglog-1",
+					"caption": "On a chart our data is not a straight line. It bends upward: far-away bodies take much longer.",
+					"say": "There is one problem. On a chart, our data is not a straight line. It bends upward: far-away bodies take much longer."
+				},
+				{
+					"id": "loglog-2",
+					"caption": "A straight line through that curve fits badly. For Mars it predicts minus 2.39 years.",
+					"say": "A straight line through that curve fits badly. For Mars it predicts minus two point four years, which is impossible."
+				},
+				{
+					"id": "loglog-3",
+					"caption": "The trick: take the logarithm of both numbers. A logarithm counts the size of a number: 10 becomes 1, 100 becomes 2.",
+					"say": "The trick is to take the logarithm of both numbers. A logarithm counts the size of a number: ten becomes one, one hundred becomes two."
+				},
+				{
+					"id": "loglog-4",
+					"caption": "On this log-log chart the same dots fall on a straight line, so linear regression fits.",
+					"say": "On this log-log chart, the very same dots fall on a straight line. Now linear regression fits."
+				},
+				{
+					"id": "loglog-5",
+					"caption": "The slope it finds is 1.4998. Kepler's third law says exactly 1.5: the model rediscovered the law from seven examples.",
+					"say": "The slope it finds is one point four nine nine eight. Kepler's third law of planetary motion says exactly one point five. The model rediscovered that law from seven examples."
+				}
+			]
+		},
+		{
+			"id": "code",
+			"title": "Our code: the regression",
+			"beats": [
+				{
+					"id": "code-1",
+					"caption": "Everything is in one file: experiment/run_experiment.py.",
+					"say": "Now the code. Everything is in one file: run experiment dot pie, in the experiment folder."
+				},
+				{
+					"id": "code-2",
+					"caption": "build_dataset() reads distance and orbit period from the PDF with two text patterns, converts the units, and marks each row train or test.",
+					"say": "The function build dataset reads the distance and the orbit period from the PDF with two text patterns, converts the units, and marks each row as train or test."
+				},
+				{
+					"id": "code-3",
+					"caption": "fit_regressions() gets the train rows. x is the distance, y is the period.",
+					"say": "The function fit regressions gets the train rows. X is the distance, Y is the period."
+				},
+				{
+					"id": "code-4",
+					"caption": "One line trains the model: LinearRegression().fit(), from the scikit-learn library, on the logarithms of x and y.",
+					"say": "One line trains the model. Linear regression, dot fit, from the sy-kit learn library, on the logarithms of X and Y."
+				},
+				{
+					"id": "code-5",
+					"caption": "A second model is fitted on the raw numbers, without logarithms, as a baseline to compare with.",
+					"say": "A second model is fitted on the raw numbers, without logarithms, as a baseline to compare with."
+				},
+				{
+					"id": "code-6",
+					"caption": "predict() gives the logarithm of the period, so 10 to that power turns it back into years.",
+					"say": "Predict gives the logarithm of the period. So ten to that power turns it back into years."
+				}
+			]
+		},
+		{
+			"id": "llm",
+			"title": "Our code: the language model",
+			"beats": [
+				{
+					"id": "llm-1",
+					"caption": "The other contestant is the local language model with RAG. It gets the same three test distances.",
+					"say": "The other contestant is the local language model with RAG. It gets the same three test distances."
+				},
+				{
+					"id": "llm-2",
+					"caption": "build_store() writes one sentence per training body, with its distance and period, and saves them in a vector database.",
+					"say": "The function build store writes one sentence per training body, with its distance and its period, and saves them in a vector database."
+				},
+				{
+					"id": "llm-3",
+					"caption": "The code then checks that no test body and no test answer is in that database, and stops if one is.",
+					"say": "The code then checks that no test body, and no test answer, is in that database. If one is, the program stops."
+				},
+				{
+					"id": "llm-4",
+					"caption": "For each test case, run_cases() retrieves the 4 most similar sentences and puts them in the prompt as reference examples.",
+					"say": "For each test case, run cases retrieves the four most similar sentences and puts them in the prompt as reference examples."
+				},
+				{
+					"id": "llm-5",
+					"caption": "The model must reply with a single number. We ask twice: with the examples, and without.",
+					"say": "The model must reply with a single number. We ask twice: once with the examples, and once without."
+				},
+				{
+					"id": "llm-6",
+					"caption": "The language model never sees the regression, its two numbers, or any code. That keeps the comparison fair.",
+					"say": "The language model never sees the regression, its two numbers, or any code. That keeps the comparison fair."
+				}
+			]
+		},
+		{
+			"id": "results",
+			"title": "Results",
+			"beats": [
+				{
+					"id": "results-1",
+					"caption": "Uranus takes 84.02 years. Log-log regression: 84.00. Straight-line baseline: 107.85.",
+					"say": "The results. Uranus really takes eighty-four point zero two years. The log-log regression says eighty-four point zero zero. The straight-line baseline says one hundred and eight."
+				},
+				{
+					"id": "results-2",
+					"caption": "The language model with RAG says 14.11 years. Without RAG it says 176.35.",
+					"say": "The language model with RAG says fourteen years. Without RAG it says one hundred and seventy-six."
+				},
+				{
+					"id": "results-3",
+					"caption": "Mean absolute error over the three test cases: 0.02 years for log-log regression, 17.24 for the baseline, 38.73 with RAG, 44.83 without.",
+					"say": "Over all three test cases, the mean absolute error is zero point zero two years for the log-log regression, seventeen for the baseline, thirty-nine for the language model with RAG, and forty-five without."
+				}
+			]
+		},
+		{
+			"id": "why",
+			"title": "Why they differ",
+			"beats": [
+				{
+					"id": "why-1",
+					"caption": "Regression is built for exactly this: it fits two numbers to a numeric pattern, and here the pattern is a straight line.",
+					"say": "Why such a gap? Regression is built for exactly this. It fits two numbers to a numeric pattern, and here the pattern really is a straight line."
+				},
+				{
+					"id": "why-2",
+					"caption": "The language model predicts likely words. It does not calculate, and it did not work out the pattern from four examples.",
+					"say": "The language model predicts likely words. It does not calculate, and it did not work out the pattern from four examples."
+				},
+				{
+					"id": "why-3",
+					"caption": "Retrieval did not help much: it finds similar text, not nearby numbers. The same four bodies came back for all three questions.",
+					"say": "And retrieval did not help much. It finds similar text, not nearby numbers. The same four bodies came back for all three questions."
+				},
+				{
+					"id": "why-4",
+					"caption": "A number that follows a pattern: train a small model. A fact you can quote from a document: use a language model with RAG.",
+					"say": "So the lesson is this. For a number that follows a pattern, train a small model. For a fact you can quote from a document, use a language model with RAG."
+				},
+				{
+					"id": "why-5",
+					"caption": "Honest limits: three test cases and one run. And the regression only works because we picked the right shape.",
+					"say": "Two honest limits. We had only three test cases and one run. And the regression only works this well because we picked the right shape for the data."
+				}
+			]
+		}
+	]
+}
