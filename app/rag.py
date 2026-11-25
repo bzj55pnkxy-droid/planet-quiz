@@ -64,7 +64,7 @@ def open_store() -> Chroma:
 
 
 store = open_store()
-llm = ChatOllama(model=CHAT_MODEL, base_url=OLLAMA_BASE_URL, temperature=TEMPERATURE)
+llm = ChatOllama(model=CHAT_MODEL, base_url=OLLAMA_BASE_URL, temperature=TEMPERATURE, reasoning=False)
 
 
 # Quiz question and grade come back as labelled lines ("VERDICT: ..."), not JSON.

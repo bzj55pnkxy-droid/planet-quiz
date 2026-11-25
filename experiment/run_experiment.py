@@ -180,7 +180,7 @@ def ask_llm(chain, distance_au: float, examples: str) -> dict:
 def run_cases(train: list[dict], test: list[dict], regression: dict) -> list[dict]:
     """Predict every test case with all four approaches and compute the errors."""
     store = build_store(train, test)
-    llm = ChatOllama(model=CHAT_MODEL, base_url=OLLAMA_BASE_URL, temperature=0, seed=0)
+    llm = ChatOllama(model=CHAT_MODEL, base_url=OLLAMA_BASE_URL, temperature=0, seed=0, reasoning=False)
     chain = PROMPT | llm.with_structured_output(Prediction, method="json_schema", include_raw=True)
 
     cases = []
